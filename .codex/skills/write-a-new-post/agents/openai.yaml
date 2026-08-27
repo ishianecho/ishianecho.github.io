@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write a New Post"
+  short_description: "按仓库笔记风格创建 Hexo 文章并整理分类 tag 与列表排版"
+  default_prompt: "Use $write-a-new-post to create a concise Hexo note in this repository."
