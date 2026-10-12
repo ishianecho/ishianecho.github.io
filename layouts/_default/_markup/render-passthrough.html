@@ -1,0 +1,4 @@
+{{- $macros := dict `\part` `\partial` `\grad` `\nabla` `\exist` `\exists` `\cross` `\times` `\sdot` `\cdot` `\lamdba` `\lambda` `\var` `\delta` `\O` `O` `\logL` `\log L` }}
+{{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq .Type "block") "strict" "ignore" "macros" $macros }}
+{{- transform.ToMath .Inner $opts }}
+{{- .Page.Store.Set "hasMath" true -}}

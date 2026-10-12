@@ -1,27 +1,18 @@
-# ishio_blogs
+# blog
+
+Personal blog of ishian, powered by [Hugo](https://gohugo.io/) + [PaperMod](https://github.com/adityatelange/hugo-PaperMod), live at [echo.ishian.me](https://echo.ishian.me/).
 
 ## Run locally
 
-Only two things on your machine:
-
-- `Node.js` >= 20 — provides `npx`, no global `hexo-cli` needed
-- `pandoc` — required at runtime by `hexo-renderer-pandoc` (e.g. `sudo apt install pandoc`)
-
 ```bash
-git clone --recurse-submodules https://github.com/ishi-o/ishio_blogs.git
-cd ishio_blogs
-
-# if you cloned without submodules
 git submodule update --init --recursive
 
-npx npm ci --legacy-peer-deps
-npx hexo clean
-npx hexo server
+hugo server
 ```
 
-Other useful commands (all through `npx`):
+Other useful commands:
 
 ```bash
-npx hexo new post '<title>' # scaffold a new post in source/_posts/
-npx hexo generate           # build static site into public/
+hugo new content/posts/<name>.md  # scaffold a new post in content/posts/
+hugo                              # build static site into public/
 ```

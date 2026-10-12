@@ -1,0 +1,52 @@
+{{- define "main" }}
+{{- if .Title }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}
+    <div class="post-description">
+        {{ . }}
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+{{- $entries := slice -}}
+{{- range where site.RegularPages "Section" "posts" -}}
+    {{- $title := .Title -}}
+    {{- $url := .RelPermalink -}}
+    {{- with .Params.categories -}}
+        {{- $entries = $entries | append (dict "path" (delimit . "/") "segs" . "title" $title "url" $url) -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $scratch := newScratch -}}
+{{- $scratch.Set "prev" slice -}}
+<ul class="cat-tree">
+    {{- range sort $entries "path" -}}
+        {{- $segs := .segs -}}
+        {{- $prev := $scratch.Get "prev" -}}
+        {{- $m := 0 -}}
+        {{- range $i, $s := $segs -}}
+            {{- if and (eq $m $i) (lt $i (len $prev)) (eq $s (index $prev $i)) -}}
+                {{- $m = add $m 1 -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if gt (len $prev) $m -}}
+            {{- range seq (sub (len $prev) $m) }}</ul></details></li>{{ end -}}
+        {{- end -}}
+        {{- range $i, $s := $segs -}}
+            {{- if ge $i $m -}}
+    <li><details open><summary class="cat-label">{{ $s }}</summary>
+        <ul>
+            {{- end -}}
+        {{- end -}}
+        <li class="cat-leaf"><a href="{{ .url }}">{{ .title }}</a></li>
+        {{- $scratch.Set "prev" $segs -}}
+    {{- end -}}
+    {{- $prev := $scratch.Get "prev" -}}
+    {{- if gt (len $prev) 0 -}}
+        {{- range seq (len $prev) }}</ul></details></li>{{ end -}}
+    {{- end -}}
+</ul>
+
+{{- end }}{{/* end main */}}

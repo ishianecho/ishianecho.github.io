@@ -1,0 +1,9 @@
+{{- if eq .Type "mermaid" -}}
+<pre class="mermaid">{{ .Inner }}</pre>
+{{- else -}}
+{{- $result := transform.HighlightCodeBlock . -}}
+<div class="codeblock">
+  {{- with .Type }}<div class="codeblock-header"><span class="codeblock-lang">{{ . }}</span></div>{{ end -}}
+  {{- $result.Wrapped -}}
+</div>
+{{- end -}}

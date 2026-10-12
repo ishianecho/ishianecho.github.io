@@ -1,0 +1,80 @@
+baseURL = "https://echo.ishian.me/"
+languageCode = "en"
+title = "Ishian"
+theme = "PaperMod"
+pagination.pagerSize = 10
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 10
+
+[[menu.main]]
+identifier = "wiki"
+name = "Wiki"
+url = "/wiki/"
+weight = 20
+
+[[menu.main]]
+identifier = "archives"
+name = "Archives"
+url = "/archives/"
+weight = 30
+
+[[menu.main]]
+identifier = "categories"
+name = "Categories"
+url = "/categories/"
+weight = 35
+
+[[menu.main]]
+identifier = "tags"
+name = "Tags"
+url = "/tags/"
+weight = 40
+
+[[menu.main]]
+identifier = "search"
+name = "Search"
+url = "/search/"
+weight = 50
+
+[permalinks]
+posts = "/:year/:month/:day/:filename/"
+
+[params]
+env = "production"
+defaultTheme = "auto"
+ShowReadingTime = true
+ShowShareButtons = false
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowToc = true
+
+[params.homeInfoParams]
+Title = "Ishian"
+Content = "Blog"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/ishianecho"
+
+[markup]
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['\[', '\]'], ['$$', '$$']]
+inline = [['\(', '\)'], ['$', '$']]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+noClasses = true
+style = "github"

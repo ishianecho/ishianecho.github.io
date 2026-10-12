@@ -1,9 +1,0 @@
----
-title: {{ title }}
-date: {{ date }}
-categories: []
-tags: []
-mathjax: false
----
-<!-- placeholder -->
-<!-- more -->

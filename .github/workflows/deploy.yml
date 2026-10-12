@@ -1,28 +1,25 @@
-name: Deploy Hexo to GitHub Pages
+name: Deploy Hugo to GitHub Pages
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'source/**'
-      - 'scaffolds/**'
+      - 'content/**'
+      - 'layouts/**'
+      - 'assets/**'
+      - 'static/**'
       - 'themes/**'
-      - '_config*.yml'
-      - 'package.json'
-      - 'package-lock.json'
+      - 'hugo.toml'
       - '.github/workflows/deploy.yml'
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: pages
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
       - name: Checkout main branch (source)
         uses: actions/checkout@v4
@@ -30,43 +27,33 @@ jobs:
           ref: main
           submodules: recursive
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
         with:
-          node-version: '20'
+          hugo-version: 'latest'
+          extended: true
 
-      - name: Install Pandoc
-        run: sudo apt install -y pandoc
+      - name: Build
+        run: hugo --baseURL https://echo.ishian.me/ --minify
 
-      - name: Prepare Hexo site directory
-        run: |
-          mkdir -p hexo-site
-          cp -r ./* ./hexo-site/ || true
-          sed -i "s|^url:.*|url: https://ishi-o.github.io|" hexo-site/_config.yml
+      - name: Add CNAME
+        run: echo "echo.ishian.me" > public/CNAME
 
-      - name: Cache Node.js dependencies
-        uses: actions/cache@v4
-        id: cache-deps
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./hexo-site/node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('hexo-site/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-modules-
+          path: ./public
 
-      - name: Install and Build Hexo
-        working-directory: ./hexo-site
-        run: |
-          if [ ! -d "node_modules" ] || [ "${{ steps.cache-deps.outputs.cache-hit }}" != 'true' ]; then
-            npm ci --legacy-peer-deps
-          fi
-          npx hexo clean
-          npx hexo generate
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.GH_PAGES_PAT }}
-          external_repository: ishi-o/ishi-o.github.io
-          publish_branch: main
-          publish_dir: ./hexo-site/public
-          keep_files: false
+        id: deployment
+        uses: actions/deploy-pages@v4
