@@ -20,6 +20,12 @@ url = "/wiki/"
 weight = 20
 
 [[menu.main]]
+identifier = "projects"
+name = "Projects"
+url = "/projects/"
+weight = 25
+
+[[menu.main]]
 identifier = "archives"
 name = "Archives"
 url = "/archives/"
