@@ -1,12 +1,10 @@
 ---
-title: "Java EE: JPA"
+title: "JPA"
 summary: "介绍 Jakarta Persistence API 的核心组件与基于注解的 ORM 配置"
 date: 2025-07-09
 categories: [Programming, Java, Java EE]
 tags: [java, database]
 ---
-# `Jakarta Persistence API`
-
 ## 介绍
 
 - `JPA`是一套`API`规范，从`EJB`中分离出来，是持久层的流行`API`
@@ -171,7 +169,7 @@ tags: [java, database]
   `@MapsId`支持使用共享主键，`value`属性默认是被引用表的主键列名，使用`@MapsId`后，本实体类的`@Id`属性自动关联到被引用表的主键上，因此不需要`@GeneratedValue`注解也能使用不含主键参数的构造方法
 
   我们知道`@JoinColumn`等注解是会体现在`JPA`生成的`DDL`中的，但在共享主键的场景下，`@Id`属性就是外键，此时如果希望通过对象引用导航到主实体的实例上，就可以使用`@PrimaryKeyJoinColumn`和`@PrimaryKeyJoinColumns`注解，它们和一般的`@JoinColumn`注解的唯一区别是：`DDL`不会带有多余的外键列
-- 数据库的映射基数有四种：一对一、一对多、多对一、多对多，其中只有多对多需要使用中间表，其它在由`ER`图转化为关系模式时都可变作“多”那方的外键引用“一”那方的主键
+- 数据库的映射基数有四种：一对一、一对多、多对一、多对多，其中只有多对多需要使用中间表，其它在由`ER`图转化为关系模式时都可变作"多"那方的外键引用"一"那方的主键
   
   在`JPA`中，有点反直觉的是，外键是整个被引用实体的引用而不是这个实体的主键类型
 

@@ -5,8 +5,6 @@ date: 2024-01-11
 categories: [Programming, Python, Data Science Utils]
 tags: [python]
 ---
-# `matplotlib`数据可视化
-
 ## 基本用法
 
 `matplotlib`用于将数据呈现为图，它并非`python`自带的库，需要`pip install`
@@ -31,7 +29,7 @@ plt.plot(x,y)    # 生成图,x轴数组为x,y轴数组为y
 plt.show()     # 将该图展现出来
 ```
 
-<img src="./python-pyplot/plt_figure.png" style="zoom: 33%;" />
+<img src="plt_figure.png" style="zoom: 33%;" />
 
 如图，底栏所示功能编号1-7
 
@@ -59,13 +57,13 @@ plt.plot(y,x,color='red',linestyle='--')# 默认蓝色,这里改为红色,虚线
 plt.plot(x,y,linestyle=(0,(1,2,3)))  # 元组定义线型
 ```
 
-<img src="./python-pyplot/plt_expFigure.png" style="zoom:33%;" />
+<img src="plt_expFigure.png" style="zoom:33%;" />
 
 关于元组定义线型，`(num,(n1,n2,n3,...))`表示以后面元组的值**作为单位**画线
 例如`(0,(1,2,3))`指的是`(1磅实线,2磅空白,3磅实线)`，因为是**奇数**个，所以下一组变为`(1磅空白,2磅实线,3磅空白)`，所以一般来说，常用的是偶数个元素的元组
 关于`num`，它用于在**显示标签**时**偏移**的长度，例如：
 
-<img src="./python-pyplot/plt_linestyle.png" alt="plt_linestyle" style="zoom:50%;" />
+<img src="plt_linestyle.png" alt="plt_linestyle" style="zoom:50%;" />
 
 `color`参数可用简写如`'r'(红色),'g'(绿色)`，多条曲线不指定颜色时会**自动选择不同颜色**，其它颜色如下：
 
@@ -136,11 +134,11 @@ plt.xticks(np.linspace(0,1,5)) # 更改x轴的单位,默认每0.5为一个节点
 plt.xticks([0,1,5],['none','middle','pretty good'])
 ```
 
-<img src="./python-pyplot/plt_xticks.png" style="zoom:33%;" />
+<img src="plt_xticks.png" style="zoom:33%;" />
 
 此外，后面数组还支持`Latex`语法，因为可能要用到转义字符等，所以这种情况需要在字符串前加上`'r'/'R'`，将它视为原始字符串`(raw string)`来解析，例如`plt.xticks([0,1,5],[r'$\theta$','$x$',r'$\Theta$'])`的效果为：
 
-<img src="./python-pyplot/plt_Latex.png" style="zoom:25%;" />
+<img src="plt_Latex.png" style="zoom:25%;" />
 
 
 
@@ -162,7 +160,7 @@ for i in ['right','top']:
 ax.spines['left'].set_position(('data',0)) # 将y轴移动到x=0的位置
 ```
 
-<img src="./python-pyplot/plt_spines.png" style="zoom:33%;" />
+<img src="plt_spines.png" style="zoom:33%;" />
 
 一般来说，将坐标轴交点设置在`(0,0)`处的方法如下
 
@@ -280,7 +278,7 @@ axs[0,0]1.set_xlabel('labelName')    # 给x轴加标注
 
 
   
-  <img src="./python-pyplot/plt_colorbar.png" style="zoom: 50%;" />
+  <img src="plt_colorbar.png" style="zoom: 50%;" />
   
 - `vmin,vmax`：调节颜色条的范围，大于`vmax`的数值将被强制映射到`vmax`上，`vmin`同理
 

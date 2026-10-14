@@ -1,12 +1,10 @@
 ---
-title: "Qt: 基本用法"
+title: "基本用法"
 summary: "介绍Qt Widgets基础、元对象系统、信号与槽机制及事件处理等核心概念"
 date: 2024-06-27
 categories: [Programming, C/Cpp, Qt]
 tags: [cpp]
 ---
-# `Qt`基础
-
 在`Qt5`后，`Qt`不断开发`QML`和`Qt Quick`，同时在抛弃传统的基于`C++`的`Qt Widgets`，致力于更快捷、直观地绘制应用
 
 当然，`Qt`的优势在于极致的跨平台和前后端的顺畅结合，`Qt Widgets`和`Qt Quick`的设计思路是相似的；多是`QML/C++`混合开发，纯粹的`Qt Widgets`在前端开发上是较为低效的

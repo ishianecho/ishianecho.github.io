@@ -1,12 +1,10 @@
 ---
-title: "计算机组成原理: 算术运算"
+title: "算术运算"
 summary: "讲解计算机中数据的表示与存储、定点数原反补码及加减乘除运算的实现"
 date: 2024-12-06
-categories: [SE Courses, COA]
+categories: [CS Fundamentals, COA]
 tags: [cs]
 ---
-# 计算机的算术运算
-
 ## 数据的表示与存储
 
 ### 计算机码

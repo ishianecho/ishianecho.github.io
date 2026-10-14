@@ -1,13 +1,10 @@
 ---
-title: 'Go: 错误处理'
+title: '错误处理'
 summary: "讲解Go的error、panic、fatal错误级别划分及if err != nil错误处理设计"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
 date: 2025-12-25T11:37:12.000Z
 ---
-
-# 错误处理
-
 ## 级别分类
 
 - `error`：正常的运行时错误，需要处理，若忽略程序也不会崩溃

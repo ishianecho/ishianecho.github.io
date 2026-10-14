@@ -1,12 +1,10 @@
 ---
-title: "统计学习: 非线性模型"
+title: "非线性模型"
 summary: "介绍非线性回归方法：多项式回归、回归样条、光滑样条与GAM"
 date: 2025-11-24
-categories: [SE Courses, Statistics]
+categories: [CS Fundamentals, Statistics]
 tags: [ml]
 ---
-# 非线性模型
-
 ## 基函数
 
 ### 多项式回归

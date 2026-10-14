@@ -2,11 +2,9 @@
 title: "微积分: 级数"
 summary: "讲解常数项级数的敛散性、常见级数、性质及幂级数的相关概念"
 date: 2024-04-14
-categories: [SE Courses, Calculus]
+categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-# 无穷级数
-
 ## 常数项级数
 
 ### 定义
@@ -173,7 +171,7 @@ $$\begin{align}\lim_{n\rightarrow\infty}\Bigg|\frac{a_{n+1}x^{n+1}}{a_nx^n}\Bigg
 
 常见的麦克劳林级数：
 
-![](.\calculus-series\麦克劳林级数.png)
+![](麦克劳林级数.png)
 
 ### 傅里叶级数
 

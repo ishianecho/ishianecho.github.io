@@ -1,19 +1,15 @@
 ---
-title: "GitHub Actions: 工作流与 CI/CD"
+title: "工作流与 CI/CD"
 summary: "讲解GitHub Actions的核心概念、Workflow与Job的YAML配置及CI/CD实践"
-categories: [Tools & Utilities, CI/CD]
+categories: [Infra, CI/CD]
 tags: [devops]
 date: 2026-08-14
 ---
-
-
-# `GitHub Actions`与`GitHub Workflows`
-
 ## `GitHub Actions`、`Workflow`与`CI/CD`
 
 - `GitHub Actions`是`GitHub`提供的自动化平台，可以在代码仓库中自动执行测试、构建、发布和部署等任务
-- `CI`（`Continuous Integration`，持续集成）主要解决“代码提交后自动检查”的问题，例如安装依赖、代码检查、单元测试和构建
-- `CD`通常有两种含义：持续交付（`Continuous Delivery`）和持续部署（`Continuous Deployment`）
+- `CI`(`Continuous Integration`，持续集成)主要解决"代码提交后自动检查"的问题，例如安装依赖、代码检查、单元测试和构建
+- `CD`通常有两种含义：持续交付(`Continuous Delivery`)和持续部署(`Continuous Deployment`)
   - 持续交付：自动生成可以发布的产物，但生产环境部署通常还需要人工批准
   - 持续部署：验证通过后自动部署到目标环境
 - `Workflow`是保存在仓库中的一份自动化流程定义，使用`YAML`编写，文件必须放在`.github/workflows/`目录下
@@ -25,15 +21,15 @@ date: 2026-08-14
 一条常见的流水线可以抽象成下面的关系：
 
 ```text
-事件（push / pull_request）
+事件(push / pull_request)
           ↓
-Workflow（完整流程）
+Workflow(完整流程)
           ↓
-Jobs（相互独立的任务，默认并行）
+Jobs(相互独立的任务，默认并行)
           ↓
-Steps（任务中的步骤，按顺序执行）
+Steps(任务中的步骤，按顺序执行)
           ↓
-Runner（执行命令的机器）
+Runner(执行命令的机器)
 ```
 
 例如，开发者向`main`分支提交代码后，工作流可以自动完成：
@@ -387,7 +383,7 @@ jobs:
         run: ./gradlew :${{ inputs.project }}:bootBuildImage --publishImage --parallel -x spotlessCheck
   ```
 
-- `setup-node-if-needed`：把“检查命令是否存在、按需安装、配置缓存”封装成一个步骤。
+- `setup-node-if-needed`：把"检查命令是否存在、按需安装、配置缓存"封装成一个步骤。
 
   ```yaml
   - id: nodejs-installed
@@ -732,7 +728,7 @@ jobs:
       - run: ./deploy.sh dist
 ```
 
-部署任务不应该再次从分支检出并重新构建，而应该部署已经通过检查的构建产物。这样可以减少“测试的代码”和“实际部署的代码”不一致的可能性。
+部署任务不应该再次从分支检出并重新构建，而应该部署已经通过检查的构建产物。这样可以减少"测试的代码"和"实际部署的代码"不一致的可能性。
 
 ## 常见 `CI/CD` 流程
 
@@ -777,7 +773,7 @@ concurrency:
 
 ### 构建后部署
 
-一个典型的持续部署工作流是“构建和验证成功后才能部署”：
+一个典型的持续部署工作流是"构建和验证成功后才能部署"：
 
 ```yaml
 name: Build and deploy
@@ -870,11 +866,11 @@ skip-workflow
 ├── push-docker
 ├── build-helper-images
 ├── contexts-matrix
-└── spotless-check（仅 pull_request）
+└── spotless-check(仅 pull_request)
 
 test + push-docker + build-helper-images + contexts-matrix
-└── deploy-apps（非 pull_request）
-    └── notification（非 pull_request）
+└── deploy-apps(非 pull_request)
+    └── notification(非 pull_request)
 ```
 
 - **`needs`**：没有依赖的任务可以并行运行；`deploy-apps` 等待测试、镜像构建和部署上下文都完成，`notification` 再等待部署完成。
@@ -916,11 +912,11 @@ test + push-docker + build-helper-images + contexts-matrix
 
 ```text
 pull_request:
-  checkout -> setup -> cache -> test/lint -> build（push=false）
+  checkout -> setup -> cache -> test/lint -> build(push=false)
   -> report
 
 push:
-  checkout -> setup -> cache -> test -> build（push=true）
+  checkout -> setup -> cache -> test -> build(push=true)
   -> deploy -> notification
 ```
 
@@ -1448,7 +1444,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
       uses: azure/setup-helm@v4.2.0
   ```
 
-- `helm upgrade`：部署失败时区分“操作进行中”和普通失败；前者回滚后继续，后者等待后重试。
+- `helm upgrade`：部署失败时区分"操作进行中"和普通失败；前者回滚后继续，后者等待后重试。
 
   ```bash
   for retry in {1..10}; do

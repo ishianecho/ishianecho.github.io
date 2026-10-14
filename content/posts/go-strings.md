@@ -1,13 +1,10 @@
 ---
-title: 'Go: 字符串'
+title: '字符串'
 summary: "介绍 Go 字符串特性以及 strings、strconv 包的常用操作"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
 date: 2025-12-24T18:13:16.000Z
 ---
-
-# 字符串
-
 ## 特性
 
 - `string`是一个值类型，意味着可以是空串但不是`nil`

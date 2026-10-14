@@ -1,8 +1,8 @@
 ---
-title: "大学物理: 恒定磁场"
+title: "恒定磁场"
 summary: "整理恒定磁场：毕奥-萨伐尔定律、安培环路定理及洛伦兹力与霍尔效应"
 date: 2024-10-11
-categories: [SE Courses, Physics]
+categories: [CS Fundamentals, Physics]
 tags: [physics]
 ---
 ## 恒定磁场

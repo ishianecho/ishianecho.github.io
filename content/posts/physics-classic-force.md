@@ -1,8 +1,8 @@
 ---
-title: "大学物理: 经典力学"
+title: "经典力学"
 summary: "整理经典力学：质点运动描述、牛顿定律、参考系与伽利略变换及守恒定律"
 date: 2024-10-03
-categories: [SE Courses, Physics]
+categories: [CS Fundamentals, Physics]
 tags: [physics]
 ---
 ## 经典力学

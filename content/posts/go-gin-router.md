@@ -1,26 +1,23 @@
 ---
-title: 'Gin: 路由'
+title: '路由'
 summary: "讲解Gin基于httprouter的路由原理、路径参数捕获及路由绑定与分组方法"
 categories: [Programming, Go, 3P Framework, Gin]
 tags: [go]
 date: 2025-12-27T14:58:39.000Z
 ---
-
-# [`Gin`](https://github.com/gin-gonic/gin)路由
-
 ## `httprouter`
 
 ### 特点
 
-- `Gin`的路由基于`julienschmidt/httprouter`，是一个轻量级的路由组建（总共三个文件一千余行代码）
+- `Gin`的路由基于`julienschmidt/httprouter`，是一个轻量级的路由组建(总共三个文件一千余行代码)
 - `httprouter`只提供路由功能，标准库中的`HandleFunc()`依赖`ServeMux`来路由，而`ServeMux`针对前缀匹配采用遍历的方式匹配，效率较差
-- `httprouter`提供：请求方法和路径分离，路由算法优化（基于基数树）因此一次路由极快，路径模糊匹配，路径参数捕获
+- `httprouter`提供：请求方法和路径分离，路由算法优化(基于基数树)因此一次路由极快，路径模糊匹配，路径参数捕获
 - 那么`httprouter.Router`就可以作为一个前端控制器直接传递给`http.ListenAndServe(path, handler)`了
 
 ### `API`
 
 - `httprouter.New()`：获取路由器对象
-- `*httprouter.Router`提供一系列方法绑定路由（仅仅处理路由）
+- `*httprouter.Router`提供一系列方法绑定路由(仅仅处理路由)
   - `Handle(method, path string, handle Handle)`：将方法、路径绑定到处理器，其中`handle`为`httprouter.Handle`
   - `GET/POST/PUT/DELETE/PATCH/OPTIONS/HEAD(path string, handle Handle)`：`Handle()`的快捷方法
   - `Handler()/HandlerFunc()`：`net/http`的适配器
@@ -65,7 +62,7 @@ date: 2025-12-27T14:58:39.000Z
 - `Gin`提供`*gin.Engine.Group(relativePath string, handlers ...HandlerFunc) *RouterGroup`方法分组
 - `relativePath`的捕获语法与`httprouter`一致，相当于分组所表示的前缀
 
-  可以表示相对路径（即开头不带`/`），则相对于`Engine`等价于相对于根路径，相对于`RouterGroup`等价于相对于路由组的路径
+  可以表示相对路径(即开头不带`/`)，则相对于`Engine`等价于相对于根路径，相对于`RouterGroup`等价于相对于路由组的路径
 
 - `handlers`会在子路由处理器执行之前执行，它们不是`relativePath`对应的处理器，如果需要则应该在分组内绑定一个`""`路由
 - `*RouterGroup`的方法和`*Engine`注册路由类似，此外它本身也可以注册新的路由组
@@ -81,8 +78,8 @@ date: 2025-12-27T14:58:39.000Z
 
 ## 错误处理器
 
-- 针对`404`路由响应（没有对应的路由），可以自定义处理器：`*gin.Engine.NoRoute(HandlerFunc)`
-- 针对`405`路由响应（有对应的路由但是没有匹配的请求方法），可以使用`*gin.Engine.NoMethod(HandlerFunc)`
+- 针对`404`路由响应(没有对应的路由)，可以自定义处理器：`*gin.Engine.NoRoute(HandlerFunc)`
+- 针对`405`路由响应(有对应的路由但是没有匹配的请求方法)，可以使用`*gin.Engine.NoMethod(HandlerFunc)`
 - `gin`本身没有十分完整的捕获错误、统一处理，不像`spring-mvc`的`@ControllerAdvice`，但是可以通过中间件实现
 - 但是可以使用中间件，`gin`的中间件引入非常灵活，扩展性很高，完全可以实现类似统一错误处理器的效果
 

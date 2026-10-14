@@ -1,12 +1,10 @@
 ---
-title: "Java EE: Bean Validation"
+title: "Bean Validation"
 summary: "介绍 Jakarta Bean Validation 的验证注解、验证器与 Hibernate 扩展"
 date: 2025-07-11
 categories: [Programming, Java, Java EE]
 tags: [java]
 ---
-# `Jakarta EE Validation API`
-
 ## 简介
 
 - `Bean Validation`有多套标准，最早是`JSR 303`的`Bean Validation 1.0`，现今流行的是`Java EE 8`的`Bean Validation 2.0`，即`JSR 380`标准
@@ -85,7 +83,7 @@ tags: [java]
 - `@URL(protocal="", host="", port=-1, regexp=".*", flags={})`：针对任意`CharSequence`，检查其是否符合`java.net.URL`的构造方法的验证，可自定义协议名称、主机名称、端口号，以及可以覆盖`@Pattern`提供的`regexp`和`flags`来自定义匹配规则
 - `@Future/@FutureOrPresent/@Past/@PastOrPresent`：针对任意`java.time`以及`java.time.chrono`的日期/时间类对象，检查是否是未来/未来或现在/过去/过去或现在的时间，`Now`这个对象基于`JVM`以及现在的时区来获取，具体到时间
 
-  这里的`Present`的含义会因为针对的类型而变化，例如针对`Year`对象，`Present`视整一年为合法的“现在”，而不需要完全和`Now`一致
+  这里的`Present`的含义会因为针对的类型而变化，例如针对`Year`对象，`Present`视整一年为合法的"现在"，而不需要完全和`Now`一致
 - **`@Valid`**：空注解，针对任意类型的对象，可以注解一个方法、一个方法的参数、一个类的属性，表示对返回值、参数值、属性值进行级联验证，即检查到这个对象时，会同时检查该对象的所有属性，但只会级联一层，不会深入到属性的属性(除非又有`@Valid`)，例如`@Valid List<@Valid ElementType>`，这样才会级联到`ElementType`的属性
 
 ## 验证器

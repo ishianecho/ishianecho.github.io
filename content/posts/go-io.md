@@ -1,13 +1,10 @@
 ---
-title: 'Go: I/O'
+title: 'I/O'
 summary: "介绍 Go 标准库 os、io 与 io/fs 的文件操作和 I/O 接口"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
 date: 2025-12-25T11:37:22.000Z
 ---
-
-# `Go I/O`
-
 ## `os`
 
 ### `os.File`
@@ -76,9 +73,9 @@ date: 2025-12-25T11:37:22.000Z
 
 - `*File`提供的方法：
   - `Read(b []byte) (n int, error)`：读取文件内容存储到`b`，只会覆盖到`len(b)`
-  - `ReadAt()`：可额外传递偏移量（开始读的偏移量而不是字节切片的偏移量）
+  - `ReadAt()`：可额外传递偏移量(开始读的偏移量而不是字节切片的偏移量)
   - `Write(b []byte) (n int, error)`：将`b`的内容写入文件，只会写入直到`len(b)`的内容
-  - `WriteAt()`：可额外传递偏移量（开始写的偏移量而不是字节切片的偏移量），和`os.O_APPEND`互斥
+  - `WriteAt()`：可额外传递偏移量(开始写的偏移量而不是字节切片的偏移量)，和`os.O_APPEND`互斥
   - `WriteString(s string) (n int, error)`：写入字符串
 - `os.ReadFile(name string) ([]byte, error)`：读取一个文件的全部内容并返回字节切片
 - `os.WriteFile(name string, data []byte, FileMode) error`：将字节切片的全部内容写入文件

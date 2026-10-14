@@ -1,12 +1,10 @@
 ---
-title: "Linux: 文件系统"
+title: "文件系统"
 summary: "介绍 Linux 文件系统、文件权限、链接与常用 Bash 文件命令"
 date: 2024-03-12
-categories: [SE Courses, OS, Linux]
+categories: [Infra, Linux]
 tags: [linux]
 ---
-# `Bash Shell`命令
-
 `Bash Shell`是大多数`Linux`发行版的默认`shell`，对于绝大多数命令都可以通过`man`命令查看详细用法和选项
 
 ## `root`用户

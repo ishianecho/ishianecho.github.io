@@ -1,13 +1,10 @@
 ---
-title: 'Go: 并发编程'
+title: '并发编程'
 summary: "讲解Go的协程、channel通信、sync包同步原语及select多路复用"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
 date: 2025-12-25T11:37:57.000Z
 ---
-
-# 并发
-
 ## 协程
 
 ### 特点
@@ -102,7 +99,7 @@ date: 2025-12-25T11:37:57.000Z
     使用`TODO()`作为占位符，当需要派生子上下文，但是不知道应该放置什么类型的上下文时使用`TODO`
 
   - `context.WithValue(parent Context, key, value any) Context`：基于`parent`派生一个`valueCtx`，只额外实现了`Value()`方法，会向上查找键对应的值
-  - `context.WithCancel(parent Context) (ctx Context, cancel CancelFunc)`：可取消的上下文，执行`cancel()`后，其下的所有上下文（因为基于自己）都会被取消
+  - `context.WithCancel(parent Context) (ctx Context, cancel CancelFunc)`：可取消的上下文，执行`cancel()`后，其下的所有上下文(因为基于自己)都会被取消
 
     实现很简单，在创建时向上查找可取消的上下文，如果不存在则自己创建一个协程等待取消信号，就能实现当父上下文取消时所有子上下文都递归取消
 

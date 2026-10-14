@@ -1,13 +1,10 @@
 ---
-title: 'Go: 切片(Slice)'
+title: '切片(Slice)'
 summary: "介绍 Go 切片的创建、切割、扩容机制、常用操作与 slices 标准库"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
 date: 2025-12-24T18:09:34.000Z
 ---
-
-# `Slice`
-
 ## 创建切片
 
 ### 数组与切片的区别

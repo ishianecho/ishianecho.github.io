@@ -1,5 +1,5 @@
 ---
-title: "算法竞赛: 离线查询"
+title: "离线查询"
 summary: "介绍离线查询技巧的思想，并结合例题讲解排序后配合树状数组的求解方式"
 categories: [Algorithm, Trick]
 tags: [algorithm]

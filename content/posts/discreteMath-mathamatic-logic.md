@@ -1,12 +1,10 @@
 ---
-title: "离散数学: 数理逻辑"
+title: "数理逻辑"
 summary: "讲解命题逻辑与谓词逻辑的基本概念、等价公式及推理规则"
 date: 2024-04-19
-categories: [SE Courses, Discrete Math]
+categories: [CS Fundamentals, Discrete Math]
 tags: [cs]
 ---
-# 数理逻辑
-
 ## 命题逻辑
 
 ### 基本概念

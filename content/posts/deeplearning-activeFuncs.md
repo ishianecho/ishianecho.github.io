@@ -1,5 +1,5 @@
 ---
-title: "机器学习: 激活函数"
+title: "激活函数"
 summary: "讲解激活函数的作用与要求，介绍Sigmoid、Tanh、ReLU及其变体等常见激活函数"
 date: 2025-07-09
 categories: [ML/DL]

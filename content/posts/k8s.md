@@ -1,14 +1,10 @@
 ---
-title: "Kubernetes: 生产级的分布式集群部署"
+title: "生产级的分布式集群部署"
 summary: "介绍 Kubernetes 核心概念与 Pod、Service、Ingress 等资源的常用字段"
 date: 2026-04-20T00:00:00.000Z
-categories: [Tools & Utilities, Container, Kubernetes]
+categories: [Infra, Container, Kubernetes]
 tags: [devops]
 ---
-
-
-# `Kubernetes`
-
 ## 快速入门
 
 ### 简介
@@ -269,7 +265,7 @@ tags: [devops]
 ### `Ingress` 独有字段
 
 - **`spec.rules`**：路由规则列表，基于域名和路径转发到不同 `Service`
-  - **`host`**：域名，如 `api.example.com`（可选，不指定则匹配所有域名）
+  - **`host`**：域名，如 `api.example.com`(可选，不指定则匹配所有域名)
   - **`http.paths`**：路径规则列表
     - **`path`**：匹配路径，如 `/api`、`/`
     - **`pathType`**：路径匹配类型
@@ -368,24 +364,24 @@ tags: [devops]
 
 - **`provisioner`**：存储供给器，决定使用哪种存储后端
   - 云厂商：`kubernetes.io/aws-ebs`、`kubernetes.io/gce-pd`、`kubernetes.io/azure-disk`
-  - 第三方：`nfs-client`、`rbd.csi.ceph.com`（Ceph）
+  - 第三方：`nfs-client`、`rbd.csi.ceph.com`(Ceph)
   - 本地存储：`kubernetes.io/no-provisioner`
 - **`parameters`**：存储参数，传递给供给器的配置
-  - AWS EBS：`type: gp2`（存储类型）、`zone: us-east-1a`（可用区）、`fsType: ext4`
+  - AWS EBS：`type: gp2`(存储类型)、`zone: us-east-1a`(可用区)、`fsType: ext4`
   - GCE PD：`type: pd-standard`、`replication-type: regional-pd`
   - Ceph RBD：`pool: rbd`、`cluster: ceph`
 - **`reclaimPolicy`**：回收策略，`PVC` 删除时 `PV` 的处理方式
-  - `Delete`：删除 `PV` 和底层存储（默认）
+  - `Delete`：删除 `PV` 和底层存储(默认)
   - `Retain`：保留 `PV` 和数据，需手动清理
   - `Recycle`：已废弃，执行 `rm -rf /volume/*` 后重用
 - **`volumeBindingMode`**：绑定模式，控制 `PV` 创建和绑定的时机
-  - `Immediate`：立即创建并绑定（默认）
+  - `Immediate`：立即创建并绑定(默认)
   - `WaitForFirstConsumer`：延迟到第一个 `Pod` 调度后再创建，确保 `PV` 与 `Pod` 在同一可用区
-- **`allowVolumeExpansion`**：是否允许动态扩容（`true`/`false`）
+- **`allowVolumeExpansion`**：是否允许动态扩容(`true`/`false`)
   - 需要存储后端支持，AWS EBS、GCE PD 支持，NFS 不支持
 - **`mountOptions`**：挂载选项，传递给 `mount` 命令
-  - 例如：`["hard", "nfsvers=4.1", "noatime"]`（NFS 选项）
-- **`allowedTopologies`**：限制 `PV` 创建的拓扑位置（如可用区）
+  - 例如：`["hard", "nfsvers=4.1", "noatime"]`(NFS 选项)
+- **`allowedTopologies`**：限制 `PV` 创建的拓扑位置(如可用区)
   - 配合 `WaitForFirstConsumer` 使用，确保存储与 `Pod` 在同一区域
 - 示例：
 
@@ -876,7 +872,7 @@ allowedTopologies:
 
 ### `ServiceEntry`
 
-- 将**网格外部的服务注册进网格**，让外部服务也能享受 `Istio` 的路由、熔断与 `mTLS` 能力，是最能体现“替代自建代理”的资源
+- 将**网格外部的服务注册进网格**，让外部服务也能享受 `Istio` 的路由、熔断与 `mTLS` 能力，是最能体现"替代自建代理"的资源
 - 典型场景：将外部 `IP`/域名伪装成集群内的 `Service`，内部服务直接通过 `Service` 域名访问外部数据库或第三方 `API`
 - **`spec.hosts`**：对外暴露的虚拟域名，通常用 `[name].[namespace].svc.cluster.local` 让内部访问无感知
 - **`spec.addresses`**：为该条目分配的虚拟 `IP`(可选)
@@ -960,7 +956,7 @@ allowedTopologies:
 
 ## `Charts` 实践
 
-以上能力在生产实践中通常都会沉淀为一个 `helm` 仓库，并按“基础设施 → 应用模板 → 代理组件”分层组织，这也是大家的普遍做法
+以上能力在生产实践中通常都会沉淀为一个 `helm` 仓库，并按"基础设施 → 应用模板 → 代理组件"分层组织，这也是大家的普遍做法
 
 ### 总览
 

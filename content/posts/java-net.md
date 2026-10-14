@@ -1,5 +1,5 @@
 ---
-title: "Java: 网络编程基础"
+title: "网络编程基础"
 summary: "介绍 Java TCP/UDP 套接字、HTTP 客户端与异步网络编程及 RMI"
 date: 2025-05-10
 categories: [Programming, Java, Java SE]

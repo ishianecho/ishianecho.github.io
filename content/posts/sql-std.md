@@ -1,12 +1,10 @@
 ---
-title: "SQL: 基本用法"
+title: "基本用法"
 summary: "介绍SQL基本语法：数据类型、表的增删改查及约束与查询子句用法"
 date: 2025-04-20
 categories: [Programming, SQL]
 tags: [database]
 ---
-# `SQL`语法
-
 ## 基本数据类型
 
 ### 域和属性

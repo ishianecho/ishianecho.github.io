@@ -1,12 +1,10 @@
 ---
-title: "统计学习: 线性回归"
+title: "线性回归"
 summary: "讲解简单与多元线性回归的最小二乘估计、显著性检验及模型评价指标"
 date: 2025-11-17
-categories: [SE Courses, Statistics]
+categories: [CS Fundamentals, Statistics]
 tags: [ml]
 ---
-# 线性回归
-
 ## 简单线性回归
 
 ### 最小二乘法

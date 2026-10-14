@@ -1,12 +1,10 @@
 ---
-title: "离散数学: 代数系统"
+title: "代数系统"
 summary: "讲解代数系统的定义、二元运算的性质及幺元、零元、逆元等特殊元素"
 date: 2024-08-07
-categories: [SE Courses, Discrete Math]
+categories: [CS Fundamentals, Discrete Math]
 tags: [math]
 ---
-# 代数系统
-
 ## 定义
 
 - $S$上的$n$元运算是一个特殊的函数$f:S^n\rightarrow S$，具有**封闭性**

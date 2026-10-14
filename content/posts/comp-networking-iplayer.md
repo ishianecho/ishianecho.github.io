@@ -1,8 +1,8 @@
 ---
-title: "计算机网络: 网络层协议"
+title: "网络层协议"
 summary: "讲解网络层功能、IPv4地址分类与报文格式、IP分片及NAT、DHCP等协议"
 date: 2025-05-01
-categories: [SE Courses, Network]
+categories: [CS Fundamentals, Network]
 tags: [cs]
 ---
 ## 网络层协议

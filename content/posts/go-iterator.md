@@ -1,13 +1,10 @@
 ---
-title: 'Go: 迭代器'
+title: '迭代器'
 summary: "介绍 Go 的 range 机制、推拉式迭代器函数与标准库迭代器及流式处理"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
 date: 2025-12-25T11:37:27.000Z
 ---
-
-# 迭代器
-
 ## `range`
 
 ### 特定数据结构的迭代

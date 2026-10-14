@@ -1,14 +1,10 @@
 ---
-title: "Helm: Kubernetes 的包管理器"
+title: "Kubernetes 的包管理器"
 summary: "介绍 Helm 的核心概念、Chart 结构、常用命令与模板语法"
 date: 2026-08-16T00:00:00.000Z
-categories: [Tools & Utilities, Container, Helm]
+categories: [Infra, Container, Helm]
 tags: [devops]
 ---
-
-
-# `Helm`
-
 ## 快速入门
 
 ### 简介

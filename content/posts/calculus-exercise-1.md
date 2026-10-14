@@ -1,12 +1,10 @@
 ---
-title: "微积分: 练习题"
+title: "练习题"
 summary: "微积分极限与积分的计算练习题集，附详细求解过程"
 date: 2023-12-11
-categories: [SE Courses, Calculus]
+categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-# 极限
-
 ## 函数极限
 
 $$\begin{align}&1.\lim_{x\rightarrow 0}\frac{\tan x-\sin x}{x\ln(1+\sin^2x)}\\&解:原式=\lim_{x\rightarrow0}\frac{\tan x-\sin x}{x^3}=\frac12\end{align}$$

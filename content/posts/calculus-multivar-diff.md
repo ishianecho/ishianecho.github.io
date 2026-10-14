@@ -1,12 +1,10 @@
 ---
-title: "微积分: 多元函数微分"
+title: "多元函数微分"
 summary: "讲解多元函数的二重极限、连续性、偏导与全微分及其应用"
 date: 2024-04-23
-categories: [SE Courses, Calculus]
+categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-# 多元函数微分学
-
 ## 多元函数极限
 
 ### 判别方法

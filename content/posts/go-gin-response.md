@@ -1,13 +1,10 @@
 ---
-title: 'Gin: 响应处理'
+title: '响应处理'
 summary: "讲解Gin的各种响应方法及JSON、文件上传下载等响应与表单处理"
 categories: [Programming, Go, 3P Framework, Gin]
 tags: [go]
 date: 2025-12-28T14:03:18.000Z
 ---
-
-# `Gin`的响应
-
 ## 响应方法
 
 - 以下方法都是`*gin.Context`的方法：
@@ -20,9 +17,9 @@ date: 2025-12-28T14:03:18.000Z
 - `YAML(code int, obj any)`：YAML响应
 - `ProtoBuf(code int, obj any)`：Protobuf响应
 - `HTML(code int, name string, obj any)`：HTML模板渲染
-- `File(filepath string)`：文件响应（显示文件）
-- `FileFromFS(filepath string, fs http.FileSystem)`：文件响应（从`fs`中获取）
-- `FileAttachment(filepath, filename string)`：文件响应（请求浏览器下载文件）
+- `File(filepath string)`：文件响应(显示文件)
+- `FileFromFS(filepath string, fs http.FileSystem)`：文件响应(从`fs`中获取)
+- `FileAttachment(filepath, filename string)`：文件响应(请求浏览器下载文件)
 - `Data(code int, contentType string, data []byte)`：原始数据
 - `Stream(step func(w io.Writer) bool)`：流式响应
 - `Redirect(code int, location string)`：重定向

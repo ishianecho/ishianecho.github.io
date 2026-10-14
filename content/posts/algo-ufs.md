@@ -1,13 +1,11 @@
 ---
-title: "数据结构: 并查集"
+title: "并查集"
 summary: "介绍并查集的原理、合并与查询操作、路径压缩与按秩合并优化"
 categories: [Algorithm, Data Structure]
 tags: [algorithm]
 date: 2024-10-02
 ---
-# 并查集
-
-## 概述
+## Overview
 
 并查集用于解决**不相交集合**的问题，高效地提供两种方法：
 

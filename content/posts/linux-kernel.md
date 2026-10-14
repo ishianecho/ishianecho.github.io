@@ -1,12 +1,10 @@
 ---
-title: "Linux: 内核"
+title: "内核"
 summary: "介绍 Linux 内核的系统内存管理、软件程序管理等核心功能"
 date: 2025-08-20
-categories: [SE Courses, OS, Linux]
+categories: [Infra, Linux]
 tags: [linux]
 ---
-# `Linux`内核
-
 `Linux`内核主要负责四个功能：系统内存管理、软件程序管理、硬件设备管理、文件系统管理
 
 ## 系统内存管理

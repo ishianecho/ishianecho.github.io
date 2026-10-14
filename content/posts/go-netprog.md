@@ -1,13 +1,10 @@
 ---
-title: 'Go: 网络编程基础'
+title: '网络编程基础'
 summary: "介绍 Go net/http 包的服务端、客户端、反向代理等网络编程用法"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go, cs]
 date: 2025-12-25T11:39:18.000Z
 ---
-
-# `net`
-
 ## `net/http`
 
 ### 服务端

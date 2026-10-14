@@ -1,13 +1,11 @@
 ---
-title: "图的算法: 最小生成树"
+title: "最小生成树"
 summary: "从图论基础与图的存储讲起，介绍最小生成树的概念及Prim、Kruskal等算法"
 categories: [Algorithm, Graph Algo]
 tags: [algorithm]
 date: 2024-12-09
 ---
-# 最小生成树
-
-## 概述
+## Overview
 
 一个连通图的生成树是最简单的连通子图，它连通了图的所有节点，并且只含有**节点数减一**条边，即没有环
 

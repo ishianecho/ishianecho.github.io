@@ -1,8 +1,8 @@
 ---
-title: "具体数学: 和式"
+title: "和式"
 summary: "讲解和式的表示方法与清单法、求和因子法、扰动法等求和技巧及多重和式"
 date: 2024-10-02
-categories: [SE Courses, Concrete Math]
+categories: [CS Fundamentals, Concrete Math]
 tags: [math]
 ---
 ## 和式

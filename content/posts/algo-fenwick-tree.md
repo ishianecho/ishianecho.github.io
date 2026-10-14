@@ -1,11 +1,11 @@
 ---
-title: "数据结构: 树状数组"
+title: "树状数组"
 summary: "讲解树状数组的基本结构、lowbit原理、区间查询与单点修改的实现及适用范围"
 categories: [Algorithm, Data Structure]
 tags: [algorithm]
 date: 2025-03-19
 ---
-### 概述
+### Overview
 
 - 树状数组(`Binary Indexed Tree`，`BIT`，或称`Fenwick Tree`)支持**区间查询**、**单点修改**
   一个区间的总信息由区间内所有元素共同贡献而得

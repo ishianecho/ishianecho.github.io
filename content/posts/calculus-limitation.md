@@ -1,12 +1,10 @@
 ---
-title: "微积分: 关于极限"
+title: "关于极限"
 summary: "整理极限求解的注意事项与常见题型，包括单调有界收敛定理与反函数求法"
 date: 2023-10-30
-categories: [SE Courses, Calculus]
+categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-# 极限
-
 ## [注意]关于极限
 
 1. $$\begin{align}x\rightarrow 0时,\cos \frac{1}{x},\sin \frac{1}{x}都为有界量,和x相乘等于无穷小\end{align}$$
@@ -32,9 +30,9 @@ $$\begin{align}&f(x)=\begin{cases}1-2x^2,&x\lt-1\\x^3,&-1\le x\le2\\12x-16,&x\gt
 
 ## [题型]利用单调有界收敛定理证明函数极限存在
 
-<font color="red">**def：单调（增减）且有（上下）界的数列一定收敛**</font>
+<font color="red">**def：单调(增减)且有(上下)界的数列一定收敛**</font>
 
-1. 放缩法证明其有（上/下）界
+1. 放缩法证明其有(上/下)界
 
 2. 观察法证明其单调性
 

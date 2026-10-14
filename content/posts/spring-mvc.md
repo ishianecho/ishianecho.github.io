@@ -1,12 +1,10 @@
 ---
-title: "Spring framework: MVC"
+title: "MVC"
 summary: "讲解Spring MVC的前端控制器模式、DispatcherServlet配置与请求处理流程"
 date: 2025-07-12
 categories: [Programming, Java, Spring framework]
 tags: [java]
 ---
-# `Spring Web MVC`
-
 ## `MVC`架构模式与前端控制器设计模式
 
 - `MVC`(`Model-View-Controller`，模型-视图-控制器)是网页应用中最常见的架构

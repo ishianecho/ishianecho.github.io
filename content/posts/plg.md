@@ -1,14 +1,10 @@
 ---
-title: "PLG: Prometheus + Loki + Grafana 可观测体系"
+title: "Prometheus + Loki + Grafana 可观测体系"
 summary: "介绍Prometheus+Loki+Grafana可观测体系的组成、配置与服务发现等核心用法"
 date: 2026-08-16T00:00:00.000Z
-categories: [Tools & Utilities, Observability]
+categories: [Infra, Observability]
 tags: [devops]
 ---
-
-
-# `PLG`
-
 ## 快速入门
 
 ### 简介

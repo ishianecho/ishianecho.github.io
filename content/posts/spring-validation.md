@@ -1,12 +1,10 @@
 ---
-title: "Spring framework: Validation API"
+title: "Validation API"
 summary: "介绍Spring原生Validator接口、Errors错误处理及Bean Validation集成用法"
 date: 2025-07-14
 categories: [Programming, Java, Spring framework]
 tags: [java]
 ---
-# `Spring Validation`
-
 ## `org.springframework.validation`
 
 ### 介绍

@@ -1,5 +1,5 @@
 ---
-title: "Java: 异常处理"
+title: "异常处理"
 summary: "介绍 Java 异常的分类、实质与异常处理方式"
 date: 2025-04-04
 categories: [Programming, Java, Java SE]

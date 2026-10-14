@@ -1,5 +1,5 @@
 ---
-title: 'Java EE: Servlet API'
+title: 'Servlet API'
 summary: "介绍 Servlet 接口体系、Session/Cookie、Filter 与 Listener 等 Web 组件"
 date: 2025-07-05T00:00:00.000Z
 categories: [Programming, Java, Java EE]

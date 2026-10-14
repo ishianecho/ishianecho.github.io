@@ -1,12 +1,10 @@
 ---
-title: "微积分: 级数练习题"
+title: "级数练习题"
 summary: "整理常数项级数敛散性判别与幂级数求和的解题思路和常用结论"
 date: 2024-04-17
-categories: [SE Courses, Calculus]
+categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-# 级数练习
-
 ## 求常数项级数敛散性
 
 - 对所有收敛的常数项级数，$u_n$严格不为$0$

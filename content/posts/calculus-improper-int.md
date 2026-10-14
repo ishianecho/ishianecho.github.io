@@ -1,12 +1,10 @@
 ---
-title: "微积分: 反常积分"
+title: "反常积分"
 summary: "讲解无穷区间与无界函数两类反常积分的计算方法及敛散性判断"
 date: 2023-12-03
-categories: [SE Courses, Calculus]
+categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-# 反常积分
-
 即广义积分，分为**无穷区间**上与**无界函数**上两种
 
 ## 计算

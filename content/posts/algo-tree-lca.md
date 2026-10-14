@@ -1,5 +1,5 @@
 ---
-title: "树的算法: LCA（最近公共祖先）"
+title: "LCA(最近公共祖先)"
 summary: "介绍LCA的性质、朴素算法与倍增算法的原理和实现"
 categories: [Algorithm, Tree Algo]
 tags: [algorithm]

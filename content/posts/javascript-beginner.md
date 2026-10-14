@@ -1,12 +1,10 @@
 ---
-title: "JavaScript: 基本使用"
+title: "基本使用"
 summary: "介绍 JavaScript 基本语法、数据类型、运算符与 HTML 接口"
 date: 2023-12-09
 categories: [Programming, JavaScript]
 tags: [web]
 ---
-# `JavaScript`语法
-
 ## 简介
 
 `JS`实现了`html`文档与用户的更丰富的交互，实现在客户端处理部分信息而不是每次交互都向服务器报告。本身的一套标准为`ECMAScript`，除此以外还和`DOM`、`BOM`紧密相连，是这三个部分实现了`JS`的功能

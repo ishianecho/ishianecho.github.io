@@ -1,5 +1,5 @@
 ---
-title: "数论: 扩展欧拉定理"
+title: "扩展欧拉定理"
 summary: "陈述并证明扩展欧拉定理，用于快速模幂中不互素情形的降幂"
 categories: [Algorithm, Math]
 tags: [algorithm, math]

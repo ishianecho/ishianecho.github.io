@@ -1,12 +1,10 @@
 ---
-title: "Cpp: Effective Modern C++阅读笔记"
+title: "Effective Modern C++阅读笔记"
 summary: "记录Effective Modern C++中初始化、引用限定符、智能指针与移动语义等要点"
 date: 2024-07-15
 categories: [Programming, C/Cpp]
 tags: [cpp]
 ---
-# `Effective Modern C++`
-
 ## 关于类
 
 ### 初始化

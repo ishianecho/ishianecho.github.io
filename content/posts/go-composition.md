@@ -1,13 +1,10 @@
 ---
-title: 'Go: 组合式编程'
+title: '组合式编程'
 summary: "讲解Go的函数声明、方法接收者、接口与结构体的组合及嵌入机制"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
 date: 2025-12-24T13:50:12.000Z
 ---
-
-# 组合式编程
-
 ## 函数声明
 
 - `Go`是类型后置的，它的函数声明：

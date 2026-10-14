@@ -1,5 +1,5 @@
 ---
-title: "图的算法: SCC（强连通分量）"
+title: "SCC(强连通分量)"
 summary: "给出Tarjan算法求解有向图强连通分量并缩点建图的完整代码实现"
 categories: [Algorithm, Graph Algo]
 tags: [algorithm]

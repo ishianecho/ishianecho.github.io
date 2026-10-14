@@ -1,5 +1,5 @@
 ---
-title: "字符串算法: KMP匹配"
+title: "KMP匹配"
 summary: "从暴力匹配的不足出发，讲解KMP算法的前后缀原理与next数组的求法应用"
 categories: [Algorithm, String Algo]
 tags: [algorithm]

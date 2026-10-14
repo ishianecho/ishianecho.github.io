@@ -1,8 +1,8 @@
 ---
-title: "具体数学: 取整函数"
+title: "取整函数"
 summary: "讲解上下取整函数的性质、区间整数计数、谱系划分及均分分组等应用"
 date: 2024-10-16
-categories: [SE Courses, Concrete Math]
+categories: [CS Fundamentals, Concrete Math]
 tags: [math]
 ---
 - 对任意实数$x$，有$x-1<\lfloor x\rfloor\le x\le\lceil x\rceil<x+1$

@@ -1,5 +1,5 @@
 ---
-title: "Java: 面向对象编程"
+title: "面向对象编程"
 summary: "介绍 Java 数据类型、运算符、构造器、接口与注解等面向对象基础"
 date: 2025-03-06
 categories: [Programming, Java, Java SE]

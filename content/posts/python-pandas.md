@@ -1,5 +1,5 @@
 ---
-title: "Python: 使用Pandas处理数据"
+title: "使用Pandas处理数据"
 summary: "介绍Pandas的Series与DataFrame结构及数据清洗、读取导出等常用API"
 date: 2025-01-18
 categories: [Programming, Python, Data Science Utils]

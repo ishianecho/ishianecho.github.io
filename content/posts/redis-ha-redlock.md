@@ -1,21 +1,17 @@
 ---
-title: "Redis: 主从、Sentinel、Cluster 与 Redlock"
+title: "主从、Sentinel、Cluster 与 Redlock"
 summary: "讲解Redis主从复制、Sentinel、Cluster高可用架构及Redlock分布式锁原理"
-categories: [Programming, Distributed System]
+categories: [Infra, Distributed System]
 tags: [database]
 date: 2026-09-14 10:28:22
 ---
-
-
-# `Redis`高可用架构与分布式锁
-
 ## 基本模型
 
 - `Redis`常见的部署形态可以分为单节点、`primary-replica`、`Sentinel`和`Cluster`
 - 复制和锁解决的是两类不同问题：
   - 复制把数据从主节点同步到副本节点，用于冗余、故障转移和读扩展
   - 分布式锁让多个客户端在一个时间窗口内竞争某个资源的使用权
-- “高可用”不等于“强一致”：`Redis`复制默认是异步的，故障转移可能丢失尚未复制的写入，副本读也可能读到旧数据
+- "高可用"不等于"强一致"：`Redis`复制默认是异步的，故障转移可能丢失尚未复制的写入，副本读也可能读到旧数据
 - 官方文档：
   - [Replication](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/)
   - [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/)
@@ -124,8 +120,8 @@ date: 2026-09-14 10:28:22
 
 - 每个`Sentinel`会周期性向主节点和副本节点发送`PING`，并通过`INFO replication`了解角色、复制偏移量和副本列表；它还会通过`__sentinel__:hello`等机制发现同一监控组中的其它`Sentinel`
 - `Sentinel`会记录每个节点的最后响应时间、连接状态、复制进度和配置版本。它自己判断某个节点不可达时，只能形成一个本地观点，不会直接替其它`Sentinel`作决定
-- 某个`Sentinel`在`down-after-milliseconds`时间内没有得到主节点的有效响应，会把主节点标记为主观下线（`SDOWN`）
-- 发现`SDOWN`后，它会向其它`Sentinel`询问主节点是否可达。达到`sentinel monitor`配置的`quorum`后，主节点才被标记为客观下线（`ODOWN`），才具备发起自动故障转移的条件
+- 某个`Sentinel`在`down-after-milliseconds`时间内没有得到主节点的有效响应，会把主节点标记为主观下线(`SDOWN`)
+- 发现`SDOWN`后，它会向其它`Sentinel`询问主节点是否可达。达到`sentinel monitor`配置的`quorum`后，主节点才被标记为客观下线(`ODOWN`)，才具备发起自动故障转移的条件
 
 #### 主观下线、客观下线与投票
 
@@ -155,7 +151,7 @@ REPLICAOF NO ONE，提升为新的 Primary
 ```
 
 - 领导者会先筛选副本：排除断开时间过长或状态不合格的副本，跳过`replica-priority 0`的副本，再优先考虑复制偏移量更靠前的副本；复制偏移量越新，通常越可能包含旧主节点最近的写入
-- “断开时间过长”不是简单看当前是否在线，`Sentinel`还会结合主节点进入`SDOWN`的时间和`down-after-milliseconds`估算副本是否过于落后。这个筛选只能降低数据丢失概率，不能把异步复制变成同步复制
+- "断开时间过长"不是简单看当前是否在线，`Sentinel`还会结合主节点进入`SDOWN`的时间和`down-after-milliseconds`估算副本是否过于落后。这个筛选只能降低数据丢失概率，不能把异步复制变成同步复制
 - 选中的副本会被要求执行`REPLICAOF NO ONE`，确认其角色变成主节点后，`Sentinel`让其它副本执行类似`REPLICAOF <new-primary> <port>`的重配置
 - `sentinel parallel-syncs`限制同一故障转移中可以同时向新主节点同步的副本数量：数值较小对新主节点压力较低，但整个拓扑恢复为完整副本集所需的时间更长
 - 旧主节点重新上线后，`Sentinel`通常会把它改配置为新主节点的副本，而不是把两个主节点的数据自动合并；分区期间只写入旧主节点的数据可能在重新同步时被覆盖或丢失
@@ -220,7 +216,7 @@ REPLICAOF NO ONE，提升为新的 Primary
 
 ### 单实例锁
 
-- 单实例锁的获取需要把“仅当键不存在时写入”和“设置过期时间”放在一个原子命令中：
+- 单实例锁的获取需要把"仅当键不存在时写入"和"设置过期时间"放在一个原子命令中：
 
   ```redis
   SET lock:order:1001 lock-token-<unique> NX PX 30000
@@ -261,7 +257,7 @@ REPLICAOF NO ONE，提升为新的 Primary
 - 获取成功后的有效租约需要扣除获取过程耗时、网络延迟和时钟漂移余量，不能直接把初始 `TTL`当成剩余可用时间
 - 例如 `N = 5`时，至少需要 `3`个实例在有效时间内成功加锁，少于多数派就应释放已经获取的锁
 - `Redlock`把互斥性建立在多个实例相互独立、时钟漂移受控、客户端能在租约内完成工作的假设之上
-- `Redlock`不是共识协议，也不会向业务资源发放自动递增的所有权版本，因此“成功获得锁”不能单独证明后续写入一定安全
+- `Redlock`不是共识协议，也不会向业务资源发放自动递增的所有权版本，因此"成功获得锁"不能单独证明后续写入一定安全
 
 ## `Redlock`的缺点
 
@@ -277,7 +273,7 @@ REPLICAOF NO ONE，提升为新的 Primary
   - 网络延迟、实例响应慢和时钟漂移都会减少实际临界区时间
   - 如果客户端只按墙上时钟判断租约而忽略耗时和漂移，计算出的有效时间会过于乐观
 - **缺少 `Fencing token`**
-  - 锁服务只能告诉客户端“当前尝试获得了租约”，不能强制下游资源拒绝旧客户端
+  - 锁服务只能告诉客户端"当前尝试获得了租约"，不能强制下游资源拒绝旧客户端
   - 没有围栏令牌时，即使锁算法在大多数时间工作正常，也无法从协议层阻止迟到的旧写入
 - **可用性和运维成本更高**
   - 客户端要同时管理多个实例、超时、重试、部分成功和清理逻辑
@@ -327,7 +323,7 @@ REPLICAOF NO ONE，提升为新的 Primary
 
 ### 必须使用 `Redlock`时
 
-- 使用 `3`或`5`个相互独立的主实例，并把实例放在不同故障域，不要把一个复制组拆成多个“独立节点”计票
+- 使用 `3`或`5`个相互独立的主实例，并把实例放在不同故障域，不要把一个复制组拆成多个"独立节点"计票
 - 并行请求各实例，并为单个实例设置远小于总租约的连接和命令超时
 - 只有在多数派成功且扣除耗时后仍有足够租约时才进入临界区，失败时释放所有已尝试的锁
 - 使用可靠的唯一令牌和安全释放逻辑，记录获取耗时、成功节点数、剩余租约、续租失败和清理失败

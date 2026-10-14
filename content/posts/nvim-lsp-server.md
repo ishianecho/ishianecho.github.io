@@ -5,11 +5,7 @@ date: 2026-08-15
 categories: [Tools & Utilities, Editor, Neovim]
 tags: [tools]
 ---
-
-
-# 实现一个最小可用的 LSP Server
-
-LSP（Language Server Protocol）名称中虽然带有 "Language"，但它本质上是一套基于
+LSP(Language Server Protocol)名称中虽然带有 "Language"，但它本质上是一套基于
 **JSON-RPC 2.0** 的补全/诊断/跳转协议，服务的对象不限于编程语言。这篇笔记总结
 **一个最小可用的 LSP server 需要暴露哪些 endpoint**，以及 Neovim 侧如何用 Lua
 接入。协议细节与实现语言无关。
@@ -26,7 +22,7 @@ LSP 应用于非编程语言场景的一个例子，笔记本身的方法论是�
 ### 生命周期：`initialize` / `initialized` / `shutdown`
 
 `initialize` 是客户端连接后的第一个请求，server 在**响应中声明自己的能力
-（capabilities）**，客户端只会在声明过的能力范围内发起请求。提供补全只需声明
+(capabilities)**，客户端只会在声明过的能力范围内发起请求。提供补全只需声明
 以下几项：
 
 ```json
@@ -42,14 +38,14 @@ LSP 应用于非编程语言场景的一个例子，笔记本身的方法论是�
 }
 ```
 
-`initialize` 请求中还包含 `rootUri`/`rootPath`（项目根目录），这是 server 做
+`initialize` 请求中还包含 `rootUri`/`rootPath`(项目根目录)，这是 server 做
 文件补全、扫描项目级配置的锚点，应当妥善处理。
 
 ### 文档同步：`textDocument/didOpen` / `didChange` / `didClose`
 
-这些是**通知（notification，无响应）**。客户端在打开/修改/关闭文件时把全文或增量
-推送给 server，server 维护一份内存副本（`vscode-languageserver` 的 `TextDocuments`
-已经封装了这一逻辑）。之后所有补全、hover 都基于这份副本计算——**server 不应直接
+这些是**通知(notification，无响应)**。客户端在打开/修改/关闭文件时把全文或增量
+推送给 server，server 维护一份内存副本(`vscode-languageserver` 的 `TextDocuments`
+已经封装了这一逻辑)。之后所有补全、hover 都基于这份副本计算——**server 不应直接
 读取磁盘上已打开的文件**，而应以客户端的版本为准。
 
 ### 补全：`textDocument/completion` → `CompletionItem[]`
@@ -57,12 +53,12 @@ LSP 应用于非编程语言场景的一个例子，笔记本身的方法论是�
 这是核心请求。客户端传入光标位置 `position`，server 返回补全列表。要点：
 
 - **上下文自行计算**：取光标所在行、从行首到光标的文本，用正则判断当前所处的
-  上下文（示例中 `/` 后返回命令、`$` 后返回 skill、`@` 后返回文件+插件）。协议
+  上下文(示例中 `/` 后返回命令、`$` 后返回 skill、`@` 后返回文件+插件)。协议
   对"何时返回什么"没有任何约束，完全由 server 决定。
-- `label` 是菜单中显示的内容；实际插入的内容用 `insertText`（补齐光标后缺少的
-  字符）或 `textEdit`（替换一个 range，适合需要改写已输入文本的场景，比如把
-  `@xx` 替换成 `$skill-name`）。
-- `data` 字段可以携带任意自定义数据（比如命令名），它会在后续的 `resolve` 请求中
+- `label` 是菜单中显示的内容；实际插入的内容用 `insertText`(补齐光标后缺少的
+  字符)或 `textEdit`(替换一个 range，适合需要改写已输入文本的场景，比如把
+  `@xx` 替换成 `$skill-name`)。
+- `data` 字段可以携带任意自定义数据(比如命令名)，它会在后续的 `resolve` 请求中
   原样带回，用于关联"补全时"与"详情时"两个阶段。
 - 较长的文档不应放在 completion 响应中——见下一条。
 
@@ -73,7 +69,7 @@ LSP 应用于非编程语言场景的一个例子，笔记本身的方法论是�
 - `hover`：光标停在一个词上时，返回 `{ contents: { kind:
 "markdown", value }, range }`。实现方式是以光标处的词进行查表。
 
-以上就是最小实现所需的全部内容。诊断（publishDiagnostics）、格式化、跳转定义等
+以上就是最小实现所需的全部内容。诊断(publishDiagnostics)、格式化、跳转定义等
 都是可选能力，不需要就不必声明。
 
 ## 传输层：stdio + Content-Length 帧
@@ -86,12 +82,12 @@ Content-Length: 123\r\n
 {"jsonrpc":"2.0","id":1,"method":"initialize",...}
 ```
 
-- 使用官方 SDK（Node 的 `vscode-languageserver`、Rust 的 `tower-lsp`、Python 的
-  `pylsp` 生态）可以省去手写帧解析
-- 把 server **bundle 成单文件**（esbuild 之类），用户只需要一个 node 运行时，
+- 使用官方 SDK(Node 的 `vscode-languageserver`、Rust 的 `tower-lsp`、Python 的
+  `pylsp` 生态)可以省去手写帧解析
+- 把 server **bundle 成单文件**(esbuild 之类)，用户只需要一个 node 运行时，
   无需 npm install。把产物 commit 进仓库，插件即可开箱即用。
-- 另外 server 进程是长驻的，**一次性的发现工作**（示例中是扫描 skill 目录、
-  `spawnSync` 调用 CLI 获取插件列表）应在 `initialize` 中完成一次并缓存，避免在每次
+- 另外 server 进程是长驻的，**一次性的发现工作**(示例中是扫描 skill 目录、
+  `spawnSync` 调用 CLI 获取插件列表)应在 `initialize` 中完成一次并缓存，避免在每次
   补全请求中重复执行。
 
 ## Neovim connection

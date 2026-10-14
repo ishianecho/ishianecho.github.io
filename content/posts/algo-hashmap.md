@@ -1,13 +1,11 @@
 ---
-title: "数据结构: 哈希表"
+title: "哈希表"
 summary: "介绍哈希函数的设计原则、常见哈希算法及哈希表的原理、冲突处理与实现"
 categories: [Algorithm, Data Structure]
 tags: [algorithm]
 date: 2024-11-16
 ---
-# 哈希表
-
-## 概述
+## Overview
 
 在`FTP`与`HTTPS`中，粗略介绍了哈希算法加密数据的概念；它用哈希算法将无限的数据转换成唯一的、用数字描述的值；对一个合格的哈希函数而言：
 

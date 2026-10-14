@@ -1,5 +1,5 @@
 ---
-title: "算法竞赛: 常数优化之快读快写"
+title: "常数优化之快读快写"
 summary: "介绍算法竞赛中基于getchar与fread的快读快写模板及其原理"
 categories: [Algorithm, Trick]
 tags: [algorithm, cpp]

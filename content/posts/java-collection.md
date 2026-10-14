@@ -1,12 +1,10 @@
 ---
-title: "Java: 数据结构与算法"
+title: "数据结构与算法"
 summary: "介绍 Java 包装类、数组、字符串与集合框架等常用数据结构"
 date: 2025-04-10
 categories: [Programming, Java, Java SE]
 tags: [java]
 ---
-# `Java`数据结构与算法
-
 ## 包装类
 
 ### 概念

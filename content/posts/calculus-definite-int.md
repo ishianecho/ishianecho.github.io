@@ -1,12 +1,10 @@
 ---
-title: "微积分: 定积分"
+title: "定积分"
 summary: "整理定积分的定义、可积条件、性质与积分中值定理"
 date: 2023-11-28
-categories: [SE Courses, Calculus]
+categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-# 定积分
-
 ## 定义
 
 $$\begin{align}\int_a^bf(x)dx=\lim_{\lambda\rightarrow0}\sum_{i=1}^nf(\xi_i)\Delta x_i\end{align}$$

@@ -1,5 +1,5 @@
 ---
-title: "Java: 泛型编程"
+title: "泛型编程"
 summary: "介绍 Java 泛型声明、通配符、限定符与泛型继承规则"
 date: 2025-03-18
 categories: [Programming, Java, Java SE]

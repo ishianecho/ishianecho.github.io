@@ -1,13 +1,10 @@
 ---
-title: 'Gin: 数据校验'
+title: '数据校验'
 summary: "介绍 validator 库的结构体标签语法、常用校验规则与验证 API"
 categories: [Programming, Go, 3P Framework, Gin]
 tags: [go]
 date: 2025-12-27T22:31:56.000Z
 ---
-
-# [`validator`](https://github.com/go-playground/validator)
-
 ## 标签
 
 ### 语法介绍

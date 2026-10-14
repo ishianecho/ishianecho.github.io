@@ -1,5 +1,5 @@
 ---
-title: "数据结构: 对顶堆"
+title: "对顶堆"
 summary: "讲解对顶堆的组成与维护方式，用于动态求解序列中第k小元素"
 categories: [Algorithm, Data Structure]
 tags: [algorithm]

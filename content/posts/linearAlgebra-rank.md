@@ -1,12 +1,10 @@
 ---
-title: "线性代数: 矩阵的秩"
+title: "矩阵的秩"
 summary: "介绍矩阵秩的性质及其在向量组与线性方程组中的应用"
 date: 2024-05-31
-categories: [SE Courses, Linear Algebra]
+categories: [CS Fundamentals, Linear Algebra]
 tags: [math]
 ---
-# 矩阵的秩
-
 ## 矩阵判别
 
 ### 秩的性质

@@ -1,8 +1,8 @@
 ---
-title: "具体数学: 特殊系数"
+title: "特殊系数"
 summary: "讲解二项式系数的性质、母函数运算及第二类斯特林数等特殊系数"
 date: 2024-11-01
-categories: [SE Courses, Concrete Math]
+categories: [CS Fundamentals, Concrete Math]
 tags: [math]
 ---
 ## 二项式系数

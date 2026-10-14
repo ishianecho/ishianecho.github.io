@@ -1,12 +1,10 @@
 ---
-title: "HTML: 基本语法"
+title: "基本语法"
 summary: "介绍 HTML 标记语言的基本概念与常用输入输出标签"
 date: 2024-08-04
 categories: [Programming, Markup Languages]
 tags: [web]
 ---
-# `HTML`
-
 ## 简介
 
 ### 标记语言

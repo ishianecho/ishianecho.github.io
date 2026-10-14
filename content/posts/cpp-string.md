@@ -1,12 +1,10 @@
 ---
-title: "Cpp STL: std::string"
+title: "std::string"
 summary: "讲解std::string的构造函数、容量与访问、修改及查找等常用接口"
 date: 2024-03-14
 categories: [Programming, C/Cpp]
 tags: [cpp]
 ---
-# `string`类
-
 ## `ctors`
 
 ```c++

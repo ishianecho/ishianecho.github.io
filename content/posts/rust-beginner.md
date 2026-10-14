@@ -1,12 +1,10 @@
 ---
-title: "Rust: 基本语法"
+title: "基本语法"
 summary: "介绍Rust基本语法：语句与表达式、控制流、所有权与借用等入门概念"
 date: 2025-05-02
 categories: [Programming, Rust]
 tags: [rust]
 ---
-# `Rust`基本语法
-
 ## 语句和表达式
 
 ### 通用规则

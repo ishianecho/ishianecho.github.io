@@ -1,8 +1,8 @@
 ---
-title: "大学物理: 电磁感应"
+title: "电磁感应"
 summary: "整理电磁感应：法拉第定律、动生与感生电动势、自感互感及磁场能量"
 date: 2024-10-14
-categories: [SE Courses, Physics]
+categories: [CS Fundamentals, Physics]
 tags: [physics]
 ---
 ## 电磁感应
@@ -84,7 +84,7 @@ tags: [physics]
   - 是偏振波，且$\boldsymbol E、\boldsymbol H$同相，即$\cos()$内部完全一致
   - 满足$\sqrt\varepsilon E=\sqrt\mu H$，波速$$\begin{align}u=\sqrt{\frac1{\varepsilon\mu}}\end{align}$$
 - 在$LC$振荡电路中，由$$\begin{align}u=\frac qC=\mathscr E=-L\frac{\mathrm dI}{\mathrm dt}=-L\frac{\mathrm d^2q}{\mathrm dt^2}\end{align}$$，得出简谐运动方程$$\begin{align}\frac{\mathrm d^2q}{\mathrm dt^2}+\frac1{LC}q=0\end{align}$$
-  - 当二阶常系数线性齐次微分方程中，若“常系数”为只与自身因素有关的正的常数，则称其为简谐运动
+  - 当二阶常系数线性齐次微分方程中，若"常系数"为只与自身因素有关的正的常数，则称其为简谐运动
   - 振荡角频率$$\begin{align}\omega=\sqrt\frac1{LC}\end{align}$$
 - 电磁辐射能：电能和磁能之和
 - 能流密度/辐射强度/坡印廷矢量：$\boldsymbol S=(\omega_c+\omega_m)\boldsymbol u$

@@ -1,12 +1,10 @@
 ---
-title: "微积分: 不定积分"
+title: "不定积分"
 summary: "整理不定积分的基本公式、拓展公式、凑微分与换元等积分方法"
 date: 2023-11-12
-categories: [SE Courses, Calculus]
+categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-# 不定积分
-
 ## 公式
 
 ### 基本公式

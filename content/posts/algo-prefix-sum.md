@@ -1,5 +1,5 @@
 ---
-title: "数据结构: 前缀和"
+title: "前缀和"
 summary: "介绍一维与二维前缀和的原理、性质、原地实现及差分应用场景"
 categories: [Algorithm, Data Structure]
 tags: [algorithm]

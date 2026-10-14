@@ -1,12 +1,10 @@
 ---
-title: "线性代数: 矩阵"
+title: "矩阵"
 summary: "介绍矩阵的概念、运算、转置、分块与初等变换"
 date: 2024-05-11
-categories: [SE Courses, Linear Algebra]
+categories: [CS Fundamentals, Linear Algebra]
 tags: [math]
 ---
-# 矩阵
-
 ## 概念
 
 形如$$\begin{align}\left[\begin{matrix}a_{11}&a_{12}&...&a_{1\rm n}\\a_{21}&a_{22}&...&a_{2\rm n}\\\vdots&\vdots&&\vdots\\a_{\rm m1}&a_{\rm m2}&...&a_{\rm mn}\end{matrix}\right]\end{align}$$的矩阵称为$m\times n$矩阵，记为$A_{m\times n}$

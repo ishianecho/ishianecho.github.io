@@ -1,12 +1,10 @@
 ---
-title: "离散数学: 集合论"
+title: "集合论"
 summary: "讲解集合的基本概念、运算、笛卡尔积、关系与函数等集合论知识"
 date: 2024-04-22
-categories: [SE Courses, Discrete Math]
+categories: [CS Fundamentals, Discrete Math]
 tags: [cs]
 ---
-# 集合论
-
 ## 约定
 
 - 小写字母表示元素，大写字母表示集合

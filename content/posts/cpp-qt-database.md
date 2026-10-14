@@ -1,12 +1,10 @@
 ---
-title: "Qt: 数据库连接"
+title: "数据库连接"
 summary: "介绍数据库基础概念、SQL常用语法及使用Qt进行数据库连接与操作的方法"
 date: 2024-06-30
 categories: [Programming, C/Cpp, Qt]
 tags: [cpp, database]
 ---
-# 数据库
-
 ## 介绍
 
 数据库分两种，关系型(`Relational Database`)和非关系型(`Not Only SQL`)，它们的区别：

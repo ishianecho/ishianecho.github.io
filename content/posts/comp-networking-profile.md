@@ -1,8 +1,8 @@
 ---
-title: "计算机网络: 概览"
+title: "概览"
 summary: "介绍计算机网络的性能指标、时延与丢包概念及OSI、TCP/IP分层体系结构"
 date: 2025-04-18
-categories: [SE Courses, Network]
+categories: [CS Fundamentals, Network]
 tags: [cs]
 ---
 ### 计算机网络指标

@@ -1,13 +1,10 @@
 ---
-title: 'Go: 序列化与反序列化'
+title: '序列化与反序列化'
 summary: "介绍 Go 中 JSON、XML、YAML、Protobuf 等格式的序列化 API 与特性"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
 date: 2025-12-30T08:50:23.000Z
 ---
-
-# `Go`的序列化
-
 ## 特性
 
 - `Go`通过结构体标签来支持序列化和反序列化，内置的`encoding`标准库支持`xml/json`等配置文件的序列化和反序列化

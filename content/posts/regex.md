@@ -1,12 +1,10 @@
 ---
-title: "正则表达式: 使用regex进行模糊查询"
+title: "使用regex进行模糊查询"
 summary: "介绍正则表达式的形式化定义、PCRE语法及匹配、分组、环视等用法"
 date: 2024-04-02
 categories: [Tools & Utilities, 3P Tools, Regex]
 tags: [tools]
 ---
-# `Regex`
-
 ## 基本介绍
 
 - `Regex`全称`Regular Expression`，译为正则表达式或正规表达式

@@ -1,8 +1,8 @@
 ---
-title: "概率论与数理统计: 常见的随机变量汇总"
+title: "常见的随机变量汇总"
 summary: "汇总常见离散与连续随机变量的分布、期望与方差推导及高阶矩结论"
 date: 2025-05-05
-categories: [SE Courses, Probability Math]
+categories: [CS Fundamentals, Probability Math]
 tags: [math]
 ---
 ## 常见随机变量分布及其数学特征

@@ -1,13 +1,10 @@
 ---
-title: 'Gin: 中间件'
+title: '中间件'
 summary: "讲解Gin中间件的实现原理、Next调用链机制及全局与局部中间件的注册方式"
 categories: [Programming, Go, 3P Framework, Gin]
 tags: [go]
 date: 2025-12-28T17:24:12.000Z
 ---
-
-# `Gin`的中间件
-
 ## 中间件的原理
 
 - `Gin`的中间件提供的很少，但是提供了一个灵活的接口

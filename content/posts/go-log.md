@@ -1,13 +1,10 @@
 ---
-title: 'Go: 日志管理'
+title: '日志管理'
 summary: "介绍 Go log 标准库与 zap、lumberjack 的日志配置和使用"
 categories: [Programming, Go, 3P Framework, Zap]
 tags: [go]
 date: 2025-12-30T15:43:40.000Z
 ---
-
-# `Go`日志管理
-
 ## `log`标准库
 
 ### 配置设置
@@ -174,8 +171,8 @@ date: 2025-12-30T15:43:40.000Z
 - `zap.AddCallerSkip(skip int)`：设置调用栈信息跳过的层数
 - `zap.AddStacktrace(lvl zapcore.Level)`：为指定级别及以上的日志记录堆栈跟踪
 - `zap.Fields(fields ...Field)`：向Logger添加固定的上下文字段
-- `zap.Development()`：启用开发模式（更易读的输出、禁用采样等）
-- `zap.ErrorOutput(w zapcore.WriteSyncer)`：设置内部错误（如编码失败）的输出位置
+- `zap.Development()`：启用开发模式(更易读的输出、禁用采样等)
+- `zap.ErrorOutput(w zapcore.WriteSyncer)`：设置内部错误(如编码失败)的输出位置
 - `zap.WrapCore(f func(zapcore.Core) zapcore.Core)`：用于包装或替换底层的Core
 - `zap.Hooks(hooks ...func(zapcore.Entry) error)`：为每条日志添加钩子函数
 - `zap.IncreaseLevel(lvl zapcore.LevelEnabler)`：提高日志记录的最低级别
@@ -185,9 +182,9 @@ date: 2025-12-30T15:43:40.000Z
 
 ### `Logger`使用
 
-- `Logger`本身很简单，对应每种级别有对应的方法（七种级别），`Logger`的性能较好，方法签名如下：
+- `Logger`本身很简单，对应每种级别有对应的方法(七种级别)，`Logger`的性能较好，方法签名如下：
 
-  `Xxx(msg string, ...zap.Field)`：本条日志的信息是`msg`，后面附带一系列字段（强类型）
+  `Xxx(msg string, ...zap.Field)`：本条日志的信息是`msg`，后面附带一系列字段(强类型)
 
 - `zap.Field`：
 

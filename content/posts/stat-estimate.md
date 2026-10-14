@@ -1,12 +1,10 @@
 ---
-title: "统计学习: 估计方法"
+title: "估计方法"
 summary: "讲解测试误差的估计方法：交叉验证、留一法与自助法及自举推断"
 date: 2025-11-20
-categories: [SE Courses, Statistics]
+categories: [CS Fundamentals, Statistics]
 tags: [ml]
 ---
-# 估计方法
-
 ## 简介
 
 - 此前我们所说的`RSE`、置信区间等指标都需要测试误差，而测试误差是不可知的，因为没有标签

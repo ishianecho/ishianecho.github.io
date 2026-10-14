@@ -1,8 +1,8 @@
 ---
-title: "具体数学: 递归"
+title: "递归"
 summary: "讲解递归函数与数学归纳法，分析汉诺塔、直线划分平面等经典递归问题"
 date: 2024-09-21
-categories: [SE Courses, Concrete Math]
+categories: [CS Fundamentals, Concrete Math]
 tags: [math]
 ---
 ## 递归问题分析

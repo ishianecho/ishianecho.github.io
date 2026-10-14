@@ -1,12 +1,10 @@
 ---
-title: "Java: Mybatis"
+title: "Mybatis"
 summary: "介绍 MyBatis 的 SqlSessionFactory 与 SqlSession 接口的使用"
 date: 2025-07-16
 categories: [Programming, Java, 3P Framework]
 tags: [java, database]
 ---
-# `MyBatis`
-
 ## `SqlSessionFactory`
 
 - `SqlSessionFactory`通常是单例模式，它的实例用于获取`SqlSession`，并与其他事务控制

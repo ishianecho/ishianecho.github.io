@@ -1,8 +1,8 @@
 ---
-title: "操作系统: 基本结构"
+title: "基本结构"
 summary: "介绍操作系统的本质、内核层次划分、功能模块与系统调用等基本概念"
 date: 2025-02-10
-categories: [SE Courses, OS]
+categories: [CS Fundamentals, OS]
 tags: [cs]
 ---
 ## 操作系统概述

@@ -1,12 +1,10 @@
 ---
-title: "大学物理: 静电场"
+title: "静电场"
 summary: "整理静电场：库仑定律、电场强度、高斯定理、电势及导体与电介质"
 date: 2024-10-06
-categories: [SE Courses, Physics]
+categories: [CS Fundamentals, Physics]
 tags: [physics]
 ---
-# 静电场
-
 ## 基本定律及常量
 
 - 电荷的性质：

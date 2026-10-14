@@ -1,5 +1,5 @@
 ---
-title: "数据结构: 笛卡尔树"
+title: "笛卡尔树"
 summary: "讲解笛卡尔树的定义、性质、单调栈O(n)建树方法及其在连续区间问题中的应用"
 categories: [Algorithm, Data Structure]
 tags: [algorithm]

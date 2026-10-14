@@ -1,5 +1,5 @@
 ---
-title: "机器学习: 全连接层"
+title: "全连接层"
 summary: "讲解全连接层的结构、前向传播与反向传播的梯度计算公式"
 date: 2025-07-15
 categories: [ML/DL]

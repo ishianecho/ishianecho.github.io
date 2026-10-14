@@ -1,12 +1,10 @@
 ---
-title: "Spring framework: Resource API"
+title: "Resource API"
 summary: "介绍Spring Resource资源抽象接口、实现类与ResourceLoader加载机制"
 date: 2025-07-04
 categories: [Programming, Java, Spring framework]
 tags: [java]
 ---
-# `Spring`资源管理
-
 ## `Resource`接口
 
 - `Resource`类似`File`、`Path`、`URL`，是`Spring`提供的对一类资源的抽象

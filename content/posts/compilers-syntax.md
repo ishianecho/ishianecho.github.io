@@ -1,12 +1,10 @@
 ---
-title: "编译原理: 语法分析"
+title: "语法分析"
 summary: "讲解文法分类、上下文无关文法、二义性与左递归消除及语法分析方法"
 date: 2025-12-03
-categories: [SE Courses, Compilers]
+categories: [CS Fundamentals, Compilers]
 tags: [cs]
 ---
-# 语法分析
-
 ## 文法分类
 
 - `0`型文法：又称短语文法
@@ -105,7 +103,7 @@ tags: [cs]
 - `LR(0)`(`Left-to-right, Rightmost derivation, 0 lookahead`)：非常容易产生移进归约冲突和归约归约冲突
   - 项目：一个产生式的右部的符号中间添加`·`符号
   - 项目集规范族：
-    - 引入增广文法（添加产生式$E'\rightarrow E$指向开始符号）
+    - 引入增广文法(添加产生式$E'\rightarrow E$指向开始符号)
     - 对扩展文法新增的产生式求$E'\rightarrow ·E$闭包，即只要`·`后是非终结符则要把这个非终结符为左部的所有产生式加入闭包，递归进行此步骤
     - 对上述闭包可以移进的所有符号，进行移进得到新的项目集
     - 重复第二步和第三步直到构建出`DFA`

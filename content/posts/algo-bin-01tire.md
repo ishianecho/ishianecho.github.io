@@ -1,5 +1,5 @@
 ---
-title: "博弈论: 01字典树"
+title: "01字典树"
 summary: "介绍01字典树的原理与实现，并以树上异或路径最大值问题为例给出代码"
 categories: [Algorithm, Trick]
 tags: [algorithm]

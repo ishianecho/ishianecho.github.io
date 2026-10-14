@@ -2,12 +2,10 @@
 title: "向量与解析几何入门"
 summary: "介绍向量的线性表示与运算、平面/空间直线方程及二次曲面"
 date: 2024-05-20
-categories: [SE Courses, Linear Algebra]
+categories: [CS Fundamentals, Linear Algebra]
 tags: [math]
 ---
-# 向量与解析几何
-
-## 概述
+## Overview
 
 ### 向量的线性表示
 

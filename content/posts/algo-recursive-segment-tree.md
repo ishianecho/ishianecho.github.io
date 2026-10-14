@@ -1,5 +1,5 @@
 ---
-title: "数据结构: 递归式线段树"
+title: "递归式线段树"
 summary: "讲解递归式线段树的结构、建树、懒标记与区间修改、区间查询的实现"
 categories: [Algorithm, Data Structure]
 tags: [algorithm]

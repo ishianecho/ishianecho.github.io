@@ -1,14 +1,10 @@
 ---
-title: "PLG: 部署与飞书告警实践"
+title: "部署与飞书告警实践"
 summary: "记录用git+helm+CI部署PLG监控栈到Kubernetes并把告警送达飞书群的实践"
 date: 2026-08-16T00:00:00.000Z
-categories: [Tools & Utilities, Observability]
+categories: [Infra, Observability]
 tags: [devops]
 ---
-
-
-# `PLG`: 部署与飞书告警实践
-
 本篇记录如何把 `PLG` 监控体系以 `git` + `helm` + `CI` 的方式部署进集群，并把告警送达飞书群，所有做法都是生产环境的通用玩法
 
 ## 监控栈的 `CI` 部署

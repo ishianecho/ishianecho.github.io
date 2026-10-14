@@ -1,12 +1,10 @@
 ---
-title: "Java: JDBC编程"
+title: "JDBC编程"
 summary: "介绍传统 JDBC 及 JPA、Spring JDBC、MyBatis 等数据库访问方式"
 date: 2025-06-02
 categories: [Programming, Java, Java SE]
 tags: [java, database]
 ---
-# `Java`数据库编程
-
 ## 传统`JDBC`编程
 
 ### `Driver`和`DriverManager`和`Connection`

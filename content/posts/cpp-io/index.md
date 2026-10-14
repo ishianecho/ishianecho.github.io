@@ -5,8 +5,6 @@ date: 2024-01-19
 categories: [Programming, C/Cpp]
 tags: [cpp]
 ---
-# `C++`风格的`I/O`
-
 `I/O`是一门语言很重要的部分，`<iostream>`之所以含有相当一部分好用的函数，是因为在`I/O`实现时各个头文件互相包含，使得只需要包含`<iostream>`就能够使用很多的东西
 
 但如果要用`STL`、实现文件交互等，`<iostream>`并没有包含它们，推荐使用万能头文件`<bits/stdc++.h>`，包含几乎所有会用到的东西
@@ -320,13 +318,13 @@ fout.write(char*,int);  // 向文件写入指定个字符,不支持string类
 
 重命名：
 
-<img src=".\1.1.1.1.typedef.png" alt="1.typedef" style="zoom:50%;" />
+<img src="1.1.1.1.typedef.png" alt="1.typedef" style="zoom:50%;" />
 
-<img src=".\1.1.1.2.typedef.png" alt="2.typedef" style="zoom:50%;" />
+<img src="1.1.1.2.typedef.png" alt="2.typedef" style="zoom:50%;" />
 
 继承关系：
 
-<img src=".\1.1.2.classes.png" alt="classes" style="zoom: 80%;" />
+<img src="1.1.2.classes.png" alt="classes" style="zoom: 80%;" />
 
 ### `ios_base.h`
 
@@ -334,80 +332,80 @@ fout.write(char*,int);  // 向文件写入指定个字符,不支持string类
 
 流状态常量：
 
-<img src=".\1.2.1.ios_base_Ios_Iostate.png" alt="ios_base_Ios_Iostate" style="zoom:50%;" />
+<img src="1.2.1.ios_base_Ios_Iostate.png" alt="ios_base_Ios_Iostate" style="zoom:50%;" />
 
-<img src=".\1.2.2.ios_base_iostate.png" alt="ios_base_iostate" style="zoom:50%;" />
+<img src="1.2.2.ios_base_iostate.png" alt="ios_base_iostate" style="zoom:50%;" />
 
-<img src=".\1.2.3.ios_base_bit.png" alt="ios_base_bit" style="zoom:50%;" />
+<img src="1.2.3.ios_base_bit.png" alt="ios_base_bit" style="zoom:50%;" />
 
 [控制符相关](#fmtflags)<a id="~fmtflags"></a>：
 
-<img src=".\1.2.4.1.ios_base_fmtflags.png" alt="1.ios_fmtflags" style="zoom:50%;" />
+<img src="1.2.4.1.ios_base_fmtflags.png" alt="1.ios_fmtflags" style="zoom:50%;" />
 
-<img src=".\1.2.4.2.ios_base_fmtflags.png" alt="2.ios_fmtflags" style="zoom:50%;" />
+<img src="1.2.4.2.ios_base_fmtflags.png" alt="2.ios_fmtflags" style="zoom:50%;" />
 
-<img src=".\1.2.4.3.ios_base_fmtflags.png" alt="3.ios_fmtflags" style="zoom:50%;" />
+<img src="1.2.4.3.ios_base_fmtflags.png" alt="3.ios_fmtflags" style="zoom:50%;" />
 
-<img src=".\1.2.4.4.ios_base_fmtflags.png" alt="4.ios_fmtflags" style="zoom:50%;" />
+<img src="1.2.4.4.ios_base_fmtflags.png" alt="4.ios_fmtflags" style="zoom:50%;" />
 
-<img src=".\1.2.5.ios_base_setf.png" alt="ios_setf" style="zoom:50%;" />
+<img src="1.2.5.ios_base_setf.png" alt="ios_setf" style="zoom:50%;" />
 
 文件模式：
 
-<img src=".\1.2.6.1.ios_base_openmode.png" alt="1.ios_base_openmode" style="zoom:50%;" />
+<img src="1.2.6.1.ios_base_openmode.png" alt="1.ios_base_openmode" style="zoom:50%;" />
 
-<img src=".\1.2.6.2.ios_base_openmode.png" alt="1.ios_base_openmode" style="zoom:50%;" />
+<img src="1.2.6.2.ios_base_openmode.png" alt="1.ios_base_openmode" style="zoom:50%;" />
 
 ### `basic_ios.h`
 
-<img src=".\1.3.1.ios_method.png" alt="ios_method" style="zoom:50%;" />
+<img src="1.3.1.ios_method.png" alt="ios_method" style="zoom:50%;" />
 
-<img src=".\1.3.2.ios_clear()&setstate().png" alt="ios_clear()&setstate()" style="zoom:50%;" />
+<img src="1.3.2.ios_clear()&setstate().png" alt="ios_clear()&setstate()" style="zoom:50%;" />
 
-<img src=".\1.3.3.1.ios_checkErr.png" alt="1.ios_checkErr" style="zoom:50%;" />
+<img src="1.3.3.1.ios_checkErr.png" alt="1.ios_checkErr" style="zoom:50%;" />
 
-<img src=".\1.3.3.2.ios_checkErr.png" alt="2.ios_checkErr" style="zoom:50%;" />
+<img src="1.3.3.2.ios_checkErr.png" alt="2.ios_checkErr" style="zoom:50%;" />
 
-<img src=".\1.3.4.1.ios_exceptions.png" alt="1.ios_exceptions" style="zoom:50%;" />
+<img src="1.3.4.1.ios_exceptions.png" alt="1.ios_exceptions" style="zoom:50%;" />
 
-<img src=".\1.3.4.2.ios_exceptions.png" alt="2.ios_exceptions" style="zoom:50%;" />
+<img src="1.3.4.2.ios_exceptions.png" alt="2.ios_exceptions" style="zoom:50%;" />
 
 以上是`ios`类中的成员，下面这个控制符以及`oct,dec`等是本头文件内的内联函数：
 
-<img src=".\1.3.5.ios_hex.png" alt="ios_hex" style="zoom:50%;" />
+<img src="1.3.5.ios_hex.png" alt="ios_hex" style="zoom:50%;" />
 
 ### `istream`&`ostream`
 
 以`istream`为例，`operator<<`与其类似：
 
-<img src=".\1.4.1.iostream_exceptions.png" alt="iostream_exceptions" style="zoom:50%;" />
+<img src="1.4.1.iostream_exceptions.png" alt="iostream_exceptions" style="zoom:50%;" />
 
 `get(...)`与其类似：
 
-<img src=".\1.4.2.iostream_strInput.png" alt="1.4.2.iostream_strInput" style="zoom:50%;" />
+<img src="1.4.2.iostream_strInput.png" alt="1.4.2.iostream_strInput" style="zoom:50%;" />
 
-<img src=".\1.4.3.iostream_ignore.png" alt="1.4.3.iostream_ignore" style="zoom:50%;" />
+<img src="1.4.3.iostream_ignore.png" alt="1.4.3.iostream_ignore" style="zoom:50%;" />
 
 基类初始化器：
 
-<img src=".\1.4.5.iostream_ctor.png" alt="iostream_ctor" style="zoom:50%;" />
+<img src="1.4.5.iostream_ctor.png" alt="iostream_ctor" style="zoom:50%;" />
 
 控制符`flush`和`endl`都在`<ostream>`里，它们是内联函数：
 
-<img src=".\1.4.4.iostream_endl.png" alt="1.4.4.iostream_endl" style="zoom:50%;" />
+<img src="1.4.4.iostream_endl.png" alt="1.4.4.iostream_endl" style="zoom:50%;" />
 
 ### `ifstream`&`ofstream`
 
 以`ifstream`类为例：
 
-<img src=".\1.5.1.fstream_ctor.png" alt="fstream_ctor" style="zoom:50%;" />
+<img src="1.5.1.fstream_ctor.png" alt="fstream_ctor" style="zoom:50%;" />
 
-<img src=".\1.5.2.fstream_detor.png" alt="fstream_detor" style="zoom:50%;" />
+<img src="1.5.2.fstream_detor.png" alt="fstream_detor" style="zoom:50%;" />
 
 ### `fstream`
 
 这些是`filebuf`类里的：
 
-<img src=".\1.6.1.fstream_open.png" alt="fstream_open" style="zoom:50%;" />
+<img src="1.6.1.fstream_open.png" alt="fstream_open" style="zoom:50%;" />
 
-<img src=".\1.6.2.fstream_close.png" alt="fstream_close" style="zoom:50%;" />
+<img src="1.6.2.fstream_close.png" alt="fstream_close" style="zoom:50%;" />

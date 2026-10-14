@@ -1,12 +1,10 @@
 ---
-title: "大学物理: 量子力学"
+title: "量子力学"
 summary: "整理量子物理：黑体辐射、光电效应、物质波与薛定谔方程等基础概念"
 date: 2024-11-15
-categories: [SE Courses, Physics]
+categories: [CS Fundamentals, Physics]
 tags: [physics]
 ---
-# 量子物理
-
 ## 旧量子论
 
 ### 黑体辐射

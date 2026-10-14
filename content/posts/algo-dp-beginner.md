@@ -1,5 +1,5 @@
 ---
-title: "算法竞赛: 动态规划引入"
+title: "动态规划引入"
 summary: "由回溯与贪心引出动态规划思想，以斐波那契数列为例讲解记忆化与递推优化"
 categories: [Algorithm, DP]
 tags: [algorithm]

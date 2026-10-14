@@ -1,8 +1,8 @@
 ---
-title: "WSL2: Windows下极其轻量的Linux虚拟机"
+title: "Windows下极其轻量的Linux虚拟机"
 summary: "介绍WSL2的原理、与虚拟机软件的对比及安装配置方法"
 date: 2025-05-19
-categories: [Tools & Utilities, Virtual Machine, WSL]
+categories: [Infra, Virtual Machine, WSL]
 tags: [linux]
 ---
 ## `WSL2`

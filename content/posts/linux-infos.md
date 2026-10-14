@@ -1,12 +1,10 @@
 ---
-title: "Linux: 高效地监控操作系统"
+title: "高效地监控操作系统"
 summary: "介绍使用 Bash 命令监控进程、磁盘空间等系统信息的方法"
 date: 2025-01-11
-categories: [SE Courses, OS, Linux]
+categories: [Infra, Linux]
 tags: [linux]
 ---
-# `Bash Shell`命令
-
 ## 进程
 
 ### 获取进程信息

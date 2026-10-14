@@ -1,12 +1,10 @@
 ---
-title: "C: 基本语法"
+title: "基本语法"
 summary: "介绍C语言预处理、宏定义及常用运算符等基本语法知识"
 date: 2023-10-09
 categories: [Programming, C/Cpp]
 tags: [cpp]
 ---
-# C
-
 ## 预处理
 
 ### 介绍

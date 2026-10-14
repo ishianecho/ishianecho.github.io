@@ -1,12 +1,10 @@
 ---
-title: "离散数学: 近世代数（群、环、域）"
+title: "近世代数(群、环、域)"
 summary: "讲解半群、群、子群、循环群及环、域等近世代数结构的定义与性质"
 date: 2024-09-27
-categories: [SE Courses, Discrete Math]
+categories: [CS Fundamentals, Discrete Math]
 tags: [math]
 ---
-# 近世代数
-
 ## 群
 
 ### 半群定义
@@ -114,4 +112,4 @@ tags: [math]
 - 分配格：两运算满足分配律
 - 有补格(有余格)：对任意两元素的最小上界等于整个格的上确界，最大下界等于整个格的下确界
 
-[离散数学（格与布尔代数） - gonghr - 博客园 (cnblogs.com)](https://www.cnblogs.com/gonghr/p/15474256.html#偏序格)
+[离散数学(格与布尔代数) - gonghr - 博客园 (cnblogs.com)](https://www.cnblogs.com/gonghr/p/15474256.html#偏序格)

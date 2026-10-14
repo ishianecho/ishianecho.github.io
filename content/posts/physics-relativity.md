@@ -1,8 +1,8 @@
 ---
-title: "大学物理: 相对论"
+title: "相对论"
 summary: "整理狭义相对论：洛伦兹变换、时空观修正与相对论力学的基本结论"
 date: 2024-10-19
-categories: [SE Courses, Physics]
+categories: [CS Fundamentals, Physics]
 tags: [physics]
 ---
 ## 狭义相对论

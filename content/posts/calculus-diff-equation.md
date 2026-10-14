@@ -1,13 +1,11 @@
 ---
-title: "微积分: 常微分方程"
+title: "常微分方程"
 summary: "讲解常微分方程的基本概念与分离变量法等初等解法，并附例题"
 date: 2024-04-20
-categories: [SE Courses, Calculus]
+categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-# 微分方程
-
-## 概述
+## Overview
 
 称$$\begin{align}f(x)+f_0(x)g_0(y)+...+f_n(x)g_n(y^{(n)})=0\end{align}$$为一个$n$阶常微分方程，有如下概念：
 

@@ -1,12 +1,10 @@
 ---
-title: "离散数学: 图论基础"
+title: "图论基础"
 summary: "讲解图的基本概念、度数、路径回路、连通性及欧拉图与哈密尔顿图等图论基础"
 date: 2024-04-29
-categories: [SE Courses, Discrete Math]
+categories: [CS Fundamentals, Discrete Math]
 tags: [cs]
 ---
-# 图
-
 ## 图的基本概念
 
 - 图由结点集合$V$，边集合$E$，映射关系$\varphi$构成，其中$\varphi:E\rightarrow V\times V/\{V,V\}$为由边到结点序偶/两元素集合的函数

@@ -1,5 +1,5 @@
 ---
-title: "数论: 质数筛法"
+title: "质数筛法"
 summary: "讲解埃氏筛与欧拉筛两种质数筛法的原理、实现及时间复杂度"
 categories: [Algorithm, Math]
 tags: [algorithm, math]

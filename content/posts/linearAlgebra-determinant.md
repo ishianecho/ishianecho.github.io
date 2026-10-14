@@ -1,12 +1,10 @@
 ---
-title: "线性代数: 行列式"
+title: "行列式"
 summary: "介绍行列式的结论与特殊行列式、消零等运算技巧"
 date: 2024-05-14
-categories: [SE Courses, Linear Algebra]
+categories: [CS Fundamentals, Linear Algebra]
 tags: [math]
 ---
-# 行列式
-
 ## 结论
 
 - $|A^T|=|A|$

@@ -1,12 +1,10 @@
 ---
-title: "统计学习: SVM（支持向量机）"
+title: "SVM(支持向量机)"
 summary: "讲解支持向量机的最大间隔分类器、软间隔与核函数原理"
 date: 2025-11-27
-categories: [SE Courses, Statistics]
+categories: [CS Fundamentals, Statistics]
 tags: [ml]
 ---
-# 支持向量机
-
 ## 超平面
 
 - 超平面就是一个式子，$\beta_0+\beta_1x_1+\dots+\beta_px_p=0$

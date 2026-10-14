@@ -2,11 +2,9 @@
 title: "模拟电路入门"
 summary: "整理模拟电路基础，涵盖电路分析方法、二极管三极管及放大电路等元件特性"
 date: 2024-05-04
-categories: [SE Courses, Circuit]
+categories: [CS Fundamentals, Circuit]
 tags: [circuit]
 ---
-# 模拟电路
-
 ## 电路分析方法
 
 ### 基本概念
@@ -52,7 +50,7 @@ tags: [circuit]
 
 **经典稳压电路**：
 
-<img src="\1.20_稳压电路.png" alt="1.20_稳压电路" style="zoom:33%;" />
+<img src="1.20_稳压电路.png" alt="1.20_稳压电路" style="zoom:33%;" />
 
 设$U_I\in[U_{\rm Imin}, U_{\rm Imax}]$，$R_L\in[R_{\rm Lmin},R_{\rm Lmax}]$，稳压二极管的击穿电压为$U_Z$，限制流入二极管的电流$I\in[I_{\rm min},I_{\rm max}]$，则$R$的选取范围为：
 
@@ -176,7 +174,7 @@ $$\begin{align}I_L=\frac{U_Z}{R_L},\ I_R=\frac{U_I-U_Z}{R},\ I=I_R-I_L,\ \theref
 
 此电路产生的波形会发生**交越失真**，因为晶体管在输入电压$0$附近会进入**死区**，导通性差，无法输出
 
-<img src="\1.21_交越失真.png" alt="1.21_交越失真" style="zoom:35%;" />
+<img src="1.21_交越失真.png" alt="1.21_交越失真" style="zoom:35%;" />
 
 引入两个二极管，使得在任意半个周期时，总有一个三极管处于良好工作状态，另一个三极管工作点略高于截止点，使两个三极管**交替地处在甲乙类状态工作，又能减少交越失真现象**
 
@@ -245,13 +243,13 @@ $$\begin{align}I_L=\frac{U_Z}{R_L},\ I_R=\frac{U_I-U_Z}{R},\ I=I_R-I_L,\ \theref
 
 **反相比例运算**：输入信号接在反相端，放大倍数为负数
 
-<img src="\1.11_反相比例.png" alt="1.11_反相比例" style="zoom: 25%;" />
+<img src="1.11_反相比例.png" alt="1.11_反相比例" style="zoom: 25%;" />
 
 $$\begin{align}V_-=\frac{R_F}{R_1+R_F}u_{\rm i}+\frac{R_1}{R_1+R_F}u_{\rm o}=V_+=0\Rightarrow A_{uf}=-\frac{R_F}{R_1}\end{align}$$
 
 **同相比例运算**：输入信号接在同相端，放大倍数一定$\ge1$
 
-<img src="\1.12_同相比例.png" alt="1.12_同相比例" style="zoom:45%;" />
+<img src="1.12_同相比例.png" alt="1.12_同相比例" style="zoom:45%;" />
 
 $$\begin{align}V_-=\frac{R_1}{R_1+R_F}u_{\rm o}=V_+=u_{\rm i}\Rightarrow A_{uf}=1+\frac{R_F}{R_1}=\frac{R_F}{R_2}\end{align}$$
 
@@ -261,19 +259,19 @@ $$\begin{align}V_-=\frac{R_1}{R_1+R_F}u_{\rm o}=V_+=u_{\rm i}\Rightarrow A_{uf}=
 
 **反相加法**：
 
-<img src="\1.13_反相加法.png" alt="1.13_反相加法" style="zoom:25%;" />
+<img src="1.13_反相加法.png" alt="1.13_反相加法" style="zoom:25%;" />
 
 $$\begin{align}&V_+=0=V_-=\\&\frac{(R_2//R_3//R_f)u_{\rm i1}}{R_1+R_2//R_3//R_f}+\frac{(R_1//R_3//R_f)u_{\rm i2}}{R_2+R_1//R_3//R_f}+\frac{(R_1//R_2//R_f)u_{\rm i3}}{R_3+R_1//R_2//R_f}+\frac{(R_1//R_2//R_3)u_{\rm o}}{R_f+R_1//R_2//R_3}\\&在此图中,R_1//R_2//R_3//R_f=0,但假设同相端有电阻R_+,则R_1//R_2//R_3//R_f=R_+\\&解得:u_{\rm o}=(-\frac{R_+}{R_1}u_{\rm i1}-\frac{R_+}{R_2}u_{\rm i2}-\frac{R_+}{R_3}u_{\rm i3})\frac{R_f}{R_+}=-(\frac{R_f}{R_1}u_{\rm i1}+\frac{R_f}{R_2}u_{\rm i2}+\frac{R_f}{R_3}u_{\rm i3})\end{align}$$
 
 **同相加法**：
 
-<img src="\1.14_同相加法.png" alt="1.14_同相加法" style="zoom:35%;" />
+<img src="1.14_同相加法.png" alt="1.14_同相加法" style="zoom:35%;" />
 
 易得，$$\begin{align}u_{\rm o}=\frac{R_F}{R_{\rm i1}}u_{\rm i1}+\frac{R_F}{R_{\rm i2}}u_{\rm i2}\end{align}$$
 
 **减法运算**：
 
-<img src="\1.15_减法运放.png" alt="1.15_减法运放" style="zoom:35%;" />
+<img src="1.15_减法运放.png" alt="1.15_减法运放" style="zoom:35%;" />
 
 易得，$$\begin{align}u_{\rm o}=\frac{R_F}{R_2}u_{\rm i2}-\frac{R_F}{R_1}u_{\rm i1}\end{align}$$
 
@@ -283,7 +281,7 @@ $$\begin{align}&V_+=0=V_-=\\&\frac{(R_2//R_3//R_f)u_{\rm i1}}{R_1+R_2//R_3//R_f}
 
 **积分运算**：
 
-<img src="\1.17_积分运放.png" alt="1.17积分运放" style="zoom:45%;" />
+<img src="1.17_积分运放.png" alt="1.17积分运放" style="zoom:45%;" />
 
 常见反相积分运算电路，反馈元件是一个电容
 
@@ -295,7 +293,7 @@ $V_+=0=V_-=u_{\rm o}-u_{\rm c}$
 
 **微分运算**：
 
-<img src="\1.18_微分运算.png" alt="1.18_微分运算" style="zoom:25%;" />
+<img src="1.18_微分运算.png" alt="1.18_微分运算" style="zoom:25%;" />
 
 微分运放中，反馈元件仍是电阻，但输入端由电阻变为电容
 
@@ -311,7 +309,7 @@ $V_+=0=V_-=u_{\rm o}-u_{\rm c}$
 
 但不加反馈的电压比较器的门限值不变，这使得输入电压在门限值处反复跳变时，输出电压不准确，故引入正反馈，使其成为**滞回比较器**：
 
-<img src="\1.16_滞回比较器.png" alt="1.16_滞回比较器" style="zoom:25%;" />
+<img src="1.16_滞回比较器.png" alt="1.16_滞回比较器" style="zoom:25%;" />
 
 只满足虚拟断路，$$\begin{align}&u_+=\frac{R_1}{R_1+R_2}u_{\rm o},u_-=u_{\rm i}\\&当u_{\rm i}进行从小于u_+到大于u_+的转变时,u_{\rm o}由+U_{\rm o(sat)}变为-U_{\rm o(sat)},门限值突变为-u_+\end{align}$$
 
@@ -323,7 +321,7 @@ $V_+=0=V_-=u_{\rm o}-u_{\rm c}$
 
 滤波电路分为低通、高通、带通、带阻，以下为低通滤波器：
 
-<img src="\1.19_低通滤波.png" alt="1.19_低通滤波" style="zoom:35%;" />
+<img src="1.19_低通滤波.png" alt="1.19_低通滤波" style="zoom:35%;" />
 
 由于电容支路的电流相位超前$u_{\rm i}90$度，所以引入复数$j$来**表示相位运算**，复数$j$只表示相位关系，在具体求值时使用其**模长**
 

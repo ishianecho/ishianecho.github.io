@@ -5,8 +5,6 @@ date: 2024-05-03
 categories: [Games]
 tags: [circuit]
 ---
-# `OVERTRUE`
-
 `OVERTRUE`是最简单的图灵完备的处理器，即能够读取指令、分情况进行计算或跳转或转移数据，接下来从基础逻辑门开始搭建该架构
 
 ## 基础逻辑电路

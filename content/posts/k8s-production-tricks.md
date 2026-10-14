@@ -1,14 +1,10 @@
 ---
-title: "Kubernetes: 生产级配置技巧"
+title: "生产级配置技巧"
 summary: "总结 Kubernetes 生产环境的优雅停机、探针调优、HPA 冲突等配置技巧"
 date: 2026-08-16T00:00:00.000Z
-categories: [Tools & Utilities, Container, Kubernetes]
+categories: [Infra, Container, Kubernetes]
 tags: [devops]
 ---
-
-
-# 生产级配置技巧
-
 以下都是生产环境中的普遍做法(见 `Kubernetes` 一文的「`Charts` 实践」)，多数解决的是文档不会明说、但线上一定会踩的坑
 
 ## 优雅停机
@@ -41,7 +37,7 @@ tags: [devops]
 
 ## 配置变更也触发滚动重启
 
-- 滚动更新只比较 `Pod` 模板哈希，若仅改了环境变量之外的间接配置(如依赖的配置中心)，`helm upgrade` 后 `Pod` 不会重建，容易造成“升级了但没生效”
+- 滚动更新只比较 `Pod` 模板哈希，若仅改了环境变量之外的间接配置(如依赖的配置中心)，`helm upgrade` 后 `Pod` 不会重建，容易造成"升级了但没生效"
 - 解决方式是注入一个**每次渲染都变化的随机注解**，强制每次发布都滚动重启
 
   ```yaml

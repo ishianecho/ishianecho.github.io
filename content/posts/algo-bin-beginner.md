@@ -1,5 +1,5 @@
 ---
-title: "位运算: 基本知识"
+title: "基本知识"
 summary: "整理位运算的基础知识，包括常用内建函数、与或异或运算性质及常用技巧"
 categories: [Algorithm, Trick]
 tags: [algorithm]

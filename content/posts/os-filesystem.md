@@ -1,8 +1,8 @@
 ---
-title: "操作系统: 文件系统"
+title: "文件系统"
 summary: "介绍操作系统文件的结构、访问模式、目录结构与文件系统设计"
 date: 2025-06-10
-categories: [SE Courses, OS]
+categories: [CS Fundamentals, OS]
 tags: [cs]
 ---
 - 文件是操作系统在外部持久性存储设备上存储信息的基本单位

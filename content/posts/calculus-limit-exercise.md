@@ -1,12 +1,10 @@
 ---
-title: "微积分: 极限练习题"
+title: "极限练习题"
 summary: "极限练习题集，讲解数列极限存在性证明与极限不存在的判定方法"
 date: 2023-11-05
-categories: [SE Courses, Calculus]
+categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-# 极限
-
 ## 证明数列极限存在
 
 应当利用单调有界收敛原理

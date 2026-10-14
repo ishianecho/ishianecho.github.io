@@ -1,12 +1,10 @@
 ---
-title: "统计学习: 无监督学习"
+title: "无监督学习"
 summary: "介绍无监督学习方法：主成分分析降维及K均值与系统聚类"
 date: 2025-11-28
-categories: [SE Courses, Statistics]
+categories: [CS Fundamentals, Statistics]
 tags: [ml]
 ---
-# 无监督学习
-
 ## 主成分分析
 
 - 主成分分析和主成分回归的第一步很像，使样本矩阵乘上载荷矩阵，载荷矩阵是$p\times M$的矩阵，使共$p$个特征降维为$M$个特征，只不过无法通过交叉验证估计测试误差，也无法选择$M$

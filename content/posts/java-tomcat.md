@@ -1,5 +1,5 @@
 ---
-title: "Java EE: Tomcat"
+title: "Tomcat"
 summary: "介绍 Tomcat 结构、web.xml 与注解映射及内嵌 Tomcat 的用法"
 date: 2025-07-08
 categories: [Programming, Java, Java EE]

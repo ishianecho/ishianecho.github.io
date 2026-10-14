@@ -1,12 +1,10 @@
 ---
-title: "MATLAB: 基本语法"
+title: "基本语法"
 summary: "介绍 MATLAB 基本语法、常用命令与向量矩阵算术操作"
 date: 2024-11-14
 categories: [Programming, MATLAB]
 tags: [math]
 ---
-# `MATLAB`基本语法及矩阵算术操作
-
 ## 基本语法
 
 ### 数据类型

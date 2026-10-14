@@ -1,28 +1,25 @@
 ---
-title: 'Docker-Compose: 容器部署'
+title: '容器部署'
 summary: "讲解docker-compose.yml的常用配置项及使用Compose进行多容器部署的方法"
-categories: [Tools & Utilities, 3P Tools, Docker]
+categories: [Infra, Container, Docker]
 tags: [devops]
 date: 2025-06-17T16:36:12.000Z
 ---
-
-# `Docker-Compose`
-
 ## `docker-compose.yml`
 
 - `docker-compose.yml`是唯一的必需文件
 - `version`：`docker-compose`版本声明
 - `services`：服务定义
-- `networks`：网络定义（可选）
-- `volumes`：卷定义（可选）
-- `configs`：配置定义（可选）
-- `secrets`：密钥定义（可选）
+- `networks`：网络定义(可选)
+- `volumes`：卷定义(可选)
+- `configs`：配置定义(可选)
+- `secrets`：密钥定义(可选)
 
 ### `services`配置
 
 - 子字段均是自定义的服务名称
 - 自定义的服务名称下是主要需要配置的
-- `image`：镜像名+标签（默认为`latest`），也可使用私有仓库的镜像
+- `image`：镜像名+标签(默认为`latest`)，也可使用私有仓库的镜像
 
   `alpine`标签通常是及其轻便的，适用于容器化部署
 
@@ -35,7 +32,7 @@ date: 2025-06-17T16:36:12.000Z
 - 通用配置：
   - `container_name`：容器名
   - `hostname`：主机名
-  - `ports`：端口映射，是一个数组（`宿主机port:容器port`）
+  - `ports`：端口映射，是一个数组(`宿主机port:容器port`)
   - `working_dir`：工作目录
   - `depends_on`：依赖其它服务，是一个数组
   - `networks`：自定义网络引用，是一个数组
@@ -46,7 +43,7 @@ date: 2025-06-17T16:36:12.000Z
   - `restart`：重启策略，包括`"no"`、`always`、`on-failure`、`unless-stopped`
   - `user`：指定运行的用户和用户组
   - `group_add`：附加额外的用户组，是一个数组
-  - `logging`：日志分割配置时，需要主动覆盖，设置`logging.driver`为`json-file`并设置`logging.options.max-size`（每个文件最大大小）和`max-file`（最多保留文件个数）
+  - `logging`：日志分割配置时，需要主动覆盖，设置`logging.driver`为`json-file`并设置`logging.options.max-size`(每个文件最大大小)和`max-file`(最多保留文件个数)
 
 ### `networks`配置
 

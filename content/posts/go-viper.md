@@ -1,13 +1,10 @@
 ---
-title: 'Go: Viper配置管理'
+title: 'Viper配置管理'
 summary: "介绍 Viper 的配置优先级、读取与访问配置及动态监控配置变化"
 categories: [Programming, Go, 3P Framework, Viper]
 tags: [go]
 date: 2025-12-27T14:58:39.000Z
 ---
-
-# `Viper`配置管理
-
 ## 配置优先级
 
 - `Viper.Set()`设置的值

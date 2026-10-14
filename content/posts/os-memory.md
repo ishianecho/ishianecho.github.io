@@ -1,8 +1,8 @@
 ---
-title: "操作系统: 内存管理"
+title: "内存管理"
 summary: "整理操作系统内存管理：地址绑定、连续分配与页式、段式、段页式管理及虚存保护"
 date: 2025-06-03
-categories: [SE Courses, OS]
+categories: [CS Fundamentals, OS]
 tags: [cs]
 ---
 ### 主存管理

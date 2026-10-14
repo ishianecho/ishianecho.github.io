@@ -1,12 +1,10 @@
 ---
-title: "统计学习: 树型模型"
+title: "树型模型"
 summary: "介绍回归树与分类树的建树剪枝方法及装袋、随机森林、提升等集成模型"
 date: 2025-11-25
-categories: [SE Courses, Statistics]
+categories: [CS Fundamentals, Statistics]
 tags: [ml]
 ---
-# 树模型
-
 ## 决策树
 
 ### 树方法的特点

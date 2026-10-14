@@ -1,12 +1,10 @@
 ---
-title: "Java: 基本语法"
+title: "基本语法"
 summary: "介绍 Java 包管理、修饰符、关键字与标识符声明等基本语法"
 date: 2025-03-04
 categories: [Programming, Java, Java SE]
 tags: [java]
 ---
-# `Java`基本语法
-
 ## 包管理
 
 ### 包的声明

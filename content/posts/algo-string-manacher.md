@@ -1,5 +1,5 @@
 ---
-title: "字符串算法: 马拉车（manacher）回文串统计"
+title: "马拉车(manacher)回文串统计"
 summary: "给出Manacher算法求最长回文子串的完整代码实现"
 categories: [Algorithm, String Algo]
 tags: [algorithm]
