@@ -7,16 +7,14 @@ tags: [linux, wayland, graphics]
 ---
 ## Overview
 
+- 参考文档：[Arch Wiki — Wayland](https://wiki.archlinux.org/title/Wayland)
 - `Linux` 桌面把"画面如何到屏幕"拆成了两层：**显示协议**定义应用与显示服务端如何对话，**图形栈**负责渲染与上屏：
 
-  ```text
-  应用(浏览器/游戏/Android 容器...)
-      ↓ Wayland 协议 / X11 协议
-  合成器(显示服务端：mutter / KWin / Hyprland / sway ...)
-      ↓ EGL / Vulkan
-  Mesa / NVIDIA 驱动
-      ↓ DRM/KMS
-  屏幕
+  ```mermaid
+  flowchart TD
+      A["应用(浏览器/游戏/Android 容器...)"] -->|"Wayland 协议 / X11 协议"| B["合成器(显示服务端：mutter / KWin / Hyprland / sway ...)"]
+      B -->|"EGL / Vulkan"| C["Mesa / NVIDIA 驱动"]
+      C -->|"DRM/KMS"| D["屏幕"]
   ```
 
 - `X11` 是服役近四十年的老协议，`Wayland` 是现代替代者；如今主流发行版默认会话都是 `Wayland`，但两者仍长期共存

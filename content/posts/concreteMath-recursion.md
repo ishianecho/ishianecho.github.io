@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 递归问题分析
 
+- 参考文档：[Recursion](https://en.wikipedia.org/wiki/Recursion)
+
 ### 递归函数定义
 
 - 递归被用于**定义数学函数**或**归纳证明**

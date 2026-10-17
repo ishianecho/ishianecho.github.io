@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## Overview
 
+- 参考文档：[Euclidean vector](https://en.wikipedia.org/wiki/Euclidean_vector)
+
 ### 向量的线性表示
 
 在右手空间直角坐标系中，向量可表示为$\vec a=a_1\vec i+a_2\vec j+a_3\vec k$或$\vec a=(a_1,a_2,a_3)$
@@ -21,11 +23,16 @@ tags: [math]
 - 点乘(数量积)：$\vec a·\vec b=|\vec a||\vec b|·\cos\theta=a_1b_1+a_2b_2+a_3b_3$，点乘满足交换、数乘结合、分配律
 - 平行：线性表示为$$\begin{align}&\vec a//\vec b\iff \frac{a_1}{b_1}=\frac{a_2}{b_2}=\frac{a_3}{b_3}\end{align}$$，即叉乘的模长等于$0$，由行列式知识可知，平行时两向量各坐标值成比例
 - 垂直：线性表示为$\vec a\perp\vec b\iff a_1b_1+a_2b_2+a_3b_3=0$，即点乘等于$0$
-- 夹角：由点乘，$$\begin{align}\cos \theta=\frac{\vec a·\vec b}{|\vec a||\vec b|}\end{align}$$。一个向量的三个方向余弦$\cos^2\theta_1+\cos^2\theta_2+\cos^2\theta_3=1$
+- 夹角：由点乘，$$\begin{align}\cos \theta=\frac{\vec a·\vec b}{|\vec a||\vec b|}\end{align}$$
+  一个向量的三个方向余弦$\cos^2\theta_1+\cos^2\theta_2+\cos^2\theta_3=1$
 - 单位向量：$$\begin{align}\vec e_{\vec a}=\frac{\vec a}{|\vec a|}\end{align}$$，方向余弦$$\begin{align}\cos\theta_{x,y,z}=\frac{\vec a_{x,y,z}}{|\vec a_{x,y,z}|}\end{align}$$
 - 投影：$\vec a$在$\vec b$上的投影为$$\begin{align}(\vec a)_{\vec b}=|\vec a|\cos\theta\end{align}$$，投影向量为$$\begin{align}(\vec a)_{\vec b}\frac{\vec b}{|\vec b|}\end{align}$$
-- 叉乘(向量积)：方向为右手四指从$\vec a$到$\vec b$握后大拇指的方向，模长为$|\vec a||\vec b|\sin\theta$。叉乘满足分配、数乘结合律，交换后结果方向相反。可以视$\vec a\times\vec b$为三阶行列式$\left|\begin{matrix}\vec i&\vec j&\vec k\\a_1&a_2&a_3\\b_1&b_2&b_3\end{matrix}\right|$，整理后的线性表示为按第一行展开的结果，即$\vec a\times\vec b=(\left|\begin{matrix}a_2&a_3\\b_2&b_3\end{matrix}\right|,\ \left|\begin{matrix}a_1&a_3\\b_1&b_3\end{matrix}\right|,\ \left|\begin{matrix}a_1&a_2\\b_1&b_2\end{matrix}\right|)$，两个向量的叉乘的模长等于**平行四边形的面积**
-- 混合积：称$(\vec a,\ \vec b,\ \vec c)$为$(\vec a\times\vec b)·\vec c$或$\vec a·(\vec b\times\vec c)$，叉乘运算必然优先。可表示为三阶行列式$\left|\begin{matrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{matrix}\right|$，由行列式性质得它等于偶数次交换行/列，或转置后的结果。混合积的几何意义为它的绝对值等于**平行六面体的体积**
+- 叉乘(向量积)：方向为右手四指从$\vec a$到$\vec b$握后大拇指的方向，模长为$|\vec a||\vec b|\sin\theta$
+  叉乘满足分配、数乘结合律，交换后结果方向相反
+  可以视$\vec a\times\vec b$为三阶行列式$\left|\begin{matrix}\vec i&\vec j&\vec k\\a_1&a_2&a_3\\b_1&b_2&b_3\end{matrix}\right|$，整理后的线性表示为按第一行展开的结果，即$\vec a\times\vec b=(\left|\begin{matrix}a_2&a_3\\b_2&b_3\end{matrix}\right|,\ \left|\begin{matrix}a_1&a_3\\b_1&b_3\end{matrix}\right|,\ \left|\begin{matrix}a_1&a_2\\b_1&b_2\end{matrix}\right|)$，两个向量的叉乘的模长等于**平行四边形的面积**
+- 混合积：称$(\vec a,\ \vec b,\ \vec c)$为$(\vec a\times\vec b)·\vec c$或$\vec a·(\vec b\times\vec c)$，叉乘运算必然优先
+  可表示为三阶行列式$\left|\begin{matrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{matrix}\right|$，由行列式性质得它等于偶数次交换行/列，或转置后的结果
+  混合积的几何意义为它的绝对值等于**平行六面体的体积**
 - 自乘：$\vec a·\vec a=|\vec a|^2,\ \vec a\times\vec a=\vec0$
 - 若$\vec a\sdot\vec b=0$，则两向量垂直；若$\vec a\times\vec b=0$，则两向量平行；若$(\vec a,\ \vec b,\ \vec c)=0$，则三向量共面
 

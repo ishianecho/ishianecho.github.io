@@ -7,6 +7,7 @@ tags: [java]
 ---
 ## 简介
 
+- 参考文档：[Jakarta Bean Validation Specification](https://jakarta.ee/specifications/bean-validation/)
 - `Bean Validation`有多套标准，最早是`JSR 303`的`Bean Validation 1.0`，现今流行的是`Java EE 8`的`Bean Validation 2.0`，即`JSR 380`标准
 - `Bean Validation`通过注解作用于属性字段上，在运行时进行验证
 

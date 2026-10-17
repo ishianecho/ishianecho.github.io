@@ -7,6 +7,8 @@ date: 2025-12-25T11:39:18.000Z
 ---
 ## `net/http`
 
+- 参考文档：[pkg.go.dev — net/http](https://pkg.go.dev/net/http)
+
 ### 服务端
 
 - `http.Server`结构体的常用配置项：

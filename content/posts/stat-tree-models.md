@@ -7,6 +7,8 @@ tags: [ml]
 ---
 ## 决策树
 
+- 参考文档：[Decision tree learning](https://en.wikipedia.org/wiki/Decision_tree_learning)
+
 ### 树方法的特点
 
 - 解释性强，方法简单

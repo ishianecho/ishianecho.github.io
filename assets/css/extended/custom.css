@@ -40,6 +40,12 @@ pre,
   border-radius: 0 0 6px 6px;
 }
 
+.md-content .codeblock .highlight pre code,
+.md-content .codeblock pre code {
+  color: #000000 !important;
+  background: transparent !important;
+}
+
 pre.mermaid {
   background: #ffffff;
   display: flex;

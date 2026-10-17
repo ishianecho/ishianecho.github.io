@@ -9,6 +9,8 @@ tags: [linux]
 
 ## `root`用户
 
+- 参考文档：[Arch Wiki — File systems](https://wiki.archlinux.org/title/File_systems)
+
 区别于`Windows`系统的`Administrator`用户和更复杂的权限机制，在`Linux`中，`root`(超级管理员用户)具有最高的权限，可以调度系统的所有东西，结构上十分简单，但使用时更需慎重
 
 默认情况下，`root`用户是锁定的，如果需要暂时使用`root`的权限：

@@ -7,6 +7,7 @@ tags: [ml]
 ---
 ### 全连接层
 
+- 参考文档：[Wikipedia — Feedforward neural network](https://en.wikipedia.org/wiki/Feedforward_neural_network)
 - 全连接层指本层的**每一个结点**都和上一层的**所有结点相连接**
 
 - 全连接层适合处理**特征数量较少**的**全局特征数据**，要求各条样本之间**不含空间或时间上的相关性**

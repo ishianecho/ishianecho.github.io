@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 多元函数极限
 
+- 参考文档：[Partial derivative](https://en.wikipedia.org/wiki/Partial_derivative)
+
 ### 判别方法
 
 多元函数的极限考虑一组自变量同时趋近一组常量，体现在二元函数上，是一个**二重极限**

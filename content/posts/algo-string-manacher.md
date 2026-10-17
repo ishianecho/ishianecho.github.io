@@ -5,6 +5,8 @@ categories: [Algorithm, String Algo]
 tags: [algorithm]
 date: 2025-04-26
 ---
+- 参考文档：[Longest palindromic substring](https://en.wikipedia.org/wiki/Longest_palindromic_substring)、[OI Wiki：Manacher](https://oi-wiki.org/string/manacher/)
+
 ```c++
 #include <bits/stdc++.h>
 using namespace std;

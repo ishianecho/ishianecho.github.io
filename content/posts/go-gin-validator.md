@@ -7,6 +7,8 @@ date: 2025-12-27T22:31:56.000Z
 ---
 ## 标签
 
+- 参考文档：[Gin Web Framework — Documentation](https://gin-gonic.com/docs/)
+
 ### 语法介绍
 
 - `gin`框架依赖于`validator`，`validator`是基于结构体标签和反射进行数据校验的框架

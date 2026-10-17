@@ -7,6 +7,8 @@ tags: [cs]
 ---
 ## 数据的表示与存储
 
+- 参考文档：[Arithmetic logic unit](https://en.wikipedia.org/wiki/Arithmetic_logic_unit)
+
 ### 计算机码
 
 - 真值：符合人类习惯的十进制数字；机器数：数字化后的以机器码存储的数字；常用$8421\ \rm BCD$有权码

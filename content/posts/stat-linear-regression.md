@@ -7,6 +7,8 @@ tags: [ml]
 ---
 ## 简单线性回归
 
+- 参考文档：[Linear regression](https://en.wikipedia.org/wiki/Linear_regression)
+
 ### 最小二乘法
 
 - 线性回归是监督学习模型，假设所有预测变量和响应变量具有线性关系

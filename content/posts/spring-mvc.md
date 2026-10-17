@@ -7,6 +7,7 @@ tags: [java]
 ---
 ## `MVC`架构模式与前端控制器设计模式
 
+- 参考文档：[Spring Framework Reference](https://docs.spring.io/spring-framework/reference/)
 - `MVC`(`Model-View-Controller`，模型-视图-控制器)是网页应用中最常见的架构
   - 模型用于存储数据与负责业务逻辑
   - 视图用于显示与渲染数据

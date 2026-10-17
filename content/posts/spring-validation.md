@@ -7,6 +7,8 @@ tags: [java]
 ---
 ## `org.springframework.validation`
 
+- 参考文档：[Spring Framework Reference](https://docs.spring.io/spring-framework/reference/)
+
 ### 介绍
 
 - `Spring Validation`是原生的`API`，不依赖任何外部框架或规范

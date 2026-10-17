@@ -7,6 +7,8 @@ tags: [python]
 ---
 ### `pandas`介绍
 
+- 参考文档：[pandas documentation](https://pandas.pydata.org/docs/)
+
 - `pandas`名字来源于`panel datas`，即面板数据
 - `pandas`主要用于数据分析及数据处理
 - `pandas`最常用的两种数据结构是`Series`和`DataFrame`

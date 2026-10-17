@@ -7,6 +7,8 @@ date: 2026-04-10T15:41:31.000Z
 ---
 ## `K8s CronJob`
 
+- 参考文档：[Kubernetes — CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+
 - `k8s`的基础能力较强，通过`k8s`的`CronJob`，可以实现稳定可靠的定时任务，`Go`的实现也较为简单
 - 使用`k8s`适用于大部分没有复杂依赖的定时任务，包括数据库定时更新、日志转储、消息定时推送等
 - 可以在`Go`中进行简单的抽象，实现使用一个容器负责所有任务的定时执行，通过类似`profile`以及`expr`区分不同任务的执行时机

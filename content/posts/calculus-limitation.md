@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## [注意]关于极限
 
+- 参考文档：[Limit (mathematics)](https://en.wikipedia.org/wiki/Limit_(mathematics))
+
 1. $$\begin{align}x\rightarrow 0时,\cos \frac{1}{x},\sin \frac{1}{x}都为有界量,和x相乘等于无穷小\end{align}$$
 2. $$\begin{align}合理利用换元,如求\lim_{x\rightarrow 0}(\frac{x}{x+1})^x可令t=x+1\end{align}$$
 3. 合理利用夹逼定理，如求多项式极限时，有时也会用到定积分

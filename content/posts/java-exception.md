@@ -7,6 +7,8 @@ tags: [java]
 ---
 ## `Java`异常处理
 
+- 参考文档：[Java SE 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
+
 ### 异常的分类
 
 - 所有异常分为受检异常、非受检异常、错误

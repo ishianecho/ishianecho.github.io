@@ -7,6 +7,8 @@ tags: [python, tools]
 ---
 ### 前置命令行工具知识
 
+- 参考文档：[Python — argparse](https://docs.python.org/3/library/argparse.html)
+
 - `argparse`是用于开发命令行工具接口的库，通过内建的解析器来解析自定义的命令行参数
   相比于`optparse`(`py2.7`后被`argparse`替代，并不再维护)，接口功能更强，但灵活性略低
   关于`getopt`，它是基于`C`的`getopt()`函数族(通常可以在`Linux`看到)实现的一套很底层的接口，比较难用(对比`optparse`接口功能更加单一，需要手动实现复杂功能)

@@ -7,6 +7,8 @@ tags: [ml]
 ---
 ## 前馈神经网络基本原理
 
+- 参考文档：[Wikipedia — Artificial neural network](https://en.wikipedia.org/wiki/Artificial_neural_network)
+
 ### 基本结构
 
 - 神经网络是深度学习最主要的实现手段，它包含**多个神经网络层**，每一层包含若干**神经元**

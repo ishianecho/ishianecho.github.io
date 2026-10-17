@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 和式
 
+- 参考文档：[Summation](https://en.wikipedia.org/wiki/Summation)
+
 ### 表达方式
 
 - 一般形式：$$\begin{align}\sum_{\rho(k)}a_k\end{align}$$，用于简略描述和式，方便推导和理解

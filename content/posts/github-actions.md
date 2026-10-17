@@ -7,6 +7,7 @@ date: 2026-08-14
 ---
 ## `GitHub Actions`、`Workflow`与`CI/CD`
 
+- 参考文档：[GitHub Actions Documentation](https://docs.github.com/en/actions)
 - `GitHub Actions`是`GitHub`提供的自动化平台，可以在代码仓库中自动执行测试、构建、发布和部署等任务
 - `CI`(`Continuous Integration`，持续集成)主要解决"代码提交后自动检查"的问题，例如安装依赖、代码检查、单元测试和构建
 - `CD`通常有两种含义：持续交付(`Continuous Delivery`)和持续部署(`Continuous Deployment`)
@@ -16,26 +17,27 @@ date: 2026-08-14
 - `Action`是一个可复用的步骤，例如`actions/checkout`用于检出代码、`actions/setup-node`用于安装`Node.js`
 - `Runner`是实际执行任务的机器，可以使用`GitHub-hosted runner`，也可以配置自己的`self-hosted runner`
 
-官方文档入口：[GitHub Actions官方文档](https://docs.github.com/en/actions)。
+官方文档入口：[GitHub Actions官方文档](https://docs.github.com/en/actions)
 
 一条常见的流水线可以抽象成下面的关系：
 
-```text
-事件(push / pull_request)
-          ↓
-Workflow(完整流程)
-          ↓
-Jobs(相互独立的任务，默认并行)
-          ↓
-Steps(任务中的步骤，按顺序执行)
-          ↓
-Runner(执行命令的机器)
+```mermaid
+flowchart TD
+    E["事件(push / pull_request)"] --> W["Workflow(完整流程)"]
+    W --> J["Jobs(相互独立的任务，默认并行)"]
+    J --> S["Steps(任务中的步骤，按顺序执行)"]
+    S --> R["Runner(执行命令的机器)"]
 ```
 
 例如，开发者向`main`分支提交代码后，工作流可以自动完成：
 
-```text
-检出代码 → 安装运行环境 → 安装依赖 → 检查与测试 → 构建产物 → 部署
+```mermaid
+flowchart LR
+    A["检出代码"] --> B["安装运行环境"]
+    B --> C["安装依赖"]
+    C --> D["检查与测试"]
+    D --> E["构建产物"]
+    E --> F["部署"]
 ```
 
 ## `Workflow`示例
@@ -91,7 +93,9 @@ jobs:
 - `matrix`会为三个`Node.js`版本分别创建一个任务
 - 同一个`job`中的`steps`按顺序执行；不同的矩阵任务默认并行执行
 
-示例中的`actions/checkout@v4`和`actions/setup-node@v4`是可复用的现成`Action`。版本标签会随着维护者发布新版本而变化，生产流水线可以进一步将`uses`固定到经过审查的提交`SHA`，避免标签被移动后执行到未经预期的代码。
+示例中的`actions/checkout@v4`和`actions/setup-node@v4`是可复用的现成`Action`
+
+版本标签会随着维护者发布新版本而变化，生产流水线可以进一步将`uses`固定到经过审查的提交`SHA`，避免标签被移动后执行到未经预期的代码
 
 ## `Workflow`文件的基本语法
 
@@ -131,7 +135,8 @@ jobs:
         types: [opened, synchronize, reopened]
     ```
 
-  - `pull_request`的目标分支过滤写在`branches`中；它与提交者推送代码的源分支不是同一个概念。对于来自外部贡献者的`Pull Request`，不要为了读取密钥而随意改用`pull_request_target`，否则不可信代码可能获得仓库权限。
+  - `pull_request`的目标分支过滤写在`branches`中；它与提交者推送代码的源分支不是同一个概念
+  - 对于来自外部贡献者的`Pull Request`，不要为了读取密钥而随意改用`pull_request_target`，否则不可信代码可能获得仓库权限
 
 - **`jobs`**：任务
   - **`runs-on`**：选择执行环境，例如`ubuntu-latest`、`windows-latest`、`macos-latest`
@@ -179,7 +184,7 @@ jobs:
           - run: echo "Deploy ${{ needs.build.outputs.artifact-version }}"
     ```
 
-  - 如果多个任务都依赖`build`，它们在`build`完成后可以并行；只有明确写出`needs`，才会形成串行关系。
+  - 如果多个任务都依赖`build`，它们在`build`完成后可以并行；只有明确写出`needs`，才会形成串行关系
 
 - **`steps`**：步骤
   - **`name`**：步骤在任务日志中的显示名称
@@ -219,11 +224,14 @@ jobs:
         run: npm test
     ```
 
-  - `run`会在`Runner`的操作系统上执行命令，默认情况下同一个任务中的步骤共享工作目录。`uses`调用一个已经封装好的`Action`，`with`是传给该`Action`的输入参数。
+  - `run`会在`Runner`的操作系统上执行命令，默认情况下同一个任务中的步骤共享工作目录
+  - `uses`调用一个已经封装好的`Action`，`with`是传给该`Action`的输入参数
 
 ### 常用通用 `Action`
 
-下面这些`Action`不依赖具体业务，通常可以组合出大多数项目的`CI`流程。示例中的版本号沿用本文其他示例，实际使用时应根据对应`Action`的维护状态更新版本，并在重要流水线中考虑固定到提交`SHA`。
+下面这些`Action`不依赖具体业务，通常可以组合出大多数项目的`CI`流程
+
+示例中的版本号沿用本文其他示例，实际使用时应根据对应`Action`的维护状态更新版本，并在重要流水线中考虑固定到提交`SHA`
 
 - `actions/checkout@v4`：将仓库代码检出到`Runner`的工作目录
   - **`ref`**：指定要检出的分支、标签或提交
@@ -278,9 +286,11 @@ jobs:
 
 ## 自定义 actions
 
-自定义 Action 用于把重复步骤封装成一个可复用单元。下面以 `composite` Action 为例，示例不依赖具体仓库或业务。
+自定义 Action 用于把重复步骤封装成一个可复用单元
 
-- 目录：在 `.github/actions/<name>/action.yml` 或 `action.yaml` 中定义，Workflow 通过相对路径调用。
+下面以 `composite` Action 为例，示例不依赖具体仓库或业务
+
+- 目录：在 `.github/actions/<name>/action.yml` 或 `action.yaml` 中定义，Workflow 通过相对路径调用
 
   ```text
   .github/
@@ -331,7 +341,7 @@ jobs:
           corepack install
   ```
 
-- **`shell`**：composite Action 中的 `run` 步骤显式设置 Shell，否则元数据文件校验会失败。
+- **`shell`**：composite Action 中的 `run` 步骤显式设置 Shell，否则元数据文件校验会失败
 
   ```yaml
   steps:
@@ -342,7 +352,7 @@ jobs:
         version-file-path: ${{ github.workspace }}/example-site
   ```
 
-- `gh workflow run`：自定义 Action 可以把另一个 Workflow 当作子流程调用，并用 `-F` 传入它的 `workflow_dispatch.inputs`。
+- `gh workflow run`：自定义 Action 可以把另一个 Workflow 当作子流程调用，并用 `-F` 传入它的 `workflow_dispatch.inputs`
 
   ```bash
   gh auth login --with-token <<< "$GITHUB_TOKEN"
@@ -352,7 +362,7 @@ jobs:
     -F create-zone=false
   ```
 
-- `build-images`：先记录 Runner 是否已有 Java；没有时才安装，再根据 `push` 输入决定只构建还是发布镜像。
+- `build-images`：先记录 Runner 是否已有 Java；没有时才安装，再根据 `push` 输入决定只构建还是发布镜像
 
   ```yaml
   inputs:
@@ -383,7 +393,7 @@ jobs:
         run: ./gradlew :${{ inputs.project }}:bootBuildImage --publishImage --parallel -x spotlessCheck
   ```
 
-- `setup-node-if-needed`：把"检查命令是否存在、按需安装、配置缓存"封装成一个步骤。
+- `setup-node-if-needed`：把"检查命令是否存在、按需安装、配置缓存"封装成一个步骤
 
   ```yaml
   - id: nodejs-installed
@@ -408,7 +418,7 @@ jobs:
       cache: ${{ inputs.install-yarn == 'true' && 'yarn' || 'npm' }}
   ```
 
-- `deploy-job`：把完整镜像名拆成 registry、repository 和 tag，再把多行 `key=value` 转换成多个 Helm `--set` 参数。
+- `deploy-job`：把完整镜像名拆成 registry、repository 和 tag，再把多行 `key=value` 转换成多个 Helm `--set` 参数
 
   ```bash
   FULL_IMAGE="${{ inputs.image }}"
@@ -457,7 +467,9 @@ jobs:
       - run: echo "${{ github.repository }} @ ${{ github.sha }}"
 ```
 
-在`if`字段中通常可以省略`${{ }}`，但保留它更容易辨认这是工作流表达式。常用运算符和函数包括：
+在`if`字段中通常可以省略`${{ }}`，但保留它更容易辨认这是工作流表达式
+
+常用运算符和函数包括：
 
 - 比较：`==`、`!=`、`&&`、`||`
 - 字符串：`contains()`、`startsWith()`、`endsWith()`、`format()`
@@ -527,13 +539,17 @@ steps:
     run: echo "$RELEASE_CHANNEL"
 ```
 
-`GITHUB_OUTPUT`只适合传递步骤输出，不能把一个任务中的文件直接带到另一个任务。每个任务通常使用全新的`Runner`，跨任务传文件应该使用`Artifact`。
+`GITHUB_OUTPUT`只适合传递步骤输出，不能把一个任务中的文件直接带到另一个任务
+
+每个任务通常使用全新的`Runner`，跨任务传文件应该使用`Artifact`
 
 ## `Matrix`：批量执行同一类任务
 
-`Matrix`会把一个`job`展开成多个独立任务，每个任务都有自己的`Runner`、工作目录、日志和状态。它适合处理一批结构相同但参数不同的任务，不需要为每个模块、镜像或部署对象复制一份`job`。
+`Matrix`会把一个`job`展开成多个独立任务，每个任务都有自己的`Runner`、工作目录、日志和状态
 
-- **简单值矩阵**：API 工作流把多个模块拆成并行测试任务；`needs: test`的后续任务会等待所有模块测试结束。
+它适合处理一批结构相同但参数不同的任务，不需要为每个模块、镜像或部署对象复制一份`job`
+
+- **简单值矩阵**：API 工作流把多个模块拆成并行测试任务；`needs: test`的后续任务会等待所有模块测试结束
 
   ```yaml
   jobs:
@@ -553,7 +569,7 @@ steps:
         - run: ./gradlew :${{ matrix.module }}:test
   ```
 
-- **对象矩阵**：镜像构建任务把项目名和 Runner 规格放在同一行；没有指定 Runner 的项目使用默认值。
+- **对象矩阵**：镜像构建任务把项目名和 Runner 规格放在同一行；没有指定 Runner 的项目使用默认值
 
   ```yaml
   jobs:
@@ -575,7 +591,7 @@ steps:
             push: ${{ github.event_name != 'pull_request' }}
   ```
 
-- **动态矩阵**：部署上下文不是直接写死在 Workflow 中，而是先由脚本扫描目录生成 JSON，再用`fromJson()`把输出转换为矩阵。
+- **动态矩阵**：部署上下文不是直接写死在 Workflow 中，而是先由脚本扫描目录生成 JSON，再用`fromJson()`把输出转换为矩阵
 
   ```bash
   results="[]"
@@ -618,9 +634,9 @@ steps:
             context: ${{ matrix.context.context }}
   ```
 
-  这个矩阵的每一行同时携带 Kubernetes context 和 Runner 名称，因此矩阵不仅决定部署多少次，还决定每次部署连接哪个集群、使用哪类 Runner。
+  这个矩阵的每一行同时携带 Kubernetes context 和 Runner 名称，因此矩阵不仅决定部署多少次，还决定每次部署连接哪个集群、使用哪类 Runner
 
-- **`include`矩阵**：多个 CronJob 共用同一套部署步骤，只把名称、镜像和 values 文件作为每一行的参数。
+- **`include`矩阵**：多个 CronJob 共用同一套部署步骤，只把名称、镜像和 values 文件作为每一行的参数
 
   ```yaml
   jobs:
@@ -642,7 +658,7 @@ steps:
             image: ${{ matrix.image-name }}
   ```
 
-- **基础设施矩阵**：基础设施工作流把产品配置和集群配置组合起来，每个矩阵任务部署一个组件。
+- **基础设施矩阵**：基础设施工作流把产品配置和集群配置组合起来，每个矩阵任务部署一个组件
 
   ```yaml
   jobs:
@@ -673,7 +689,7 @@ steps:
               --namespace ${{ matrix.product.namespace }}
   ```
 
-- **`fail-fast`**：测试和镜像构建矩阵使用`true`，一个任务失败时尽快停止同组任务；部署矩阵使用`false`，避免一个组件失败后取消其他组件的部署。
+- **`fail-fast`**：测试和镜像构建矩阵使用`true`，一个任务失败时尽快停止同组任务；部署矩阵使用`false`，避免一个组件失败后取消其他组件的部署
 
 ## 缓存、产物与任务依赖
 
@@ -728,7 +744,9 @@ jobs:
       - run: ./deploy.sh dist
 ```
 
-部署任务不应该再次从分支检出并重新构建，而应该部署已经通过检查的构建产物。这样可以减少"测试的代码"和"实际部署的代码"不一致的可能性。
+部署任务不应该再次从分支检出并重新构建，而应该部署已经通过检查的构建产物
+
+这样可以减少"测试的代码"和"实际部署的代码"不一致的可能性
 
 ## 常见 `CI/CD` 流程
 
@@ -763,7 +781,9 @@ jobs:
       - run: npm run build
 ```
 
-如果`push`和`pull_request`都指向同一个提交，可能会产生两次运行。可以根据团队习惯只保留一种触发方式，或者使用`concurrency`取消同一分支上过时的运行：
+如果`push`和`pull_request`都指向同一个提交，可能会产生两次运行
+
+可以根据团队习惯只保留一种触发方式，或者使用`concurrency`取消同一分支上过时的运行：
 
 ```yaml
 concurrency:
@@ -819,7 +839,9 @@ jobs:
       - run: ./deploy.sh dist
 ```
 
-`environment: production`可以配合环境保护规则配置审批人、部署分支限制和环境级别的密钥。这样，`Pull Request`仍然可以执行构建和测试，但不会因为`deploy`任务存在而自动发布。
+`environment: production`可以配合环境保护规则配置审批人、部署分支限制和环境级别的密钥
+
+这样，`Pull Request`仍然可以执行构建和测试，但不会因为`deploy`任务存在而自动发布
 
 ### 发布容器镜像
 
@@ -858,22 +880,25 @@ jobs:
 
 ### Workflow 的执行顺序
 
-Workflow 中的任务由 `needs` 连接，文件中的先后顺序不决定执行顺序。以 API 部署流程为例：
+Workflow 中的任务由 `needs` 连接，文件中的先后顺序不决定执行顺序
 
-```text
-skip-workflow
-├── test
-├── push-docker
-├── build-helper-images
-├── contexts-matrix
-└── spotless-check(仅 pull_request)
+以 API 部署流程为例：
 
-test + push-docker + build-helper-images + contexts-matrix
-└── deploy-apps(非 pull_request)
-    └── notification(非 pull_request)
+```mermaid
+flowchart TD
+    S["skip-workflow"] --> T["test"]
+    S --> P["push-docker"]
+    S --> B["build-helper-images"]
+    S --> C["contexts-matrix"]
+    S --> SP["spotless-check(仅 pull_request)"]
+    T --> D["deploy-apps(非 pull_request)"]
+    P --> D
+    B --> D
+    C --> D
+    D --> N["notification(非 pull_request)"]
 ```
 
-- **`needs`**：没有依赖的任务可以并行运行；`deploy-apps` 等待测试、镜像构建和部署上下文都完成，`notification` 再等待部署完成。
+- **`needs`**：没有依赖的任务可以并行运行；`deploy-apps` 等待测试、镜像构建和部署上下文都完成，`notification` 再等待部署完成
 
   ```yaml
   jobs:
@@ -908,19 +933,31 @@ test + push-docker + build-helper-images + contexts-matrix
 
 ### `push` 与 `pull_request`
 
-合理的顺序是先准备环境，再恢复缓存，然后检查代码和测试，最后构建镜像。在这个流程里，只有 `push` 才登录镜像仓库、推送镜像和部署：
+合理的顺序是先准备环境，再恢复缓存，然后检查代码和测试，最后构建镜像
 
-```text
-pull_request:
-  checkout -> setup -> cache -> test/lint -> build(push=false)
-  -> report
+在这个流程里，只有 `push` 才登录镜像仓库、推送镜像和部署：
 
-push:
-  checkout -> setup -> cache -> test -> build(push=true)
-  -> deploy -> notification
+```mermaid
+flowchart LR
+    subgraph PR["pull_request"]
+        A1["checkout"] --> B1["setup"]
+        B1 --> C1["cache"]
+        C1 --> D1["test/lint"]
+        D1 --> E1["build(push=false)"]
+        E1 --> F1["report"]
+    end
+    subgraph PU["push"]
+        A2["checkout"] --> B2["setup"]
+        B2 --> C2["cache"]
+        C2 --> D2["test"]
+        D2 --> E2["build(push=true)"]
+        E2 --> F2["deploy"]
+        F2 --> G2["notification"]
+    end
 ```
 
-- **共同 steps**：两个事件都先检出代码、准备工具链、恢复缓存，再运行测试和静态检查。Gradle 的缓存由 `setup-gradle` 在这一步处理。
+- **共同 steps**：两个事件都先检出代码、准备工具链、恢复缓存，再运行测试和静态检查
+  Gradle 的缓存由 `setup-gradle` 在这一步处理
 
   ```yaml
   steps:
@@ -933,7 +970,7 @@ push:
     - run: ./gradlew test
   ```
 
-- **`pull_request`**：只验证和构建，不登录私有镜像仓库，不推送镜像；下面的构建和报告步骤接在共同 steps 后。
+- **`pull_request`**：只验证和构建，不登录私有镜像仓库，不推送镜像；下面的构建和报告步骤接在共同 steps 后
 
   ```yaml
   - uses: docker/build-push-action@v5
@@ -947,7 +984,7 @@ push:
       path: "**/build/reports/tests/test/"
   ```
 
-- **`push`**：共同 steps 成功后登录镜像仓库、构建并推送镜像；部署作为后续 job，通过 `needs` 等待构建完成。
+- **`push`**：共同 steps 成功后登录镜像仓库、构建并推送镜像；部署作为后续 job，通过 `needs` 等待构建完成
 
   ```yaml
     - uses: docker/login-action@v3
@@ -968,7 +1005,7 @@ push:
       - run: helm upgrade --install example-app ./charts/example-app
   ```
 
-- **`spotless-check`**：格式检查只放在 Pull Request 分支上，不进入 push 的部署链路；步骤顺序是检出代码、准备 Java、准备 Gradle、执行格式检查。
+- **`spotless-check`**：格式检查只放在 Pull Request 分支上，不进入 push 的部署链路；步骤顺序是检出代码、准备 Java、准备 Gradle、执行格式检查
 
   ```yaml
   jobs:
@@ -988,11 +1025,13 @@ push:
 
 ### 缓存
 
-实际有三种缓存方式，以及一个共享缓存后端，作用不同。
+实际有三种缓存方式，以及一个共享缓存后端，作用不同
 
-缓存 Action 执行到对应步骤时先恢复缓存；如果没有命中，任务继续执行，作业结束时再保存新缓存。显式 `actions/cache` 的 key 由系统、项目和锁文件哈希组成，`restore-keys` 只用于回退到同一项目的旧缓存。
+缓存 Action 执行到对应步骤时先恢复缓存；如果没有命中，任务继续执行，作业结束时再保存新缓存
 
-- **`gradle/actions/setup-gradle`**：缓存 Gradle User Home；`cache-read-only: false` 允许构建任务写入缓存。
+显式 `actions/cache` 的 key 由系统、项目和锁文件哈希组成，`restore-keys` 只用于回退到同一项目的旧缓存
+
+- **`gradle/actions/setup-gradle`**：缓存 Gradle User Home；`cache-read-only: false` 允许构建任务写入缓存
 
   ```yaml
   - uses: gradle/actions/setup-gradle@v6
@@ -1001,7 +1040,7 @@ push:
   - run: ./gradlew test
   ```
 
-- **`actions/setup-node`**：通过 `cache` 缓存 npm 或 Yarn 依赖。
+- **`actions/setup-node`**：通过 `cache` 缓存 npm 或 Yarn 依赖
 
   ```yaml
   - uses: actions/setup-node@v4
@@ -1011,7 +1050,7 @@ push:
   - run: yarn install --immutable
   ```
 
-- **`actions/cache`**：自己指定目录、精确键和备用键；Yarn 缓存使用锁文件哈希区分版本。
+- **`actions/cache`**：自己指定目录、精确键和备用键；Yarn 缓存使用锁文件哈希区分版本
 
   ```yaml
   - uses: actions/cache@v4
@@ -1022,7 +1061,7 @@ push:
         ${{ runner.os }}-yarn-example-site-
   ```
 
-- **`ACTIONS_RESULTS_URL`**：self-hosted Runner 将 Action 结果和缓存请求指向集群内的 cache server；Runner 的 `runner` 容器使用自定义镜像，Docker 构建使用 `dind` 容器。
+- **`ACTIONS_RESULTS_URL`**：self-hosted Runner 将 Action 结果和缓存请求指向集群内的 cache server；Runner 的 `runner` 容器使用自定义镜像，Docker 构建使用 `dind` 容器
 
   ```yaml
   containers:
@@ -1038,11 +1077,11 @@ push:
         - --host=unix:///var/run/docker.sock
   ```
 
-Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据目录只是 Runner 层面的本地存储，不等于共享的 Docker registry 缓存。
+Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据目录只是 Runner 层面的本地存储，不等于共享的 Docker registry 缓存
 
 ### Runner、镜像和缓存服务器
 
-- **`runs-on`**：普通构建和测试使用 self-hosted Runner；部署 cache server 或 Runner 控制器的任务可以使用 `ubuntu-latest`。
+- **`runs-on`**：普通构建和测试使用 self-hosted Runner；部署 cache server 或 Runner 控制器的任务可以使用 `ubuntu-latest`
 
   ```yaml
   # 测试、镜像构建
@@ -1051,7 +1090,8 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
   # runs-on: example-runner
   ```
 
-- **`BASE_IMAGE_REGISTRY`**：PR 使用 `mirror.gcr.io` 获取基础镜像；push 使用私有 registry。Testcontainers 也按事件切换镜像前缀。
+- **`BASE_IMAGE_REGISTRY`**：PR 使用 `mirror.gcr.io` 获取基础镜像；push 使用私有 registry
+  Testcontainers 也按事件切换镜像前缀
 
   ```yaml
   env:
@@ -1059,7 +1099,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
     TESTCONTAINERS_HUB_IMAGE_NAME_PREFIX: ${{ github.event_name == 'pull_request' && 'mirror.gcr.io/' || format('{0}/example/', secrets.DOCKER_REGISTRY) }}
   ```
 
-- cache server 使用公开镜像 `ghcr.io/falcondev-oss/github-actions-cache-server:8.0.0`，通过 Helm 部署，并用持久卷保存 `/app/.data`。
+- cache server 使用公开镜像 `ghcr.io/falcondev-oss/github-actions-cache-server:8.0.0`，通过 Helm 部署，并用持久卷保存 `/app/.data`
 
   ```yaml
   image:
@@ -1089,8 +1129,8 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
 
 ### 触发器与并发控制
 
-- **`workflow_dispatch`**：部署文件大多写成空配置，只提供手动重跑入口；它和 `push`、`pull_request` 并列。
-  - 手动运行时选择的是 Workflow 的 ref；普通部署的环境由 `github.ref_name`、`github.ref` 或固定的 `NAMESPACE` 决定，这类部署文件不把环境做成手动输入。
+- **`workflow_dispatch`**：部署文件大多写成空配置，只提供手动重跑入口；它和 `push`、`pull_request` 并列
+  - 手动运行时选择的是 Workflow 的 ref；普通部署的环境由 `github.ref_name`、`github.ref` 或固定的 `NAMESPACE` 决定，这类部署文件不把环境做成手动输入
 
   ```yaml
   on:
@@ -1105,7 +1145,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
     workflow_dispatch:
   ```
 
-- **`paths-ignore`**：排除大目录后，用`!`恢复需要参与触发的子目录。
+- **`paths-ignore`**：排除大目录后，用`!`恢复需要参与触发的子目录
 
   ```yaml
   on:
@@ -1121,7 +1161,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
         - "!charts/spring-job/**"
   ```
 
-- **`workflow_run`**：部署 Workflow 同时支持手动触发和上游 Workflow 成功后的触发；检出`head_sha`，并从上游运行的分支计算命名空间。
+- **`workflow_run`**：部署 Workflow 同时支持手动触发和上游 Workflow 成功后的触发；检出`head_sha`，并从上游运行的分支计算命名空间
 
   ```yaml
   on:
@@ -1152,7 +1192,8 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
             echo "tag=${HEAD_BRANCH}-${SHORT_SHA}" >> "$GITHUB_OUTPUT"
   ```
 
-- **`workflow_dispatch.inputs`**：只有少数运维 Workflow 定义输入：`transfer-domains.yaml`接收域名和 nameserver，`copy-docker-image.yaml`接收镜像名，`create-ai-deployment.yaml`接收生成部署文件所需的参数。这些输入描述要执行的运维动作，不是普通部署 Workflow 的环境选择。
+- **`workflow_dispatch.inputs`**：只有少数运维 Workflow 定义输入：`transfer-domains.yaml`接收域名和 nameserver，`copy-docker-image.yaml`接收镜像名，`create-ai-deployment.yaml`接收生成部署文件所需的参数
+  这些输入描述要执行的运维动作，不是普通部署 Workflow 的环境选择
 
   ```yaml
   on:
@@ -1205,7 +1246,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
     FULL_DOMAIN: ${{ inputs.full_domain || format('{0}.{1}', inputs.id, inputs.domain) }}
   ```
 
-- **`concurrency.group`**：`deploy-api.yaml`使用 Pull Request 编号，否则使用分支或标签引用；同一目标的新运行会取消旧运行。
+- **`concurrency.group`**：`deploy-api.yaml`使用 Pull Request 编号，否则使用分支或标签引用；同一目标的新运行会取消旧运行
 
   ```yaml
   concurrency:
@@ -1215,7 +1256,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
 
 ### 任务级配置
 
-- **`defaults.run`**：统一 Shell，并在需要时设置默认工作目录。
+- **`defaults.run`**：统一 Shell，并在需要时设置默认工作目录
 
   ```yaml
   defaults:
@@ -1224,7 +1265,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
       working-directory: websites/scripts/domain-transfer
   ```
 
-- **`env`**：在工作流级别根据分支和事件生成后续任务使用的值。
+- **`env`**：在工作流级别根据分支和事件生成后续任务使用的值
 
   ```yaml
   env:
@@ -1234,7 +1275,8 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
 
 ### 任务跳过、输出与矩阵
 
-- **`outputs`**：`skip-workflow`是仓库自定义的检查任务，不是 GitHub Actions 的特殊任务名。提交信息包含`[skip workflow]`时，它输出`skip=true`；后续任务通过`needs.skip-workflow.outputs.skip`跳过。
+- **`outputs`**：`skip-workflow`是仓库自定义的检查任务，不是 GitHub Actions 的特殊任务名
+  提交信息包含`[skip workflow]`时，它输出`skip=true`；后续任务通过`needs.skip-workflow.outputs.skip`跳过
 
   ```yaml
   jobs:
@@ -1274,7 +1316,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
   git push
   ```
 
-- `GITHUB_OUTPUT`：`deploy-api.yaml`对 Pull Request 全部构建；其他事件先执行`git diff`，也支持`[rebuild helpers]`强制重建。
+- `GITHUB_OUTPUT`：`deploy-api.yaml`对 Pull Request 全部构建；其他事件先执行`git diff`，也支持`[rebuild helpers]`强制重建
 
   ```yaml
   jobs:
@@ -1304,7 +1346,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
             push: ${{ github.event_name != 'pull_request' }}
   ```
 
-- **`strategy.matrix`**：先生成上下文 JSON，再用`fromJson()`生成部署矩阵。
+- **`strategy.matrix`**：先生成上下文 JSON，再用`fromJson()`生成部署矩阵
 
   ```yaml
   jobs:
@@ -1337,7 +1379,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
         - uses: actions/checkout@v4
   ```
 
-- **`workflow_call`**：`deploy-app.yaml`把产品配置作为 JSON 字符串传入，在被调用 Workflow 中解析。
+- **`workflow_call`**：`deploy-app.yaml`把产品配置作为 JSON 字符串传入，在被调用 Workflow 中解析
 
   ```yaml
   on:
@@ -1368,7 +1410,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
 
 ### 镜像构建与部署
 
-- **`github.event_name`**：Pull Request 只构建不推送，部署任务直接跳过。
+- **`github.event_name`**：Pull Request 只构建不推送，部署任务直接跳过
 
   ```yaml
   jobs:
@@ -1390,7 +1432,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
         - uses: actions/checkout@v4
   ```
 
-- `docker/metadata-action`：先根据事件生成标签规则，再将多行输出交给 Action。
+- `docker/metadata-action`：先根据事件生成标签规则，再将多行输出交给 Action
 
   ```yaml
   steps:
@@ -1431,7 +1473,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
         labels: ${{ steps.meta.outputs.labels }}
   ```
 
-- `helm`：先检查 Runner 中是否已有 Helm，没有时才安装。
+- `helm`：先检查 Runner 中是否已有 Helm，没有时才安装
 
   ```yaml
   steps:
@@ -1444,7 +1486,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
       uses: azure/setup-helm@v4.2.0
   ```
 
-- `helm upgrade`：部署失败时区分"操作进行中"和普通失败；前者回滚后继续，后者等待后重试。
+- `helm upgrade`：部署失败时区分"操作进行中"和普通失败；前者回滚后继续，后者等待后重试
 
   ```bash
   for retry in {1..10}; do
@@ -1469,7 +1511,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
 
 ### 部署辅助
 
-- `mktemp`、`envsubst`和`yq`：先生成临时 values 文件，再写入部署专属字段。
+- `mktemp`、`envsubst`和`yq`：先生成临时 values 文件，再写入部署专属字段
 
   ```bash
   value_file=$(mktemp).yaml
@@ -1487,7 +1529,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
   envsubst '$PUBLIC_VAR $REGISTRY' < deploy/values/template.yaml > "$values_file"
   ```
 
-- `GITHUB_STEP_SUMMARY`：批处理任务逐项写入表格，最后统一判断失败。
+- `GITHUB_STEP_SUMMARY`：批处理任务逐项写入表格，最后统一判断失败
 
   ```bash
   IFS=',' read -ra ITEMS <<< "$INPUT"
@@ -1510,7 +1552,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
   fi
   ```
 
-- **`persist-credentials`**：自动格式化前关闭检出步骤的凭据持久化，只在存在变更时提交。
+- **`persist-credentials`**：自动格式化前关闭检出步骤的凭据持久化，只在存在变更时提交
 
   ```yaml
   steps:
@@ -1562,11 +1604,15 @@ flowchart TD
     S --> T[通知结果]
 ```
 
-缓存服务器是 Runner 的旁路服务，不是 CD 主链中的必经步骤。如果镜像已经在 CI 阶段推送完成，CD 可以从`azure/k8s-set-context`开始。
+缓存服务器是 Runner 的旁路服务，不是 CD 主链中的必经步骤
+
+如果镜像已经在 CI 阶段推送完成，CD 可以从`azure/k8s-set-context`开始
 
 ### GitHub 与私有 Runner 的连接
 
-GitHub 不需要访问 Kubernetes 的私网地址。ARC Listener 和 Runner 都从 Kubernetes 内部主动向 GitHub 建立出站连接：
+GitHub 不需要访问 Kubernetes 的私网地址
+
+ARC Listener 和 Runner 都从 Kubernetes 内部主动向 GitHub 建立出站连接：
 
 ```mermaid
 flowchart LR
@@ -1584,8 +1630,10 @@ flowchart LR
     G -->|匹配已注册的 Runner Scale Set| L
 ```
 
-- `githubConfigUrl`决定 Runner 注册到哪个组织或仓库，`githubConfigSecret`提供 ARC 访问 GitHub API 所需的 GitHub App 凭据。
-- ARC Listener 注册 Runner Scale Set 后，GitHub 会记录它的名称和标签。Workflow 的`runs-on`只匹配这个名称，不匹配私网 IP。
-- 任务进入队列后，Listener 获取任务并通知 Controller，Controller 再让 Kubernetes 创建 Runner Pod。
-- Runner Pod 完成任务后，仍然通过出站连接向 GitHub 上传日志和执行结果；GitHub 不需要主动进入私有网络。
-- 因此私有集群至少需要能够解析并通过 HTTPS 访问 GitHub Actions 相关服务。没有公网出口时，需要配置 NAT、代理或其他出站网关。
+- `githubConfigUrl`决定 Runner 注册到哪个组织或仓库，`githubConfigSecret`提供 ARC 访问 GitHub API 所需的 GitHub App 凭据
+- ARC Listener 注册 Runner Scale Set 后，GitHub 会记录它的名称和标签
+  Workflow 的`runs-on`只匹配这个名称，不匹配私网 IP
+- 任务进入队列后，Listener 获取任务并通知 Controller，Controller 再让 Kubernetes 创建 Runner Pod
+- Runner Pod 完成任务后，仍然通过出站连接向 GitHub 上传日志和执行结果；GitHub 不需要主动进入私有网络
+- 因此私有集群至少需要能够解析并通过 HTTPS 访问 GitHub Actions 相关服务
+  没有公网出口时，需要配置 NAT、代理或其他出站网关

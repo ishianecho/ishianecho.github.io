@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## Overview
 
+- 参考文档：[Ordinary differential equation](https://en.wikipedia.org/wiki/Ordinary_differential_equation)
+
 称$$\begin{align}f(x)+f_0(x)g_0(y)+...+f_n(x)g_n(y^{(n)})=0\end{align}$$为一个$n$阶常微分方程，有如下概念：
 
 - 当所有$g(y^{(t)})=y^{(t)}$时，称其为**线性微分方程**
@@ -110,7 +112,8 @@ $$\begin{align}&求微分方程3(1+x^2)y'+2xy=2xy^4的通解.\\&解:\\&令u=y^{-
 ### 一些技巧
 
 - 常规方法求解时，一定先将$$\begin{align}\frac{dy}{dx}\end{align}$$整理出来
-- 将$x$视为$y$，$y$视为$x$，可能变成可以求解的一阶线性方程。当整理式子发现$y'=\frac{单项式}{多项式}$时，可以考虑化为$x'(y)$
+- 将$x$视为$y$，$y$视为$x$，可能变成可以求解的一阶线性方程
+  当整理式子发现$y'=\frac{单项式}{多项式}$时，可以考虑化为$x'(y)$
 - 记住一些常见导数，将整体化为$u(x)$：
   - $xy'+y=(xy)'$
   - $$\begin{align}\frac{y-xy'}{y^2}=(\frac xy)'\end{align}$$

@@ -8,6 +8,8 @@ tags: [java]
 
 ## `Java`多线程编程
 
+- 参考文档：[Java SE 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
+
 ### `Runnable`接口
 
 - 所有类，如果希望让它单独作为一个线程运行，可以**继承**`Thread`类并重写`void run()`方法

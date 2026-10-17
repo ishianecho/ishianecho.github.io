@@ -7,6 +7,8 @@ date: 2025-12-25T11:37:12.000Z
 ---
 ## 级别分类
 
+- 参考文档：[The Go Programming Language Specification](https://go.dev/ref/spec)
+
 - `error`：正常的运行时错误，需要处理，若忽略程序也不会崩溃
 - `panic`：恐慌，程序应该在处理完问题后立刻退出
 - `fatal`：致命错误，程序无法处理并立刻退出

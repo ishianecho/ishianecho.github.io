@@ -7,6 +7,8 @@ date: 2025-12-24T18:09:34.000Z
 ---
 ## 创建切片
 
+- 参考文档：[The Go Programming Language Specification](https://go.dev/ref/spec)
+
 ### 数组与切片的区别
 
 - 数组是值类型，编译时确定大小且拷贝时拷贝值，可以通过`[...]type{val1, val2}`编译器自动推断长度

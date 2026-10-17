@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 基本语法
 
+- 参考文档：[MATLAB](https://www.mathworks.com/help/matlab/)
+
 ### 数据类型
 
 - 创建变量无需显式声明数据类型，会自动隐式推断

@@ -7,6 +7,8 @@ date: 2025-04-20
 ---
 ### 扩展欧拉定理
 
+- 参考文档：[Euler's theorem](https://en.wikipedia.org/wiki/Euler%27s_theorem)、[OI Wiki：欧拉定理](https://oi-wiki.org/math/number-theory/euler/)
+
 - 扩展欧拉定理通常**用于快速模幂中的降幂**，其内容为：$a^b\equiv\begin{cases}a^{b\ {\rm mod}\ \varphi(m)},&\gcd(a,m)=1\\a^{(b{\rm \ mod}\ \varphi(m))+\varphi(m)},&\gcd(a,m)\ne1,b\ge\varphi(m)\\a^b,&\gcd(a,m)\ne1,b<\varphi(m)\end{cases}\ \ \ \ ({\rm mod}\ m)$
 
   即，若底数和模数互素，可将幂$b$降为$\varphi(m)$

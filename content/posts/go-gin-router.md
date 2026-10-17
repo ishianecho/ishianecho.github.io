@@ -7,6 +7,8 @@ date: 2025-12-27T14:58:39.000Z
 ---
 ## `httprouter`
 
+- 参考文档：[Gin Web Framework — Documentation](https://gin-gonic.com/docs/)
+
 ### 特点
 
 - `Gin`的路由基于`julienschmidt/httprouter`，是一个轻量级的路由组建(总共三个文件一千余行代码)

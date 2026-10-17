@@ -7,6 +7,8 @@ tags: [java]
 ---
 ## 函数式编程
 
+- 参考文档：[Java SE 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
+
 ### 类的初始化代码
 
 - 在一个类中由`{}`框住的代码块称为初始化代码，在**构造方法之前**执行

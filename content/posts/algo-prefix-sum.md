@@ -7,6 +7,8 @@ date: 2025-03-19
 ---
 ### 一维前缀和
 
+- 参考文档：[Prefix sum](https://en.wikipedia.org/wiki/Prefix_sum)、[OI Wiki：前缀和与差分](https://oi-wiki.org/basic/prefix-sum/)
+
 - 对一个原数组$a_{1\sim n}$，令$$\begin{align}s_i=\sum_{k=1}^ia_k\end{align}$$，即称$s$为$a$的前缀和数组
 
 - 不难发现有以下性质：

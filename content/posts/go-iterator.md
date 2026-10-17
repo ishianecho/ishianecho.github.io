@@ -7,6 +7,8 @@ date: 2025-12-25T11:37:27.000Z
 ---
 ## `range`
 
+- 参考文档：[The Go Programming Language Specification](https://go.dev/ref/spec)
+
 ### 特定数据结构的迭代
 
 - 在一开始，`range`只能用于数组、切片、字符串、`map`、可读`chan`的迭代

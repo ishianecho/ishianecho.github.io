@@ -7,6 +7,8 @@ date: 2025-12-30T15:20:05.000Z
 ---
 ## `session`
 
+- 参考文档：[Gin Web Framework — Documentation](https://gin-gonic.com/docs/)
+
 ### 注册会话
 
 - `Gin`本身不支持会话管理，需要第三方框架[`github.com/gin-contrib/sessions`](https://github.com/gin-contrib/sessions)

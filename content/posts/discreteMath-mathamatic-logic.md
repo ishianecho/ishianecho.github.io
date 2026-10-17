@@ -7,6 +7,8 @@ tags: [cs]
 ---
 ## 命题逻辑
 
+- 参考文档：[Mathematical logic](https://en.wikipedia.org/wiki/Mathematical_logic)
+
 ### 基本概念
 
 - 命题：只有真、假两种状态的陈述语句，在命题逻辑里，原子命题不提供任何除真假以外的信息，这也导致命题逻辑的局限性

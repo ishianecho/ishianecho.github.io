@@ -7,6 +7,8 @@ date: 2025-12-25T11:37:57.000Z
 ---
 ## 协程
 
+- 参考文档：[The Go Programming Language Specification](https://go.dev/ref/spec)
+
 ### 特点
 
 - `Go`的并发支持是天生的，其中协程在`Go`中是十分简洁而高效的

@@ -15,5 +15,7 @@ description: Create a new Markdown post in this Hugo blog following the reposito
 - Backtick-mark APIs, commands, config fields, types, filenames, and key terms
 - Reuse categories/tags from similar posts, ordered broad → narrow; create a new category only when nothing fits
 - Set `math: true` only when the post actually contains LaTeX math
-- Do not end sentences with `。` or `.`; dots inside code, commands, domains, versions, and filenames stay
+- Punctuation:
+  - Use `:` as a separator, never `—`; do not end sentences with `。` or `.` (dots inside code, commands, domains, versions, and filenames stay)
+  - Use English quotes `"` and parentheses `()` (never `""` `（）`), Chinese commas and colons `，` `：` in prose, and half-width `:` inside links, code blocks, and inline code
 - Verify with `git diff --check`; if hugo is installed, run `hugo` to confirm the build passes

@@ -7,6 +7,8 @@ tags: [physics]
 ---
 ## 电磁感应
 
+- 参考文档：[Electromagnetic induction](https://en.wikipedia.org/wiki/Electromagnetic_induction)
+
 ### 电动势
 
 - 电磁感应现象的本质是产生电动势来阻止磁通量的变化，若形成闭合回路，则表现出感应电流

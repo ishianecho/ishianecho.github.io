@@ -7,6 +7,8 @@ date: 2025-12-23T22:48:43.000Z
 ---
 ## 包管理
 
+- 参考文档：[The Go Programming Language Specification](https://go.dev/ref/spec)
+
 - `package`关键字表示当前文件属于哪个包，主函数文件想要当作入口文件，必须声明`package main`，包名设计和路径不同，不像`java`通过`.`分隔，而是单纯的一个字段表示包名，但仍然是一个目录对应一个包，不会进行递归扫描
 
   不强制目录名和包名相同，导入后使用的是`package`后声明的字段而不是目录名，但一般目录名和包名相同

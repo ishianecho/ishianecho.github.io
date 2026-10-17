@@ -7,6 +7,8 @@ tags: [physics]
 ---
 ## 经典力学
 
+- 参考文档：[Classical mechanics](https://en.wikipedia.org/wiki/Classical_mechanics)
+
 ### 质点运动的数学解释
 
 - 位置矢量：质点在指定参考系下的坐标向量，用$\vec r$表示，简称**位矢**

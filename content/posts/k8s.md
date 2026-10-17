@@ -7,9 +7,12 @@ tags: [devops]
 ---
 ## 快速入门
 
+- 参考文档：[Kubernetes Documentation](https://kubernetes.io/docs/home/)
+
 ### 简介
 
-- **`Kubernetes`**(简称 **`k8s`**)是一个开源的容器编排平台。相比于`Docker`，它能够在**集群级别**自动化地管理容器的部署、扩缩容和运维，但学习成本也相对更高
+- **`Kubernetes`**(简称 **`k8s`**)是一个开源的容器编排平台
+  相比于`Docker`，它能够在**集群级别**自动化地管理容器的部署、扩缩容和运维，但学习成本也相对更高
 - 除了基础的容器调度与自愈能力，`k8s`原生支持**服务发现、负载均衡、滚动更新与配置管理**等服务治理，配合 **`Istio`** 等服务网格组件，可以**替代传统的`RPC`框架**，将流量治理、可观测性、安全等能力下沉至基础设施层
 - [官方文档](https://kubernetes.io/docs)
 
@@ -155,12 +158,16 @@ tags: [devops]
     - `failureThreshold`：失败阈值，允许的最大连续探测失败次数，超出此阈值将重启pod
     - `successThreshold`：成功阈值，将该pod视为健康的最小连续探测成功次数，存活探针的成功阈值必须是1
     - 探测方式：`httpGet`(指定 `path` 和 `port`)、`tcpSocket`(指定 `port`)、`exec`(指定 `command`)
-  - `readinessProbe`：就绪探针，检测容器是否就绪，失败则从 `Service` 摘除。参数与 `livenessProbe` 相同，但失败后不会重启容器，只是暂时停止流量进入
+  - `readinessProbe`：就绪探针，检测容器是否就绪，失败则从 `Service` 摘除
+    参数与 `livenessProbe` 相同，但失败后不会重启容器，只是暂时停止流量进入
 - **`spec.volumes`**：适用于 `Pod`、`Deployment`、`StatefulSet`、`DaemonSet`、`Job`、`CronJob`，存储卷定义，常用类型：
   - `emptyDir`：临时存储，`Pod` 删除时数据丢失，适用于缓存、临时文件
-  - `configMap`：挂载 `ConfigMap`，需指定 `name`，可选择挂载特定 `items` 或全部键值对。支持 `optional: true`(`ConfigMap` 不存在时不阻塞启动)和 `defaultMode`(文件权限，默认 `0644`)
-  - `secret`：挂载 `Secret`，参数与 `ConfigMap` 类似，额外支持 `secretName` 指定 `Secret` 名称。常用于挂载 `TLS` 证书(`secret.items` 指定 `tls.crt` 和 `tls.key`)或数据库密码
-  - `persistentVolumeClaim`：挂载 `PVC`，需指定 `claimName`，支持 `readOnly: true` 设置只读挂载。`PVC` 绑定的 `PV` 可以是静态供给(管理员预先创建)或动态供给(通过 `StorageClass` 自动创建)
+  - `configMap`：挂载 `ConfigMap`，需指定 `name`，可选择挂载特定 `items` 或全部键值对
+    支持 `optional: true`(`ConfigMap` 不存在时不阻塞启动)和 `defaultMode`(文件权限，默认 `0644`)
+  - `secret`：挂载 `Secret`，参数与 `ConfigMap` 类似，额外支持 `secretName` 指定 `Secret` 名称
+    常用于挂载 `TLS` 证书(`secret.items` 指定 `tls.crt` 和 `tls.key`)或数据库密码
+  - `persistentVolumeClaim`：挂载 `PVC`，需指定 `claimName`，支持 `readOnly: true` 设置只读挂载
+    `PVC` 绑定的 `PV` 可以是静态供给(管理员预先创建)或动态供给(通过 `StorageClass` 自动创建)
 - 示例：
 
   ```yaml

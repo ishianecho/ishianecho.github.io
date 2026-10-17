@@ -7,6 +7,8 @@ date: 2024-11-16
 ---
 ## Overview
 
+- 参考文档：[Hash table](https://en.wikipedia.org/wiki/Hash_table)、[OI Wiki：哈希表](https://oi-wiki.org/ds/hash/)
+
 在`FTP`与`HTTPS`中，粗略介绍了哈希算法加密数据的概念；它用哈希算法将无限的数据转换成唯一的、用数字描述的值；对一个合格的哈希函数而言：
 
 - 哈希函数尽可能是单射，但哈希冲突不可避免

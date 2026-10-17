@@ -7,6 +7,8 @@ date: 2025-12-25T11:37:22.000Z
 ---
 ## `os`
 
+- 参考文档：[pkg.go.dev — io](https://pkg.go.dev/io)
+
 ### `os.File`
 
 - `os.File`是`Go`对文件描述符的抽象

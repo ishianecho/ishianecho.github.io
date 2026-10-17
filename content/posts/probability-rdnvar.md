@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 常见随机变量分布及其数学特征
 
+- 参考文档：[Probability distribution](https://en.wikipedia.org/wiki/Probability_distribution)
+
 ### 离散型随机变量
 
 - 二项分布$X\sim B(n,p)$：可看作$n$个独立同分布的$0-1$分布

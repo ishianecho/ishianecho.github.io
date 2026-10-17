@@ -7,6 +7,8 @@ date: 2025-04-10
 ---
 ## 递归式线段树
 
+- 参考文档：[Segment tree](https://en.wikipedia.org/wiki/Segment_tree)、[OI Wiki：线段树](https://oi-wiki.org/ds/seg/)
+
 ### 概述
 
 - 线段树基于**分治思想**，本质是将分治过程中产生的**子区间解存储在树中**，以达到**快速查询**的效果

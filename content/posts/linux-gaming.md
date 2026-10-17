@@ -7,14 +7,15 @@ tags: [linux, gaming]
 ---
 ## Overview
 
+- 参考文档：[Arch Wiki — Gaming](https://wiki.archlinux.org/title/Gaming)
 - 在 `Linux` 上跑原生为 `Windows` 打造的游戏，本质是一条逐层转译的链路：
 
-  ```text
-  游戏(Windows API)
-      ↓ Wine / Proton(系统调用与 API 转译)
-      ↓ DXVK / VKD3D-Proton(D3D → Vulkan 图形转译)
-      ↓ Mesa / NVIDIA 驱动
-      ↓ Wayland / X11 合成器(最终把画面呈现到屏幕)
+  ```mermaid
+  flowchart TD
+      G["游戏(Windows API)"] -->|"Wine / Proton：系统调用与 API 转译"| T["转译后的调用"]
+      T -->|"DXVK / VKD3D-Proton：D3D → Vulkan 图形转译"| V["Vulkan 调用"]
+      V -->|"Mesa / NVIDIA 驱动"| M["内核图形栈"]
+      M -->|"Wayland / X11 合成器"| S["屏幕"]
   ```
 
 - 各组件分工不同：`Steam`/`Lutris` 是**发行与启动**层，`Wine`/`Proton` 是**兼容**层，`gamescope` 是**呈现**层，最底下的显示协议与合成器层(合成器、`wlroots`、`XWayland`)单独整理在 [Linux 显示协议与图形栈](/2026/10/14/linux-display-stack/)，一层层叠起来才有了今天开箱即用的体验

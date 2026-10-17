@@ -7,6 +7,8 @@ tags: [java, cs]
 ---
 ## 网络编程基础
 
+- 参考文档：[Java SE 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
+
 ### `TCP`客户端
 
 - `Java`在客户端提供的`TCP`套接字的类为`Socket`

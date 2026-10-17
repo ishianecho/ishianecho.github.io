@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 定义
 
+- 参考文档：[Algebraic structure](https://en.wikipedia.org/wiki/Algebraic_structure)
+
 - $S$上的$n$元运算是一个特殊的函数$f:S^n\rightarrow S$，具有**封闭性**
 - 代数系统：由非空集合$S$和$S$上的运算组成的系统，记作$<S,f_1,f_2,\cdots,f_n>$，简称代数
 - 代数的基数等于$S$的基数(因为运算具有封闭性)

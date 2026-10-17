@@ -7,6 +7,8 @@ tags: [cpp, database]
 ---
 ## 介绍
 
+- 参考文档：[Qt Documentation](https://doc.qt.io/)
+
 数据库分两种，关系型(`Relational Database`)和非关系型(`Not Only SQL`)，它们的区别：
 
 - `RDBMS`：使用表格存储数据；具有强大的查询性能；但只能存储在硬盘，读写性能较差

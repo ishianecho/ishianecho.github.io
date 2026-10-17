@@ -7,6 +7,8 @@ tags: [cs]
 ---
 ### 计算机网络指标
 
+- 参考文档：[Computer network](https://en.wikipedia.org/wiki/Computer_network)
+
 - 计算机网络为通信技术和计算机技术的结合，互连、自治(无主从关系)
 - 数据率/数据传输率/比特率：单位时间传输的比特数
   ~波特率

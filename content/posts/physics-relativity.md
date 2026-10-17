@@ -7,6 +7,8 @@ tags: [physics]
 ---
 ## 狭义相对论
 
+- 参考文档：[Theory of relativity](https://en.wikipedia.org/wiki/Theory_of_relativity)
+
 ### 经典力学伽利略变换
 
 - 在经典力学中，首先认为时间、质量、作用力是绝对的

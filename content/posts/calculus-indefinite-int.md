@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 公式
 
+- 参考文档：[Antiderivative](https://en.wikipedia.org/wiki/Antiderivative)
+
 ### 基本公式
 
 $$\begin{align}

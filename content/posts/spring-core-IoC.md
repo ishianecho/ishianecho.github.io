@@ -7,6 +7,7 @@ tags: [java]
 ---
 ## 简介
 
+- 参考文档：[Spring Framework Reference](https://docs.spring.io/spring-framework/reference/)
 - `IoC`(`Inversion of Control`，控制反转)容器的原则是使原本有相互依赖的各个部分解耦，实现松耦合地运作
   在传统的组合中，上层的模块在内部定义某些对象的类型，控制权在上层的模块中，如果需要修改内部的业务逻辑则会违反开闭原则
   而`IoC`的思想则是使上层的模块将控制权"反转"给一个第三方，例如开发者自己或者一个`IoC`容器，由外部来控制并决定向上层模块提供什么样的实现类

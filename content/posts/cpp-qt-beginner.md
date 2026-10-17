@@ -13,6 +13,8 @@ tags: [cpp]
 
 ## 元对象系统
 
+- 参考文档：[Qt Documentation](https://doc.qt.io/)
+
 ### 简介
 
 [元对象系统](https://www.cnblogs.com/WushiShengFei/p/9820835.html)(`Meta-Object System, MOS`)是`Qt`的核心机制，元对象即用于描述对象的对象；它提供以下功能：

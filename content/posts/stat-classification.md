@@ -7,6 +7,8 @@ tags: [ml]
 ---
 ## 逻辑回归
 
+- 参考文档：[Statistical classification](https://en.wikipedia.org/wiki/Statistical_classification)
+
 ### 二分类逻辑回归
 
 - 针对分类任务，通常可用概率值估计类别，例如二分类求出一个`0~1`之间的概率，若概率大于某个阈值则取其中一类

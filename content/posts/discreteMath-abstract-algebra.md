@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 群
 
+- 参考文档：[Abstract algebra](https://en.wikipedia.org/wiki/Abstract_algebra)
+
 ### 半群定义
 
 - 群和半群是特殊的代数，都只含一个非空集合和一个二元运算，因此元素运算时可省略运算符号

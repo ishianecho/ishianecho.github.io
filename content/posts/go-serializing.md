@@ -7,6 +7,8 @@ date: 2025-12-30T08:50:23.000Z
 ---
 ## 特性
 
+- 参考文档：[pkg.go.dev — encoding/json](https://pkg.go.dev/encoding/json)
+
 - `Go`通过结构体标签来支持序列化和反序列化，内置的`encoding`标准库支持`xml/json`等配置文件的序列化和反序列化
 - `gopls`本身支持`json`结构体标签的快速生成
 - `Go`只会对一个结构体的公有字段进行序列化和反序列化

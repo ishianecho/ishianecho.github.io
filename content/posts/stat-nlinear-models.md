@@ -7,6 +7,8 @@ tags: [ml]
 ---
 ## 基函数
 
+- 参考文档：[Nonlinear regression](https://en.wikipedia.org/wiki/Nonlinear_regression)
+
 ### 多项式回归
 
 - 多项式回归通过添加变量的幂来实现非线性的拟合

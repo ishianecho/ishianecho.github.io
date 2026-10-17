@@ -7,6 +7,8 @@ date: 2024-10-02
 ---
 ## Overview
 
+- 参考文档：[Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure)、[OI Wiki：并查集](https://oi-wiki.org/dsu/)
+
 并查集用于解决**不相交集合**的问题，高效地提供两种方法：
 
 - **合并**：用于将两个不相交集合合并

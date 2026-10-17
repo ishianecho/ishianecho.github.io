@@ -9,6 +9,7 @@ tags: [devops]
 
 ## 优雅停机
 
+- 参考文档：[Kubernetes Documentation — Production environment](https://kubernetes.io/docs/setup/production-environment/)
 - `Pod` 收到终止信号后，`Service`/`Istio` 的端点列表传播存在延迟，若容器立即退出，仍会有少量请求被路由到已死的 `Pod`
 - 解决方式是**让容器先睡一会儿再退出**，用 `preStop` 钩子桥接端点传播延迟，同时放宽 `terminationGracePeriodSeconds` 给应用留足清理时间
 

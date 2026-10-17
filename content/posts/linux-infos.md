@@ -7,6 +7,8 @@ tags: [linux]
 ---
 ## 进程
 
+- 参考文档：[Arch Wiki — Monitoring](https://wiki.archlinux.org/title/Category:Monitoring)
+
 ### 获取进程信息
 
 跟进进程(`process`)是很重要的任务，包括查看、终止、执行者和执行时间等等...

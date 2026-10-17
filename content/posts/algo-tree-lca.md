@@ -7,6 +7,8 @@ date: 2025-04-30
 ---
 ## `LCA`算法
 
+- 参考文档：[Lowest common ancestor](https://en.wikipedia.org/wiki/Lowest_common_ancestor)、[OI Wiki：最近公共祖先](https://oi-wiki.org/graph/lca/)
+
 ### `LCA()`性质
 
 - `LCA(Lowest Common Ancestor)`，即最小公共祖先，$LCA()$接受一个结点集合，返回集合中所有结点的最小公共祖先结点

@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 概念
 
+- 参考文档：[Matrix (mathematics)](https://en.wikipedia.org/wiki/Matrix_(mathematics))
+
 形如$$\begin{align}\left[\begin{matrix}a_{11}&a_{12}&...&a_{1\rm n}\\a_{21}&a_{22}&...&a_{2\rm n}\\\vdots&\vdots&&\vdots\\a_{\rm m1}&a_{\rm m2}&...&a_{\rm mn}\end{matrix}\right]\end{align}$$的矩阵称为$m\times n$矩阵，记为$A_{m\times n}$
 
 - 行矩阵/列矩阵：只有一行/一列的矩阵

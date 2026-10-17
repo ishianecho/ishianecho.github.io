@@ -7,6 +7,8 @@ date: 2024-09-19
 ---
 ## 硬件加速的二进制算法
 
+- 参考文档：[Bitwise operation](https://en.wikipedia.org/wiki/Bitwise_operation)、[OI Wiki：位运算](https://oi-wiki.org/math/bit/)
+
 ### 求最高有效位
 
 - 定义末位为第零位

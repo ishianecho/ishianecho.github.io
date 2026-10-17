@@ -7,6 +7,8 @@ date: 2025-03-19
 ---
 ### Overview
 
+- 参考文档：[Fenwick tree](https://en.wikipedia.org/wiki/Fenwick_tree)、[OI Wiki：树状数组](https://oi-wiki.org/ds/fenwick/)
+
 - 树状数组(`Binary Indexed Tree`，`BIT`，或称`Fenwick Tree`)支持**区间查询**、**单点修改**
   一个区间的总信息由区间内所有元素共同贡献而得
   然而**一般的**树状数组具有限制(与前缀和数组类似，因为朴素树状数组查询取件信息依赖于前缀和)：

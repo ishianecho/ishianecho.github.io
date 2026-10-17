@@ -7,6 +7,8 @@ date: 2025-04-10
 ---
 ### 对顶堆
 
+- 参考文档：[Heap (data structure)](https://en.wikipedia.org/wiki/Heap_(data_structure))、[OI Wiki：堆](https://oi-wiki.org/ds/heap/)
+
 - 对顶堆是用于解决**寻找序列中第$k$小数**的数据结构，其中序列可动态变化、$k$可动态变化
   对顶堆较易实现，比实现权值线段树、平衡树有码量上的优势
 

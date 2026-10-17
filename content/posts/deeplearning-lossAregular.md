@@ -7,6 +7,8 @@ tags: [ml]
 ---
 ## 损失函数及正则化
 
+- 参考文档：[Wikipedia — Regularization (mathematics)](https://en.wikipedia.org/wiki/Regularization_(mathematics))
+
 ### 损失函数概念及约定
 
 - 损失：表示模型预测值与真实值之间差距的实数，越接近零表示误差越小

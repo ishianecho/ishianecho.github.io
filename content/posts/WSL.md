@@ -7,6 +7,8 @@ tags: [linux]
 ---
 ## `WSL2`
 
+- 参考文档：[Windows Subsystem for Linux Documentation](https://learn.microsoft.com/en-us/windows/wsl/)
+
 ### 基本介绍
 
 - `WSL`全称`Windows Subsystem for Linux`，是`2016`年发布的适用于`Windows`的`Linux`子系统

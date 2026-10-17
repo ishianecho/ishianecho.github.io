@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 矩阵判别
 
+- 参考文档：[Rank (linear algebra)](https://en.wikipedia.org/wiki/Rank_(linear_algebra))
+
 ### 秩的性质
 
 - $r(A_{m\times n})\le\min(m,n)$，换句话说，如果确定$r(A)\ge m$或$n$，则$r(A)=m$或$n$

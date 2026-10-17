@@ -5,6 +5,8 @@ date: 2024-10-16
 categories: [CS Fundamentals, Concrete Math]
 tags: [math]
 ---
+- 参考文档：[Floor and ceiling functions](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions)
+
 - 对任意实数$x$，有$x-1<\lfloor x\rfloor\le x\le\lceil x\rceil<x+1$
 
   - 当$x$为整数时，$\lfloor x\rfloor=\lceil x\rceil$

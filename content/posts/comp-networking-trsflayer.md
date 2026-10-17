@@ -7,6 +7,8 @@ tags: [cs]
 ---
 ## 传输层协议
 
+- 参考文档：[Transport layer](https://en.wikipedia.org/wiki/Transport_layer)
+
 ### 可靠数据传输的组成
 
 - 处理比特差错：比特差错指，分组能运输到主机，但具有比特位丢失或错误；又分为非响应分组错误和响应分组错误

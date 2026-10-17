@@ -7,6 +7,8 @@ tags: [java]
 ---
 ## 包装类
 
+- 参考文档：[Java SE 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
+
 ### 概念
 
 - `java`中只有八种基础数据类型，都是全小写的，出于一切皆对象的理念和泛型参数对引用类型的需求，`java`提供了八个包装类

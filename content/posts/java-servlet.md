@@ -8,6 +8,8 @@ tags: [java, web]
 
 ## `javax.servlet`
 
+- 参考文档：[Jakarta Servlet Specification](https://jakarta.ee/specifications/servlet/)
+
 ### `Java EE`介绍
 
 - 在`Java EE 8`及之前，这个企业版是由`Oracle`开发的闭源项目，包括一系列大型或中小型的商业软件包，但由于`Spring`等框架的流行，`Java EE`开始力不从心

@@ -7,6 +7,8 @@ tags: [physics]
 ---
 ## 恒定磁场
 
+- 参考文档：[Magnetic field](https://en.wikipedia.org/wiki/Magnetic_field)
+
 ### 电流的磁效应
 
 - 真空磁导率：$\mu_0=4\pi\times 10^{-7}\rm\ T·m·A^{-1}$

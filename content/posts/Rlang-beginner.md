@@ -1,11 +1,14 @@
 ---
-title: "虽然不知道为什么要学"
+title: "虽然不知道为什么要学之 R 语言"
 summary: "记录R语言统计学习常用函数：线性回归、广义线性模型与预测分析"
 date: 2025-11-26
 categories: [Programming, Rlang]
 tags: [ml]
 ---
+
 ## 线性回归
+
+- 参考文档：[R](https://cran.r-project.org/manuals.html)
 
 ### `stats`包
 

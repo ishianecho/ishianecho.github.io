@@ -7,6 +7,8 @@ tags: [tools]
 ---
 ## 基本功能介绍
 
+- 参考文档：[Visual Studio Code Documentation](https://code.visualstudio.com/docs)
+
 - `VS Code`是微软开发的开源的代码编辑器，支持`Windows`、`MacOS`、`Linux`等操作系统
   其最显著的优点是**轻量**且**快速**，且得益于活跃的插件生态而**支持多种编程语言**
   高度灵活的自定义配置也是其吸引我的一点

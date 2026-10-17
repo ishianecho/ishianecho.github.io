@@ -7,6 +7,8 @@ tags: [cs]
 ---
 ## 数据链路层
 
+- 参考文档：[Data link layer](https://en.wikipedia.org/wiki/Data_link_layer)
+
 ### 提供的服务或功能
 
 - 成帧`Framing`：将数据包封装成帧

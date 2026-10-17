@@ -7,6 +7,8 @@ date: 2025-12-24T18:13:16.000Z
 ---
 ## 特性
 
+- 参考文档：[The Go Programming Language Specification](https://go.dev/ref/spec)
+
 - `string`是一个值类型，意味着可以是空串但不是`nil`
 - `string`是一个不可变的`byte`数组，是不可变类型
 - `string`对象本身可以被取地址，但它的元素不允许

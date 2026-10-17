@@ -7,6 +7,8 @@ date: 2025-04-07
 ---
 ### 快读快写
 
+- 参考文档：[OI Wiki：读入、输出优化](https://oi-wiki.org/contest/io/)
+
 - 快读有两套模板：
 
   - 使用内置`getchar()`

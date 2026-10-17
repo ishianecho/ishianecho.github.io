@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 定义
 
+- 参考文档：[Integral](https://en.wikipedia.org/wiki/Integral)
+
 $$\begin{align}\int_a^bf(x)dx=\lim_{\lambda\rightarrow0}\sum_{i=1}^nf(\xi_i)\Delta x_i\end{align}$$
 
 ## 可积的条件
@@ -191,7 +193,8 @@ $$\begin{align}&\rm求曲线y=x^2-2x,y=0,x=1,x=3所围成的平面图形绕y轴�
 
 $$\begin{align}&\rm因为[1,2]范围是负数,所以V=\int_2^12\pi xy\ dx+\int_2^32\pi xy\ dx=9\pi\end{align}$$
 
-其中，$\rm 2\pi x$为每个柱壳的周长，$\rm y$为每个柱壳的高。注意，当旋转轴不是单纯的x轴或y轴时，求柱壳体积需额外注意，例如本例，如果绕$x=-1$旋转，则$\rm V_{柱壳}=2\pi(x+1)y$
+其中，$\rm 2\pi x$为每个柱壳的周长，$\rm y$为每个柱壳的高
+注意，当旋转轴不是单纯的x轴或y轴时，求柱壳体积需额外注意，例如本例，如果绕$x=-1$旋转，则$\rm V_{柱壳}=2\pi(x+1)y$
 
 ### 截面法
 

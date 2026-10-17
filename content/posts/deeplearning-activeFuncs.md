@@ -7,6 +7,8 @@ tags: [ml]
 ---
 ## 激活函数
 
+- 参考文档：[Wikipedia — Activation function](https://en.wikipedia.org/wiki/Activation_function)
+
 ### 基本概念
 
 - 激活函数是神经网络中十分重要的一部分，用于对线性叠加后的输出添加非线性因素，增大模型容量，实现对非线性问题的拟合

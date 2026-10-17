@@ -7,6 +7,8 @@ tags: [java]
 ---
 ## 包管理
 
+- 参考文档：[Dev.java — Learn Java](https://dev.java/learn/)
+
 ### 包的声明
 
 - `Java`包的功能类似`C++`的命名空间，减少类名冲突；但它并不是随意声明和引用的：

@@ -7,6 +7,8 @@ date: 2025-12-24T13:50:12.000Z
 ---
 ## 函数声明
 
+- 参考文档：[The Go Programming Language Specification](https://go.dev/ref/spec)
+
 - `Go`是类型后置的，它的函数声明：
 
   ```go

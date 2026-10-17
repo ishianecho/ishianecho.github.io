@@ -7,6 +7,7 @@ tags: [java]
 ---
 ## `Resource`接口
 
+- 参考文档：[Spring Framework Reference](https://docs.spring.io/spring-framework/reference/)
 - `Resource`类似`File`、`Path`、`URL`，是`Spring`提供的对一类资源的抽象
   `Resource`会增加应用与`Spring`框架的耦合，但实际上它只是一个对于`URL`等传统资源类的有力替代品和实用`API`，用其它资源`API`也是可以的
   `Resource`的好处是：方便，例如能够使用`classpath*`等路径前缀查找而不需要写完整的文件或`URL`的路径信息

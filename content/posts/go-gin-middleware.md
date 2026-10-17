@@ -7,6 +7,8 @@ date: 2025-12-28T17:24:12.000Z
 ---
 ## 中间件的原理
 
+- 参考文档：[Gin Web Framework — Documentation](https://gin-gonic.com/docs/)
+
 - `Gin`的中间件提供的很少，但是提供了一个灵活的接口
 - 所有中间件只要封装成`HandlerFunc`，就可以注册为中间件，每个路由对应的处理器也算是一个`HandlerFunc`，只不过是局部中间件，更多时候是在最后被调用的
 - `*gin.Context.Next()`：这个方法是最核心的方法

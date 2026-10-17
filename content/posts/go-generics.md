@@ -7,6 +7,8 @@ date: 2025-12-25T11:37:04.000Z
 ---
 ## 通用接口
 
+- 参考文档：[The Go Programming Language Specification](https://go.dev/ref/spec)
+
 - `Go`的泛型在`1.18`引入，同时为了服务泛型，更改了`interface`的定义为"一系列类型的集合"
 - 类型集用于约束或简化声明泛型参数`T`所能表示的类型
 - 示例：

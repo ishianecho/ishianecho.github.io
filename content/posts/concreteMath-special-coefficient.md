@@ -7,6 +7,8 @@ tags: [math]
 ---
 ## 二项式系数
 
+- 参考文档：[Binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient)
+
 - 定义：$$\begin{align}(x+y)^n=\sum_{k=0}^n\left(\begin{matrix}n\\k\end{matrix}\right)x^ky^{n-k}\end{align}$$
 
 - 下指数一定为整数，当其为负数时，二项式系数为零，否则：

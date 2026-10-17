@@ -7,6 +7,8 @@ tags: [devops]
 ---
 ## 快速入门
 
+- 参考文档：[Helm Documentation](https://helm.sh/docs/)
+
 ### 简介
 
 - **`Helm`** 是 `k8s` 官方推荐的包管理器，定位类似于 `apt`/`brew`：把一组相互关联的 `k8s` 资源(`Deployment`、`Service`、`Ingress`...)打包为 **`Chart`**，一条命令完成安装、升级与回滚

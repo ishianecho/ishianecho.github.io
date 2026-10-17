@@ -7,6 +7,7 @@ tags: [java, database]
 ---
 ## 介绍
 
+- 参考文档：[Jakarta Persistence Specification](https://jakarta.ee/specifications/persistence/)
 - `JPA`是一套`API`规范，从`EJB`中分离出来，是持久层的流行`API`
 - 单纯引入`JPA`是没用的，其著名实现有`Hibernate`等，
 - `Spring Data JPA`不是`JPA`的实现，而是基于`JPA`的一套`Repository`接口

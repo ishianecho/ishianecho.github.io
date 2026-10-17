@@ -7,6 +7,7 @@ tags: [linux, android, gaming]
 ---
 ## Overview
 
+- 参考文档：[Waydroid Documentation](https://docs.waydroid.org/)
 - 在 `Linux` 桌面上跑安卓游戏有三条主要路线，体验与重量级依次递增：
   - **投屏路线**：手机连数据线，`scrcpy` 把画面与输入镜像到桌面——最简单，但游戏仍在手机上跑
   - **容器路线**：**`Waydroid`** 在 `Linux` 上以 `LXC` 容器运行完整 `Android` 系统，性能接近原生，是玩大型手游的主流方案

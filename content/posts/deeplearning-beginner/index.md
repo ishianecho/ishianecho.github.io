@@ -7,6 +7,8 @@ tags: [ml]
 ---
 ## 机器学习基础
 
+- 参考文档：[Wikipedia — Artificial neural network](https://en.wikipedia.org/wiki/Artificial_neural_network)
+
 ### 模型评价标准
 
 - 模型超参数：指模型的较高维度的由**人工调整**的参数

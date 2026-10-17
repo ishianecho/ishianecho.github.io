@@ -7,6 +7,8 @@ tags: [cs]
 ---
 ## 图的基本概念
 
+- 参考文档：[Graph theory](https://en.wikipedia.org/wiki/Graph_theory)
+
 - 图由结点集合$V$，边集合$E$，映射关系$\varphi$构成，其中$\varphi:E\rightarrow V\times V/\{V,V\}$为由边到结点序偶/两元素集合的函数
 - 当$\varphi$映射到序偶时，称为有向图，反之为无向图
 - 每条边关联的两个点相互点邻接，同一结点上的各条边相互边邻接

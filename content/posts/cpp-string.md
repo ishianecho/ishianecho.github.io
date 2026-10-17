@@ -7,6 +7,8 @@ tags: [cpp]
 ---
 ## `ctors`
 
+- 参考文档：[cppreference — std::basic_string](https://en.cppreference.com/w/cpp/string/basic_string)
+
 ```c++
 // 定义:uint指size_type,即size_t,或许是unsigned int或unsigned long long
 string();    // 默认ctor,创建长度为0的对象

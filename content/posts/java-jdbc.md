@@ -7,6 +7,8 @@ tags: [java, database]
 ---
 ## 传统`JDBC`编程
 
+- 参考文档：[Java SE 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
+
 ### `Driver`和`DriverManager`和`Connection`
 
 - `JDBC`由各种数据库支持，提供各种包下的`Driver`类(例如`com.mysql.cj.jdbc.Driver`)，它们实现了`java.sql.Driver`接口

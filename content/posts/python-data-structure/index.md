@@ -7,6 +7,8 @@ tags: [python]
 ---
 ### 不可变/可变类型
 
+- 参考文档：[Python Tutorial — Data Structures](https://docs.python.org/3/tutorial/datastructures.html)
+
 回顾一下不可变、可变类型的区别
 
 - 展现给开发者的：

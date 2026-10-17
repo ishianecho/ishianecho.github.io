@@ -7,6 +7,7 @@ tags: [ml, python]
 ---
 ### 数据集集成框架
 
+- 参考文档：[PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
 - 数据的流向：先将数据交给自定义的数据集类(其任务为对源数据预处理，包装成数据加载器能够访问的数据集)，通常转化为张量
   通过数据加载类进行采样并送给模型计算并优化(其任务为根据默认或自定义的采样器`Sampler`进行真正的采样)
 

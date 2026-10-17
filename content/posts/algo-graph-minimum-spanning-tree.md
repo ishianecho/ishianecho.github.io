@@ -7,6 +7,8 @@ date: 2024-12-09
 ---
 ## Overview
 
+- 参考文档：[Minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree)、[OI Wiki：最小生成树](https://oi-wiki.org/graph/mst/)
+
 一个连通图的生成树是最简单的连通子图，它连通了图的所有节点，并且只含有**节点数减一**条边，即没有环
 
 最小生成树是指，假设原图的每条边都含有权重，它的最小生成树的权重和是所有生成树中权重和最小的那棵

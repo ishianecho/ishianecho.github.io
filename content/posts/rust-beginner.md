@@ -7,6 +7,8 @@ tags: [rust]
 ---
 ## 语句和表达式
 
+- 参考文档：[The Rust Programming Language](https://doc.rust-lang.org/book/)
+
 ### 通用规则
 
 - 语句是不会返回值的命令；表达式是会返回值的命令

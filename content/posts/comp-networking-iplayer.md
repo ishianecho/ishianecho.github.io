@@ -7,6 +7,8 @@ tags: [cs]
 ---
 ## 网络层协议
 
+- 参考文档：[Network layer](https://en.wikipedia.org/wiki/Network_layer)
+
 ### 网络层的功能
 
 - 主要功能：分组转发和路由选择

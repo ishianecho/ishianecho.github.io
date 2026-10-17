@@ -7,6 +7,8 @@ tags: [java]
 ---
 ## `Java`泛型编程
 
+- 参考文档：[Java SE 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
+
 ### 泛型声明
 
 - 泛型类似`cpp`的模板编程，用于重用代码

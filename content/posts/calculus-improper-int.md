@@ -9,6 +9,8 @@ tags: [math]
 
 ## 计算
 
+- 参考文档：[Improper integral](https://en.wikipedia.org/wiki/Improper_integral)
+
 ### 无穷区间上
 
 $$\begin{align}&\int_a^{+\infty}f(x)dx=\lim_{b\rightarrow+\infty}\int_a^bf(x)dx\end{align}$$

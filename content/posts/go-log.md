@@ -7,6 +7,8 @@ date: 2025-12-30T15:43:40.000Z
 ---
 ## `log`标准库
 
+- 参考文档：[pkg.go.dev — log](https://pkg.go.dev/log)
+
 ### 配置设置
 
 - `log.SetPrefix(stirng)`：设置前缀

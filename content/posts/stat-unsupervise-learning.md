@@ -7,6 +7,8 @@ tags: [ml]
 ---
 ## 主成分分析
 
+- 参考文档：[Unsupervised learning](https://en.wikipedia.org/wiki/Unsupervised_learning)
+
 - 主成分分析和主成分回归的第一步很像，使样本矩阵乘上载荷矩阵，载荷矩阵是$p\times M$的矩阵，使共$p$个特征降维为$M$个特征，只不过无法通过交叉验证估计测试误差，也无法选择$M$
 - 主成分分析必须**对载荷矩阵进行对标准化**，中心化可选
 

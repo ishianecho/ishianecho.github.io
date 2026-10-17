@@ -7,6 +7,8 @@ tags: [physics]
 ---
 ## 旧量子论
 
+- 参考文档：[Quantum mechanics](https://en.wikipedia.org/wiki/Quantum_mechanics)
+
 ### 黑体辐射
 
 - 热辐射是**由温度决定**的**电磁辐射**

@@ -7,6 +7,8 @@ tags: [physics]
 ---
 ## 基本定律及常量
 
+- 参考文档：[Electrostatics](https://en.wikipedia.org/wiki/Electrostatics)
+
 - 电荷的性质：
   - 量子性：基本电荷$e=1.602\times10^{-19}\rm C$，所有基本粒子所带电荷均为$e$的整数倍
   - 电荷守恒定律：在孤立系统内发生的任何过程中，总电荷数(所有电荷代数和)不变

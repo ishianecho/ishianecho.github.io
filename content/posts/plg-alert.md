@@ -9,6 +9,8 @@ tags: [devops]
 
 ## 监控栈的 `CI` 部署
 
+- 参考文档：[Grafana Alerting Documentation](https://grafana.com/docs/grafana/latest/alerting/)
+
 ### 整体形态
 
 - 监控栈是一个 `umbrella chart`：聚合 `kube-prometheus-stack`(含 `Prometheus`/`Alertmanager`)+ `loki` + `promtail` + `grafana` 依赖，环境差异全部放在 `values-*.yaml` 中
@@ -260,15 +262,15 @@ tags: [devops]
 
 ## 链路总结
 
-  ```text
-  Pod/Envoy 指标 ──> Prometheus(注解发现/relabel 打标) ──┐
-  容器日志 ──> Promtail(CRI 解析) ──> Loki(S3/分级保留) ──┤
-                                                        v
-                                     Grafana(数据源/仪表盘/告警，全部 ConfigMap + sidecar 供给)
-                                                        |
-                              告警规则(interval/for/labels.product)
-                                                        v
-                              通知策略(repeat_interval) ─> 联系点(webhook + Bearer)
-                                                        v
-                                     自建机器人 ──> 飞书群卡片(title/message 模板)
+  ```mermaid
+  flowchart TD
+      M["Pod/Envoy 指标"] -->|"注解发现/relabel 打标"| P["Prometheus"]
+      CL["容器日志"] -->|"CRI 解析"| T["Promtail"]
+      T --> K["Loki(S3/分级保留)"]
+      P --> G["Grafana(数据源/仪表盘/告警，全部 ConfigMap + sidecar 供给)"]
+      K --> G
+      G --> R["告警规则(interval/for/labels.product)"]
+      R --> N["通知策略(repeat_interval)"]
+      N -->|"联系点(webhook + Bearer)"| B["自建机器人"]
+      B --> F["飞书群卡片(title/message 模板)"]
   ```

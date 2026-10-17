@@ -7,6 +7,7 @@ tags: [ml]
 ---
 ### 卷积层
 
+- 参考文档：[Wikipedia — Convolutional neural network](https://en.wikipedia.org/wiki/Convolutional_neural_network)
 - 卷积层(`Convolutional Layer`)专门用于处理网格状数据或具有多维度特征信息的数据，例如时间序列(一维)、图像(二维)等
 
   在全连接层中图像数据的预处理方法：将所有像素均视为特征，一个图像的所有像素的`RGB`值等排成一列作为一条样本

@@ -7,6 +7,7 @@ date: 2025-06-17T16:36:12.000Z
 ---
 ## `docker-compose.yml`
 
+- 参考文档：[Docker Documentation](https://docs.docker.com/)
 - `docker-compose.yml`是唯一的必需文件
 - `version`：`docker-compose`版本声明
 - `services`：服务定义

@@ -7,14 +7,19 @@ tags: [devops]
 ---
 ## 快速入门
 
+- 参考文档：[Prometheus Documentation](https://prometheus.io/docs/)
+
 ### 简介
 
 - **`PLG`** 指以 **`Prometheus` + `Loki` + `Grafana`** 为核心的可观测性体系，分别负责**指标**、**日志**与**可视化/告警**，采集日志还需要 **`Promtail`**，四者的关系：
 
-  ```text
-  应用/容器 ──(pull 指标)──> Prometheus ──┐
-  应用/容器 ──(tail 日志)──> Promtail ──push──> Loki ──┐
-                                                    ├──> Grafana(查询/仪表盘/告警)
+  ```mermaid
+  flowchart TD
+      M["应用/容器"] -->|"pull 指标"| P["Prometheus"]
+      L["应用/容器"] -->|"tail 日志"| T["Promtail"]
+      T -->|"push"| K["Loki"]
+      P --> G["Grafana(查询/仪表盘/告警)"]
+      K --> G
   ```
 
 - 相比 `ELK` 全文索引的重量级方案，`Loki` 只对**标签**建索引、日志正文压缩存储，以极低的成本换来"够用"的日志检索能力，与 `k8s` 的标签体系天然契合

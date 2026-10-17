@@ -7,6 +7,8 @@ tags: [database]
 ---
 ## 基本数据类型
 
+- 参考文档：[SQL — Wikipedia](https://en.wikipedia.org/wiki/SQL)
+
 ### 域和属性
 
 - 在数据库中，域是具有**相同数据类型**的**有意义**的**值的集合**，属性是**域的实例**

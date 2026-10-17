@@ -11,6 +11,8 @@ tags: [cpp]
 
 ## `stdInput`
 
+- 参考文档：[cppreference — Input/output](https://en.cppreference.com/w/cpp/io)
+
 ### `cin`
 
 在`C++`中，`istream`类的对象`cin`(在`<iostream>`中声明)替代了`scanf`，它自动创建标准输入缓冲区，从标准输入流提取输入
@@ -206,7 +208,7 @@ ifstream fin(string&,ios_base::openmode=ios_base::in);
 
 ### 文件模式
 
-对于一个文件流对象`fio`，如果要**检查它的流是否异常**(而不是文件是否打开)，一般不用像`cin,cout`一样的`operator!(),rdstate()`方法，而是成员函数**`is_open()`**(还是调用`filebuf`类的成员，但这次是间接调用了`file`类的成员)，它能检查出“文件打开方式错误”一类的异常
+对于一个文件流对象`fio`，如果要**检查它的流是否异常**(而不是文件是否打开)，一般不用像`cin,cout`一样的`operator!(),rdstate()`方法，而是成员函数**`is_open()`**(还是调用`filebuf`类的成员，但这次是间接调用了`file`类的成员)，它能检查出"文件打开方式错误"一类的异常
 
 `C++`的文件模式设计与`C`有许多共通之处，但更好理解和记忆：
 

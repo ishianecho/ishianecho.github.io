@@ -5,6 +5,8 @@ categories: [Algorithm, Trick]
 tags: [algorithm]
 date: 2025-02-21
 ---
+- 参考文档：[Trie](https://en.wikipedia.org/wiki/Trie)、[OI Wiki：Trie](https://oi-wiki.org/string/trie/)
+
 ```c++
 #include <bits/stdc++.h>
 using namespace std;

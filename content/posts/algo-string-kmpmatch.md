@@ -7,6 +7,8 @@ date: 2024-10-23
 ---
 ## `KMP`算法
 
+- 参考文档：[Knuth–Morris–Pratt algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)、[OI Wiki：前缀函数与KMP](https://oi-wiki.org/string/kmp/)
+
 ### 暴力算法的不足
 
 假设主串为`T`，模式串为`P`，要找出第一个/共有多少个`P`子串，最简单的办法是暴力搜索

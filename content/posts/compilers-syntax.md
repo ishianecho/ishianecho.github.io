@@ -7,6 +7,8 @@ tags: [cs]
 ---
 ## 文法分类
 
+- 参考文档：[Parsing](https://en.wikipedia.org/wiki/Parsing)
+
 - `0`型文法：又称短语文法
 - `1`型文法：又称上下文有关文法
 - `2`型文法：又称上下文无关文法

@@ -9,6 +9,8 @@ tags: [circuit]
 
 ## 基础逻辑电路
 
+- 参考文档：[Turing Complete](https://turingcomplete.game/)
+
 ### 基础逻辑门
 
 **`NAND`与非门**是最为基础的逻辑门，根据德·摩根定理，能够用它和若干个**`NOT`非门**搭建其它三个基础门

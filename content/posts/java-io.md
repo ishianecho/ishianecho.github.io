@@ -7,6 +7,8 @@ tags: [java]
 ---
 ## `java.io`
 
+- 参考文档：[Java SE 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
+
 ### 文件类
 
 - `File`：文件类对象可表示一个文件，包括普通文件和目录文件，在文档中称为"抽象路径"

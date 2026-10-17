@@ -7,6 +7,8 @@ tags: [circuit]
 ---
 ## 电路分析方法
 
+- 参考文档：[Analogue electronics](https://en.wikipedia.org/wiki/Analogue_electronics)
+
 ### 基本概念
 
 - 两个结点构成一条支路，支路可构成一个回路
