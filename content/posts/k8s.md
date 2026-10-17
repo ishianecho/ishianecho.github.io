@@ -1,5 +1,5 @@
 ---
-title: "生产级的分布式集群部署"
+title: "Kubernetes 核心概念与常用字段"
 summary: "介绍 Kubernetes 核心概念与 Pod、Service、Ingress 等资源的常用字段"
 date: 2026-04-20T00:00:00.000Z
 categories: [Infra, Container, Kubernetes]
@@ -997,9 +997,6 @@ allowedTopologies:
 - **多云适配**：同一 `chart` 通过 `values` 切换对象存储挂载方案(`oss`/`gcs`/`cos`)与 `StorageClass`(按云厂商提供不同存储模板)
 - **环境隔离**：默认注入 `nodeSelector: example.io/environment={{ .Release.Namespace }}` 与对应容忍度，让命名空间与节点环境一一对应，用户可整体覆盖
 - **生命周期钩子**：`post-install`/`post-upgrade` `Job` 执行数据库迁移(`schema` 变更)等前置任务
-
-### 沉淀的最佳实践
-
 - **`umbrella chart` 封装上游依赖**：不直接部署第三方 `chart`，而是以依赖(`dependencies` + `condition` 开关)的方式包装，统一版本与定制，升级时只需改一处版本号
 - **版本统一为 `0.0.0`**：由 `CI` 在发布时统一注入版本号，避免手工维护，可回溯到具体 `commit`
 - **用 `Istio` 资源替代传统代理**：外部 `MySQL`/`MongoDB`/第三方 `API` 的访问入口全部用 `ServiceEntry` + `VirtualService` 建模，业务方看到的是稳定的集群内域名，底层地址变更只需改 `chart` 的 `values`

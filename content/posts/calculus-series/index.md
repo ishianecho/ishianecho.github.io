@@ -1,5 +1,5 @@
 ---
-title: "微积分: 级数"
+title: "级数"
 summary: "讲解常数项级数的敛散性、常见级数、性质及幂级数的相关概念"
 date: 2024-04-14
 categories: [CS Fundamentals, Calculus]
@@ -66,7 +66,7 @@ $$
 \begin{align}&\large若\lim_{n\rightarrow\infty}\frac{u_{n+1}}{u_n}=\rho(u_n>0):\\&\large1)当\rho<1时，级数收敛\\&\large2)当\rho>1或\rho=+\infty时，级数发散\end{align}
 $$
 
-### 正项级数的根植判别法
+### 正项级数的根值判别法
 
 也称柯西判别法，当一般项的外部带n次方时可以使用
 $$
@@ -95,7 +95,7 @@ $$
 
 但是，由比值判别法或根值判别法得出绝对值级数发散的原级数也发散，这很好理解：由比值判别法得到$u_n$单调递增，不符合莱布尼茨判别法的第一条件；由根值判别法得到$$\begin{align}\lim_{n\rightarrow\infty}u_n=+\infty\end{align}$$，不符合莱布尼茨判别法的第二条件
 
-->插曲：一个很有意思的事，欧拉证明欧拉公式时用到了泰勒级数的知识，被称为形式推导，没有考虑到$e^{i\pi}$展开后条件收敛的情况，这时调节项的位置有可能改变它的敛散性，这样证明是不严谨的
+> 插曲：一个很有意思的事，欧拉证明欧拉公式时用到了泰勒级数的知识，被称为形式推导，没有考虑到$e^{i\pi}$展开后条件收敛的情况，这时调节项的位置有可能改变它的敛散性，这样证明是不严谨的
 
 **黎曼重排定理**：一个条件收敛的级数存在不同的排序方法，使其收敛于任意数(包括$+\infty$)
 
@@ -191,7 +191,7 @@ $$\begin{align}f(x)=\frac{a_0}2+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)\end{ali
 
 则$f(x)$可展开为处处收敛的傅里叶级数且$$\begin{align}&S(x)=\frac{a_0}2+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)=\begin{cases}f(x),&在x处连续\\\ \large\frac{\lim_{x\rightarrow x^-}f(x)+\lim_{x\rightarrow x^+}f(x)}2,&x为间断点\end{cases}\\&a_0=\frac1\pi\int_{-\pi}^\pi f(x)dx,\ a_n=\frac1\pi\int_{-\pi}^\pi f(x)\cos nxdx,\ b_n=\frac1\pi\int_{-\pi}^\pi f(x)\sin nxdx\end{align}$$
 
-#### $\bf T=2l$(一般周期)函数
+#### 一般周期(`T=2l`)函数
 
 $$\begin{align}&f(x)\sim\frac{a_0}2+\sum_{n=1}^\infty(a_n\cos \frac\pi lnx+b_n\sin \frac\pi lnx)\\&a_0=\frac1l\int_{-l}^l f(x)dx,\ a_n=\frac1l\int_{-l}^l f(x)\cos \frac \pi lnxdx,\ b_n=\frac1l\int_{-l}^l f(x)\sin \frac \pi lnxdx\end{align}$$
 

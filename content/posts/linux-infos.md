@@ -1,5 +1,5 @@
 ---
-title: "高效地监控操作系统"
+title: "监控操作系统"
 summary: "介绍使用 Bash 命令监控进程、磁盘空间等系统信息的方法"
 date: 2025-01-11
 categories: [Infra, Linux]
@@ -7,7 +7,7 @@ tags: [linux]
 ---
 ## 进程
 
-- 参考文档：[Arch Wiki — Monitoring](https://wiki.archlinux.org/title/Category:Monitoring)
+- 参考文档：[Arch Wiki: Monitoring](https://wiki.archlinux.org/title/Category:Monitoring)
 
 ### 获取进程信息
 

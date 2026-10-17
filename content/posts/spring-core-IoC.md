@@ -5,7 +5,7 @@ date: 2025-07-03
 categories: [Programming, Java, Spring framework]
 tags: [java]
 ---
-## 简介
+## 概述
 
 - 参考文档：[Spring Framework Reference](https://docs.spring.io/spring-framework/reference/)
 - `IoC`(`Inversion of Control`，控制反转)容器的原则是使原本有相互依赖的各个部分解耦，实现松耦合地运作
@@ -48,7 +48,6 @@ tags: [java]
 ### 上下文
 
 - `Spring`的`IoC`容器通过解析元数据来管理`Bean`
-
   元数据通常包括以下内容：
   - `Bean`的类型
   - `Bean`的`id`

@@ -1,5 +1,5 @@
 ---
-title: "练习题"
+title: "微积分练习题"
 summary: "微积分极限与积分的计算练习题集，附详细求解过程"
 date: 2023-12-11
 categories: [CS Fundamentals, Calculus]
@@ -83,17 +83,17 @@ $$\begin{align}&12.\end{align}$$
 
 ## 数列极限
 
-# 一元积分学
+## 一元积分学
 
-## 不定积分
+### 不定积分
 
-### 常见微分等式
+#### 常见微分等式
 
 - $$\begin{align}\mathrm d\left(\ln(x+\sqrt{\pm k^2+x^2})\right)=\frac1{\sqrt{\pm k^2+x^2}}\end{align}$$
 - $$\begin{align}\mathrm d\left(x\pm\frac kx\right)=1\mp\frac k{x^2}\end{align}$$，由于$$\begin{align}\left(x\pm\frac kx\right)^2=x^2+\frac{k^2}{x^2}\pm2k\end{align}$$，遇到**分子分母分别为二次、四次多项式，且不包含奇数幂次**时，可考虑用分子凑出该微分，而分母通过**配方**化作该式的平方，实现降幂
 - $$\begin{align}\mathrm d(\sin x\pm\cos x)=\cos x\mp\sin x\end{align}$$，在处理$\sin x\cos x$时很有效
 
-### 常见计算技巧
+#### 常见计算技巧
 
 - 更换积分对象：
   - 分部积分：$$\begin{align}\int u\mathrm dv=uv-\int v\mathrm du\end{align}$$，若分部后的积分容易算，采用分部积分
@@ -109,18 +109,16 @@ $$\begin{align}&12.\end{align}$$
 - 微分代换：分母根式借助**配方**和微分等式代换，但一般没有三角代换常用
   - $$\begin{align}\mathrm d(\arcsin x)=\frac1{\sqrt{1-x^2}}\end{align}$$
   - $$\begin{align}\mathrm d\left(\ln(x+\sqrt{1+x^2})\right)=\frac1{\sqrt{1+x^2}}\end{align}$$
-
 - 区间再现：实际上是定积分的技巧，包括正弦、余弦函数的华里士公式；体现在不定积分上，实际上就是通过分部积分导出的含有重复待求积分的式子
   当幂数不常见时，可通过该方法求出递推式z
 - 欧拉变换：设被积函数为关于$x$的，包含$\sqrt{ax^2+bx+c}$根式的函数
   - 欧拉第一代换：若$a>0$，则可令整个根式$=t\pm\sqrt ax$
   - 欧拉第二代换：若$c>0$，则可令整个根式$=xt\pm\sqrt c$
   - 欧拉第三代换：若可十字相乘(有两不同实根)，可令整个根式$=t(x-x_1)$，其中$x_1$为其中一个实根
-
 - 万能代换将三角函数换为有理式：令$$\begin{align}t=\tan\frac x2\end{align}$$，则$$\begin{align}\sin x=\frac{2t}{1+t^2}、\cos t=\frac{1-t^2}{1+t^2}、\mathrm dx=\frac{2}{1+t^2}\mathrm dt\end{align}$$
 - 积分抵消：仍是通过分部积分$$\begin{align}uv=\int u\mathrm dv+\int v\mathrm du\end{align}$$，若两个不定积分都不好求，但刚好能凑出两个该形式的不定积分，则可合成一个$uv$；有时有两个不相关的不定积分，也可尝试分别分部积分，分出的部分可能是有关的
 
-### 题集
+#### 题集
 
 典型分母降幂
 
@@ -196,11 +194,11 @@ $$\begin{align}&17.I=\int\sqrt{k\pm x^2}\mathrm dx,\ k\pm x^2\ge0,k>0\\&解:I=x\
 
 ---
 
-# 中值定理
+## 中值定理
 
-## 复习
+### 复习
 
-### 常用定理定义
+#### 常用定理定义
 
 - 零点定理：若$f(x)$在$[a,b]$内连续，且$f(a)f(b)<0$，则至少存在一点$x_0\in(a,b)$，使$f(x_0)=0$；零点定理可视为介值定理的特例
 - 唯一零点定理：在**零点定理成立**的条件下，若$f(x)$可导且$f'(x)\ne0$，则有且仅有一点使$f(x_0)=0$
@@ -210,7 +208,9 @@ $$\begin{align}&17.I=\int\sqrt{k\pm x^2}\mathrm dx,\ k\pm x^2\ge0,k>0\\&解:I=x\
 - 泰勒中值定理：若$f(x)$在$x_0$的$(a,b)$邻域内**有$n+1$阶导**，则存在介于$x$和$x_0$之间的中值$\xi$($x\in (a,b)$)，使其泰勒展开后拉格朗日型余项为$$\begin{align}R_n=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}\end{align}$$
 - 积分中值定理：若有$$\begin{align}\int_a^bf(x)dx=0\end{align}$$，则存在一点$x_0\in(a,b)$，使$f(x_0)=0$
 
-### 构造辅助函数(`->`[微分方程](#微分方程))
+#### 构造辅助函数
+
+- 相关章节：[微分方程](#微分方程)
 
 通过中值定理证明给定方程$F(x)=0$的题型中，寻找辅助函数的过程相当于解出微分方程后移项，常见构造如下(可不记，相当于初等微分方程)：
 
@@ -224,7 +224,7 @@ $$\begin{align}&17.I=\int\sqrt{k\pm x^2}\mathrm dx,\ k\pm x^2\ge0,k>0\\&解:I=x\
 - 与关于$f(x)$微分方程的联系：如此构造出的$$\begin{align}G(x)=f(x)e^{\int P(x)dx}-\int e^{\int P(x)dx}Q(x)dx=C\end{align}$$，移项后求出的$f(x)$就是熟悉的公式$$\begin{align}f(x)=e^{-\int P(x)dx}\left(\int e^{\int P(x)dx}Q(x)dx+C\right)\end{align}$$；所以解出$f(x)$，辅助函数也就得到了
 - 和微分方程的区别：微分方程恒成立，而中值定理往往是只有单中值或双中值满足给定方程，相当于求特解；反过来说，如果能保证构造出的$G(x)$恒等于常数，那么其中的$f(x)$就是通解了
 
-## 题集
+### 题集
 
 简单构造：
 
@@ -314,9 +314,9 @@ $$\begin{align}&12.设函数f(x)在[0,1]上连续,且\int_0^1f(x)dx=0,\int_0^1xf
 
 ---
 
-# 微分方程<a id="微分方程"></a>
+## 微分方程<a id="微分方程"></a>
 
-## 复习
+### 复习
 
 - 一阶非齐次线性微分方程：含公式
   - 关于$y(x)$的$y'(x)+P(x)y(x)=Q(x)$：$$\begin{align}y=e^{-\int P(x)\mathrm dx}\left(\int e^{\int P(x)\mathrm dx}Q(x)\mathrm dx+C\right)\end{align}$$
@@ -326,7 +326,7 @@ $$\begin{align}&12.设函数f(x)在[0,1]上连续,且\int_0^1f(x)dx=0,\int_0^1xf
   - 由数学归纳法有以下结论：$$\begin{align}&当f(x)=0,\lambda_1\ne\lambda_2时,y=\frac{C_1'e^{\lambda_1x}+C_2'e^{\lambda_2 x}}{\lambda_2-\lambda_1}=C_1''e^{\lambda_1 x}+C_2''e^{\lambda_2x},(单根)\\&当f(x)=0,\lambda_1=\lambda_2时,y=e^{\lambda_1x}\left(C_1x+C_2\right),(二重根,多重根类似)\\&\\&当f(x)=0,\lambda为共轭复数单根\alpha\pm\beta\ i时,根据欧拉公式,y=e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x)\\&当f(x)=0,\lambda为共轭复数n重根时,\\&y=e^{\alpha x}((C_1+C_2x+\cdots+C_nx^n)\cos\beta x+(C_1'+C_2'x+\cdots+C_n'x^n)\sin\beta x)\\&\\&当f(x)\ne 0,且为(Ax^n+Bx^{n-1}+\cdots+C)e^{\alpha x}类型时,\\&y的一个特解为(A'x^n+B'x^{n-1}+\cdots+C')e^{\alpha x}x^k,\ 其中\alpha为k重特征根\\&当f(x)\ne0,且为((Ax^n+Bx^{n-1}+\cdots+C)\cos\beta x+(A'x^n+B'x^{n-1}+\cdots+C')\sin\beta x)e^{\alpha x}时,\\&y的一个特解为\\&((A''x^n+B''x^{n-1}+\cdots+C'')\cos\beta x+(A'''x^n+B'''x^{n-1}+\cdots+C''')\sin\beta x)e^{\alpha x}x^k,\\&其中\alpha+\beta\ i为k重特征根\\&当f(x)\ne0且为上述三种情况的线性组合时,y的一个特解是各项特解的线性组合\end{align}$$
 - 全微分方程：凑微分法或偏积分法
 
-## 题集
+### 题集
 
 $$\begin{align}&1.求解微分方程:\begin{cases}{\large\frac{\mathrm dy}{\mathrm dx}}-xy=xe^{x^2}\\y(0)=1\end{cases}\\&解:y的通解为e^{\int x\mathrm dx}\left(\int e^{\int -x\mathrm dx} xe^{x^2}\mathrm dx+C\right)=e^{x^2}+Ce^{\frac{x^2}2}\\&代入y(0)=1,则C=0,\ y=e^{x^2}\end{align}$$
 

@@ -5,9 +5,9 @@ date: 2026-10-14T00:00:00.000Z
 categories: [Games]
 tags: [linux, gaming]
 ---
-## Overview
+## 概述
 
-- 参考文档：[Arch Wiki — Gaming](https://wiki.archlinux.org/title/Gaming)
+- 参考文档：[Arch Wiki: Gaming](https://wiki.archlinux.org/title/Gaming)
 - 在 `Linux` 上跑原生为 `Windows` 打造的游戏，本质是一条逐层转译的链路：
 
   ```mermaid
@@ -52,7 +52,7 @@ tags: [linux, gaming]
 - **`proton-tkg`**：另一条定制路线，提供大量可配置的编译选项(`futex`、`fsync`、调度器调优等)，面向愿意自己编译折腾的高级用户
 - **`Wine-GE`** 与 **`umu-launcher`**：
   - `Wine-GE` 曾是为非 `Steam` 启动器(如 `Lutris`、`EA app`)准备的 `GE` 版 `Wine`，**现已停止维护**
-  - 官方替代方案是 **`umu-launcher`**：它实现了一套与 `Steam` 相同的运行时环境，让任何启动器(甚至一条命令行)都能以"官方 `Proton` 或 `Proton-GE`"来运行非 `Steam` 游戏——相当于把 `Proton` 从 `Steam` 里解耦出来给全系统用
+  - 官方替代方案是 **`umu-launcher`**：它实现了一套与 `Steam` 相同的运行时环境，让任何启动器(甚至一条命令行)都能以"官方 `Proton` 或 `Proton-GE`"来运行非 `Steam` 游戏，相当于把 `Proton` 从 `Steam` 里解耦出来给全系统用
   - `Lutris` 已原生集成 `umu`，非 `Steam` 游戏因此也能享受 `Proton` 分支的持续更新
 
 ## 常见转译库
@@ -67,8 +67,8 @@ tags: [linux, gaming]
 ## `gamescope`
 
 - **`gamescope`** 是 `Valve` 开发的**嵌套式合成器**(`SteamOS`/`Steam Deck` 的会话层，合成器与 `Wayland`/`wlroots` 的背景见 [Linux 显示协议与图形栈](/2026/10/14/linux-display-stack/))，可以嵌在任意桌面里单独给某个游戏用：
-  - 核心能力一：**分辨率与缩放管理**——游戏内部以任意分辨率渲染，`gamescope` 负责用高性能滤波器(`FSR`、`NIS` 等)缩放到屏幕，掌机与小屏场景的救星
-  - 核心能力二：**像素完美的全屏控制**——模拟"全屏独占"，无论窗口管理器做什么，游戏看到的都是独占全屏，规避了各桌面合成器行为不一致的问题
+  - 核心能力一：**分辨率与缩放管理**，游戏内部以任意分辨率渲染，`gamescope` 负责用高性能滤波器(`FSR`、`NIS` 等)缩放到屏幕，掌机与小屏场景的救星
+  - 核心能力二：**像素完美的全屏控制**，模拟"全屏独占"，无论窗口管理器做什么，游戏看到的都是独占全屏，规避了各桌面合成器行为不一致的问题
   - 其他实用功能：帧率限制、色相/锐化滤镜、嵌套窗口运行、`HDR` 映射
   - 典型用法是作为启动包装器：`gamescope -W 2560 -H 1440 -w 1920 -h 1080 -F fsr -- %command%`，在 `Steam` 里替换原始启动命令即可
 

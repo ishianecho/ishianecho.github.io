@@ -30,7 +30,6 @@ tags: [physics]
   - 动量$\boldsymbol{p}=m\boldsymbol{v}$
   - 力$$\begin{align}\boldsymbol{F}=\frac{\mathrm d\boldsymbol{p}}{\mathrm dt}\end{align}$$，当质量为关于$t$的常数时，$\boldsymbol{F}=m\boldsymbol{a}$
   - 力恒定时，质量越大、加速度越小、物体惯性越大
-
 - 牛顿第三定律：相互作用力总是大小相等、方向相反、作用在一条直线上
 
 ### 参考系
@@ -43,12 +42,10 @@ tags: [physics]
     - 位矢关系：$\boldsymbol r(t)=\boldsymbol r'(t)+\boldsymbol{OO'}(t)$，即$\boldsymbol{OP}=\boldsymbol{OO'}+\boldsymbol{O'P}$
     - 速度关系：$\boldsymbol{v}=\boldsymbol{v}'+\boldsymbol{u}$
     - 加速度关系：$$\begin{align}\boldsymbol{a}=\boldsymbol{a}'+\frac{\mathrm d\boldsymbol{u}}{\mathrm dt}\end{align}$$
-
   - 伽利略坐标变换：若两**惯性系**在相对做**匀速直线运动**，则$\boldsymbol{u}=\boldsymbol{C}$，有：$\begin{cases}x=x'+ut\\y=y'\\z=z'\\t=t'\end{cases}$
-
 - 惯性力存在于非惯性系中，且$\boldsymbol{F}_i=-m\boldsymbol{a}$，其中$\boldsymbol{a}$为非惯性系的加速度
 
-### 关于动量
+### 动量
 
 - 动量是牛顿第二定律的另一种形式
 - 动量定理：力是动量对时间的导数，冲量是力对时间的积分
@@ -58,7 +55,7 @@ tags: [physics]
   - 质心坐标$$\begin{align}\boldsymbol{r}_c=\frac{\int_\Omega\rho\ \boldsymbol{r}\mathrm d\Omega}{m}\end{align}$$，其中$c$为质心这个点，$\boldsymbol{r}$为质点系中任意一点的位矢
   - 若该质点系满足动量守恒定律，则$\sum\limits_ i\boldsymbol{F}_i=m\boldsymbol{a}_c$
 
-### 关于角动量
+### 角动量
 
 - 设质点$P$相对于$O$的位矢为$\boldsymbol{r}$，且所受外力为$\boldsymbol{F}$，则定义$\boldsymbol{F}$对$O$的力矩为$\boldsymbol{M}=\boldsymbol{r\times F}$
 - 力矩由力的大小、方向、作用点以及某固定点生成
@@ -66,7 +63,7 @@ tags: [physics]
 - 角动量定理：力矩是角动量对时间的导数
 - 角动量守恒定律：若某质点系所受**合外力矩**为零，则$\sum\limits_ i\boldsymbol{L}_i=\boldsymbol{C}$，例如质点系**做直线运动**或**做匀速圆周运动**
 
-### 关于功和功率
+### 功和功率
 
 - 力做功$$\begin{align}A=\int_L\boldsymbol{F}\mathrm d\boldsymbol{r}=\int_L\boldsymbol{F·v}\ \mathrm dt\end{align}$$，恒力做功$A=\boldsymbol{F·\Delta r}$
 - 根据格林公式及斯托克斯公式，将做功与路径无关，即$\boldsymbol{F}$的雅可比行列式为$0$的力称为保守力
@@ -87,21 +84,13 @@ tags: [physics]
 ### 刚体力学
 
 - 角速度大小：$$\begin{align}\omega=\frac{\mathrm d\theta}{\mathrm dt}=\frac1r\frac{\mathrm dl}{\mathrm dt}=\frac vr\end{align}$$
-
 - 角速度方向：$\boldsymbol{v}=\boldsymbol{\omega\times r}$
-
 - 角加速度和加速度的关系：
-
   - $$\begin{align}a_t=\frac{\mathrm dv}{\mathrm dt}=r\frac{\mathrm d\omega}{\mathrm dt}=r\alpha\end{align}$$
   - $$\begin{align}a_n=\frac{v^2}{r}=r\omega^2\end{align}$$
   - $$\begin{align}\boldsymbol{a}=\frac{\mathrm d(\boldsymbol{\omega\times r})}{\mathrm dt}=\boldsymbol{\alpha\times r}+\boldsymbol{\omega\times v}\end{align}$$
-
 - 刚体绕定轴转动时，轴向动量和位矢垂直，故轴向角动量的大小$L_i=|\boldsymbol{r\times p}_i|=mr_iv_i=mr_i^2\omega_i$
-
   定义刚体绕某轴旋转的**转动惯量**为$$\begin{align}J=mr_i^2=\int_\Omega \rho\ r_i^2\mathrm d\Omega\end{align}$$，则轴向角动量的大小为$L_i=J\omega$，轴向力矩大小为$M_i=J\alpha$
-
 - 刚体定轴转动定律：刚体绕定轴的**角加速度**和**轴向力矩**成正比，类比加速度和力的关系$F=ma$
-
 - 转动问题中，$$\begin{align}A=\int_{\theta_1}^{\theta_2}M_i\mathrm d\theta\end{align}$$，即外力做的功等于轴向力矩和角位移的积
-
 - 转动动能：$$\begin{align}E_k=\frac12J\omega^2\end{align}$$

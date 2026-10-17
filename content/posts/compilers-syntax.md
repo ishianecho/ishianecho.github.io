@@ -8,7 +8,6 @@ tags: [cs]
 ## 文法分类
 
 - 参考文档：[Parsing](https://en.wikipedia.org/wiki/Parsing)
-
 - `0`型文法：又称短语文法
 - `1`型文法：又称上下文有关文法
 - `2`型文法：又称上下文无关文法
@@ -30,7 +29,7 @@ tags: [cs]
     &E\rightarrow E+T
     \\&T\rightarrow T\times T
     \end{align}
-    $$  
+    $$
 
   - 一般，优先级高的运算，其产生式应该离根更远
 - 消除左递归：在递归下降分析程序里，由于程序无法看到后续的记号，因此如果存在左递归会存在一个函数递归调用自身而不继续解析的问题
@@ -41,31 +40,29 @@ tags: [cs]
     &A\rightarrow \beta A'
     \\&A'\rightarrow \alpha A'|\epsilon
     \end{align}
-    $$  
+    $$
 
   - 消除间接左递归：$\begin{cases}A\rightarrow B\alpha|\beta\\B\rightarrow A\gamma|\epsilon\end{cases}$
+    - 实际上可以先转化为直接左递归：
 
-    实际上可以先转化为直接左递归：  
-
-    $$
-    \begin{cases}A\rightarrow B\alpha|\beta\\B\rightarrow B\alpha\gamma|\beta\gamma|\epsilon\end{cases}
-    $$  
+      $$
+      \begin{cases}A\rightarrow B\alpha|\beta\\B\rightarrow B\alpha\gamma|\beta\gamma|\epsilon\end{cases}
+      $$
 
 - 提取公共左因子：存在公共左因子会使程序不知道应该选择哪个，如果定死顺序则很可能出现错误分析
+  - 提取公共左因子非常简单，只需要添加中间的非终结符即可：
 
-  提取公共左因子非常简单，只需要添加中间的非终结符即可：
+    $$
+    \begin{align}
+    &A\rightarrow \alpha A|\alpha B
+    \\&A\rightarrow \alpha C
+    \\&C\rightarrow A|B
+    \end{align}
+    $$
 
-  $$
-  \begin{align}
-  &A\rightarrow \alpha A|\alpha B
-  \\&A\rightarrow \alpha C
-  \\&C\rightarrow A|B
-  \end{align}
-  $$
+## 语法分析方法
 
-## 分析法
-
-### 自上而下分析`LL(1)`
+### 自上而下分析(`LL(1)`)
 
 - `LL(1)`要求产生式集合没有二义性、没有左递归、没有公共左因子
 - 求`first`集合：

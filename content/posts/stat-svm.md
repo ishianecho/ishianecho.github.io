@@ -8,7 +8,6 @@ tags: [ml]
 ## 超平面
 
 - 参考文档：[Support vector machine](https://en.wikipedia.org/wiki/Support_vector_machine)
-
 - 超平面就是一个式子，$\beta_0+\beta_1x_1+\dots+\beta_px_p=0$
 - 分割超平面：如果超平面两边($>0或<0$)刚好划分了两类样本，则为分割超平面
 - 最大间隔分类器：

@@ -5,8 +5,6 @@ date: 2025-05-04
 categories: [Programming, Java, Java SE]
 tags: [java]
 ---
-## 函数式编程
-
 - 参考文档：[Java SE 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
 
 ### 类的初始化代码

@@ -1,12 +1,10 @@
 ---
 title: "网络编程基础"
-summary: "介绍 Java TCP/UDP 套接字、HTTP 客户端与异步网络编程及 RMI"
+summary: "介绍 Java TCP/UDP 套接字、HTTP 客户端与 RMI"
 date: 2025-05-10
 categories: [Programming, Java, Java SE]
 tags: [java, cs]
 ---
-## 网络编程基础
-
 - 参考文档：[Java SE 21 API Specification](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
 
 ### `TCP`客户端
@@ -84,16 +82,15 @@ tags: [java, cs]
   - `previousResponse()`：获取前一次响应，用于回溯重定向链
   - `version()、uri()、request()`：更多获取信息的方法
 
-### 异步网络编程
-
-### 了解`RMI`
+### `RMI`
 
 - `RMI`(`Remote Method Invotation`，远程方法调用)是`java.rmi`提供的远程调用`API`，仅需了解即可
   远程调用十分常用，这使得客户端代码无需有接口的实现类，而只需要声明接口即可正常调用，实现类由服务端提供
 - 远程方法调用的服务接口(即服务器端)需要继承`Remote`空接口且所有方法需要抛出受检异常`RemoteException`，创建实例后，通过`UnicastRemoteObject`转化为`RMI`服务，通过`Registry`注册到本地的端口上
   而客户端需要通过`Registry`的`getRegistry(host, port)`和`lookup(serv_name)`获取服务以及服务接口
+- 示例：
 
-- ```java
+  ```java
   // 服务端: 包含RemoteDemo接口, RemoteDemoImpl实现类
   // 在本地1999号端口上启动一个RMI注册表
   Registry registry = LocalRegistry.createRegistry(1999);

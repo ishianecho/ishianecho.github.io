@@ -1,5 +1,5 @@
 ---
-title: "内核"
+title: "Linux 内核"
 summary: "介绍 Linux 内核的系统内存管理、软件程序管理等核心功能"
 date: 2025-08-20
 categories: [Infra, Linux]
@@ -9,7 +9,7 @@ tags: [linux]
 
 ## 系统内存管理
 
-- 参考文档：[Arch Wiki — Kernel](https://wiki.archlinux.org/title/Kernel)
+- 参考文档：[Arch Wiki: Kernel](https://wiki.archlinux.org/title/Kernel)
 
 `Linux`内核可以管理硬盘上的**交换区域**，这片区域被称为虚拟内存，它扩大了系统可使用的内存
 

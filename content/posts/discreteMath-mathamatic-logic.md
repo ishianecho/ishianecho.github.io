@@ -47,10 +47,10 @@ tags: [cs]
 - **德$\cdot$摩根律**：
   - $\neg(p\wedge q)\equiv \neg p\vee\neg q$
   - $\neg(p \vee q)\equiv\neg p\wedge\neg q$
-- 支配律：$p\vee T\equiv T、p\wedge F\equiv F$
-- 自等律：$p\vee p\equiv p、p\wedge p\equiv p$
-- 恒等律：$p\vee F\equiv p、p\wedge T\equiv p$
-- 否定律：$p\vee \neg p\equiv T、p\wedge \neg p\equiv F$
+- 支配律：$p\vee T\equiv T$；$p\wedge F\equiv F$
+- 自等律：$p\vee p\equiv p$；$p\wedge p\equiv p$
+- 恒等律：$p\vee F\equiv p$；$p\wedge T\equiv p$
+- 否定律：$p\vee \neg p\equiv T$；$p\wedge \neg p\equiv F$
 - **吸收律**：
   - $p\vee(p\wedge q)\equiv p$
   - 由分配律，$p\wedge(p\vee q)\equiv p$，也即上式的对偶
@@ -71,7 +71,7 @@ tags: [cs]
 ### 对偶规则
 
 - 恒等式通常成对出现，称其为对偶，以$F^d$表示$F$的对偶函数，对一个恒等式两边取对偶不影响恒等性
-- $F^d\not\equiv F(一般)、(F^d)^d\equiv F$
+- $F^d\not\equiv F$(一般)；$(F^d)^d\equiv F$
 - 对偶函数由原函数**交换逻辑与、逻辑或，交换$0$和$1$得到**
 
 ### 反演规则
@@ -131,8 +131,7 @@ tags: [cs]
   - $(\forall x)(\forall y)\equiv (\forall y)(\forall x)\\(\exist x)(\exist y)\equiv (\exist y)(\exist x)$
   - $(\forall x)(\forall y)\Rightarrow(\exist x)(\forall y)\Rightarrow(\forall y)(\exist x)\Rightarrow(\exist x)(\exist y)\\(\forall x)(\forall y)\Rightarrow(\exist y)(\forall x)\Rightarrow(\forall x)(\exist y)\Rightarrow(\exist x)(\exist y)$
 - 嵌套量词的否定：
-  - 层层套用德$·$摩根律，结果为$\forall$和$\exist$互换，非号在最里层，例如：
-  - $\neg(\forall x)(\exist y)P(x,y)\equiv(\exist x)(\forall y)\neg P(x,y)$
+  - 层层套用德$·$摩根律，结果为$\forall$和$\exist$互换，非号在最里层，例如：$\neg(\forall x)(\exist y)P(x,y)\equiv(\exist x)(\forall y)\neg P(x,y)$
 
 ## 推理规则
 

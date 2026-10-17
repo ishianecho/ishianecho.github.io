@@ -5,9 +5,9 @@ categories: [Algorithm, Data Structure]
 tags: [algorithm]
 date: 2024-10-02
 ---
-## Overview
+## 概述
 
-- 参考文档：[Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure)、[OI Wiki：并查集](https://oi-wiki.org/dsu/)
+- 参考文档：[Disjoint-set data structure](https://en.wikipedia.org/wiki/Disjoint-set_data_structure)、[OI Wiki:并查集](https://oi-wiki.org/dsu/)
 
 并查集用于解决**不相交集合**的问题，高效地提供两种方法：
 
@@ -140,4 +140,6 @@ Class* find(const Class* p) {
 
 但实际情况中，通过整型数组与哈希表映射(键为`value_type`，值为整型)相结合来实现更为有效
 
-## [代码](./1附_Union_Find_Set.h)
+## 代码
+
+- [完整代码](./1附_Union_Find_Set.h)

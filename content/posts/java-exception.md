@@ -49,5 +49,5 @@ tags: [java]
 
 ### 异常处理
 
-- `catch-try-finally`：`finally`可选，表示`try`后(即时出现异常)必须执行的代码块，例如关闭文件等
+- `try-catch-finally`：`finally`可选，表示`try`后(即时出现异常)必须执行的代码块，例如关闭文件等
 - `try-with-resource`：指在`try()`中定义需要`close()`的资源，此时不需要使用`finally`就可自动关闭`try`的资源

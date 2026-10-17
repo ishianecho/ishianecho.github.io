@@ -13,9 +13,9 @@ $$\begin{align}\int_a^bf(x)dx=\lim_{\lambda\rightarrow0}\sum_{i=1}^nf(\xi_i)\Del
 
 ## 可积的条件
 
-1) f(x)在[a, b]上连续
-2) f(x)在[a, b]上单调
-3) f(x)在[a, b]上有界，且只有有限个间断点
+- f(x)在[a, b]上连续
+- f(x)在[a, b]上单调
+- f(x)在[a, b]上有界，且只有有限个间断点
 
 ## 一些特殊性质
 
@@ -23,11 +23,11 @@ $$\begin{align}\int_a^bf(x)dx=\lim_{\lambda\rightarrow0}\sum_{i=1}^nf(\xi_i)\Del
 
 $$\begin{align}若f(x)与g(x)在[a,b]上均可积，且f(x)\le g(x)，则\int_a^bf(x)dx\le\int_a^bg(x)dx\end{align}$$
 
-### $\textcolor{red}{最大最小值}$
+### 最大最小值
 
 $若M和m分别是可积函数f(x)的最大值和最小值，则\\m(b-a)\le\int_a^bf(x)dx\le M(b-a)$
 
-### $\textcolor{red}{区间可加性}$
+### 区间可加性
 
 $$\begin{align}&可以分为若干个分割，即\\&\int_a^bf(x)dx=\int_a^cf(x)dx+\int_c^bf(x)dx\\&\int_a^bf(x)dx=-\int_b^af(x)dx\end{align}$$
 
@@ -35,7 +35,7 @@ $$\begin{align}&可以分为若干个分割，即\\&\int_a^bf(x)dx=\int_a^cf(x)d
 
 $若f(x), g(x)在[a,b]上可积,则f(x)g(x)在[a,b]上也可积$
 
-### $\textcolor{red}{积分中值定理}$
+### 积分中值定理
 
 $$\begin{align}&若f(x)在[a,b]上连续,则存在\xi\in[a,b],使\\&\int_a^bf(x)dx=f(\xi)(b-a)\end{align}$$
 
@@ -62,17 +62,17 @@ $\phi'(x)=f(x)$
 
 任何连续函数都具有原函数
 
-## [题型]计算定积分
+## 计算定积分
 
-#### $\textcolor{red}{1.\int_a^bf(x)dx=\int_a^bf(a+b-x)dx}$
+#### 对称变换$\int_a^bf(x)dx=\int_a^bf(a+b-x)dx$
 
 即令t=a+b-x, 此方法可以证明它本身和f(sin x)与f(cos x)的关系
 
 $$\begin{align}利用此方法还可以计算：\int_a^bf(x)dx=\frac{1}{2}\int_a^b(f(x)+f(a+b-x))dx\end{align}$$
 
-#### 2.利用牛顿莱布尼茨公式
+#### 利用牛顿莱布尼茨公式
 
-#### $\textcolor{red}{3.利用奇偶性}$
+#### 利用奇偶性
 
 $$\begin{align}\int_{-a}^af(x)dx=\int_0^a{(f(x)+f(-x))dx}\end{align}$$
 
@@ -82,11 +82,11 @@ $$\begin{align}\int_{-a}^af(x)dx=\int_0^a{(f(x)+f(-x))dx}\end{align}$$
 
 当f(x)中有一部分是奇或偶函数时也可尝试这个公式
 
-#### 4.利用周期性
+#### 利用周期性
 
 $$\begin{align}&若f(x)以T为周期，则\\&\int_a^{a+T}f(x)dx=\int_0^Tf(x)dx\\&\int_a^{a+nT}f(x)dx=n\int_0^Tf(x)dx\end{align}$$
 
-#### 5.关于三角函数的定积分
+#### 三角函数的定积分
 
 $$\begin{align}1).\int_0^{\frac{\pi}{2}}(\cos x)dx=\int_0^{\frac{\pi}{2}}(\sin x)dx\end{align}$$
 
@@ -97,13 +97,12 @@ $$\begin{align}2).\int_0^\pi xf(\sin x)dx=\frac{\pi}{2}\int_0^\pi f(\sin x)dx=\p
 $$\begin{align}&3).\int_0^\frac{\pi}{2}f(\sin^nx)dx\\
 &当n为偶数时,\int_0^\frac{\pi}{2}f(sin^nx)dx=\frac{n-1}{n}\frac{n-3}{n-2}...\frac{1}{2}·\frac{\pi}{2}\\&当n为奇数时,\int_0^\frac{\pi}{2}f(sin^nx)dx=\frac{n-1}{n}\frac{n-3}{n-2}...\frac{1}{3}·1\end{align}$$
 
-## [题型]计算极限
+## 计算极限
 
 ### 求数列多项和的极限
 
-1. 先考虑夹逼定理
-
-2. 若无法夹逼，可以提出$$\begin{align}\frac{1}{n}\end{align}$$后，化为一个0到1的定积分
+- 先考虑夹逼定理
+- 若无法夹逼，可以提出$$\begin{align}\frac{1}{n}\end{align}$$后，化为一个0到1的定积分
 
 例：
 

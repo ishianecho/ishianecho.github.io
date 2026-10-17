@@ -1,5 +1,5 @@
 ---
-title: '会话管理'
+title: 会话管理
 summary: "介绍 Gin 中基于 session 和 JWT 的会话管理实现与相关 API"
 categories: [Programming, Go, 3P Framework, Gin]
 tags: [go, web]
@@ -13,11 +13,8 @@ date: 2025-12-30T15:20:05.000Z
 
 - `Gin`本身不支持会话管理，需要第三方框架[`github.com/gin-contrib/sessions`](https://github.com/gin-contrib/sessions)
 - `sessions.Store`表示一个存储引擎，`sesssion`的常用存储方式有三种：内存存储、`cookie`存储、`redis`存储(还支持`MongoDB`、`GORM`和`PostgreSQL`)
-
-  这三种存储方式的实现在`sessions/memstore`、`sessions/cookie`、`sessions/redis`中，区别和`gin`没有关系，属于常识：
-
-  内存存储和`redis`存储都是将会话信息存储在服务端然后使用`cookie`传输`sessionId`等会话的元数据，而`cookie`存储是将会话信息完全由`cookie`传输并存储在客户端浏览器上
-
+  - 这三种存储方式的实现在`sessions/memstore`、`sessions/cookie`、`sessions/redis`中，区别和`gin`没有关系，属于常识：
+    - 内存存储和`redis`存储都是将会话信息存储在服务端然后使用`cookie`传输`sessionId`等会话的元数据，而`cookie`存储是将会话信息完全由`cookie`传输并存储在客户端浏览器上
 - `cookie`引擎(通常附带密钥增加安全性)：
 
   ```go
@@ -27,7 +24,7 @@ date: 2025-12-30T15:20:05.000Z
   )
   ```
 
-  通常附带两个密钥，第一个会被用于认证密钥(使客户端无法写会话内容)，第二个会被用于加密密钥(使客户端无法读会话内容)
+  - 通常附带两个密钥，第一个会被用于认证密钥(使客户端无法写会话内容)，第二个会被用于加密密钥(使客户端无法读会话内容)
 
 - 内存引擎(不支持集群)：`memstore.NewStore()`，也可以传递密钥，用于保护`cookie`的元数据
 - `redis`存储(支持集群)：
@@ -42,7 +39,7 @@ date: 2025-12-30T15:20:05.000Z
    keyPairs ...[]byte) (redis.Store, error)
   ```
 
-  从上至下为连接池大小、传输协议、`redis`地址、`redis`用户名、`redis`密码、`keyPairs`与上述两种引擎一致，都是为了防止客户端修改和读取
+  - 从上至下为连接池大小、传输协议、`redis`地址、`redis`用户名、`redis`密码、`keyPairs`与上述两种引擎一致，都是为了防止客户端修改和读取
 
 - 通过`sessions.Sessions(name string, store sessions.Store) gin.HandlerFunc`获取`gin`的中间件，`name`就是传输给浏览器的`cookie`的名字
 - `Store`包含以下可配置项：

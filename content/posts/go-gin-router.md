@@ -1,5 +1,5 @@
 ---
-title: '路由'
+title: 路由
 summary: "讲解Gin基于httprouter的路由原理、路径参数捕获及路由绑定与分组方法"
 categories: [Programming, Go, 3P Framework, Gin]
 tags: [go]
@@ -44,7 +44,7 @@ date: 2025-12-27T14:58:39.000Z
     func(*gin.Context)
     ```
 
-    将参数替换成了上下文
+    - 将参数替换成了上下文
 
   - 因此获取参数也变成了：`*gin.Context.Param(string)`
 
@@ -63,8 +63,7 @@ date: 2025-12-27T14:58:39.000Z
 
 - `Gin`提供`*gin.Engine.Group(relativePath string, handlers ...HandlerFunc) *RouterGroup`方法分组
 - `relativePath`的捕获语法与`httprouter`一致，相当于分组所表示的前缀
-
-  可以表示相对路径(即开头不带`/`)，则相对于`Engine`等价于相对于根路径，相对于`RouterGroup`等价于相对于路由组的路径
+  - 可以表示相对路径(即开头不带`/`)，则相对于`Engine`等价于相对于根路径，相对于`RouterGroup`等价于相对于路由组的路径
 
 - `handlers`会在子路由处理器执行之前执行，它们不是`relativePath`对应的处理器，如果需要则应该在分组内绑定一个`""`路由
 - `*RouterGroup`的方法和`*Engine`注册路由类似，此外它本身也可以注册新的路由组
@@ -87,9 +86,9 @@ date: 2025-12-27T14:58:39.000Z
 
 ## `CORS`中间件
 
-- 官方提供了`cors`的中间件[`github.com/gin-contrib/cors`](https://github.com/gin-contrib/cors)
+- 官方提供了`cors`的中间件[`github.com/gin-contrib/cors`](https://github.com/gin-contrib/cors)：
 
-- ```go
+  ```go
   cors.New(cors.Config{
    type Config struct {
     AllowAllOrigins bool

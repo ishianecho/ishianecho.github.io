@@ -1,5 +1,5 @@
 ---
-title: "基本语法"
+title: "C语言基础"
 summary: "介绍C语言预处理、宏定义及常用运算符等基本语法知识"
 date: 2023-10-09
 categories: [Programming, C/Cpp]
@@ -28,7 +28,7 @@ gcc -E -C file.c -o file.i
 
 ### 运算符
 
-#### \\(宏延续)
+#### 反斜杠(宏延续)
 
 它用于**隔开**两个语句，当宏太长时，可用`'\'`分隔为多行
 
@@ -46,7 +46,7 @@ gcc -E -C file.c -o file.i
 
 ### 处理目标
 
-#### #include
+#### `#include`
 
 各种语言都有官方的函数库，这些库包含了许多优化度极高或十分方便的宏，想要使用它，我们需要声明
 
@@ -64,7 +64,7 @@ gcc -E -C file.c -o file.i
 
 在我们可以编写自己的头文件时，需要用这种包含方式包含
 
-#### #define
+#### `#define`
 
 这是定义一个常量，或是一个简易函数等的方法
 
@@ -106,7 +106,7 @@ POWT2(5+4)==5+4*5+4==29;
 
 因此，在一个函数十分**简单**时，可以将它写成一个宏，牺牲空间，换取时间
 
-#### todo:编写简单的头文件
+#### 编写简单的头文件
 
 接下来，将通过编写一个简单的头文件来帮助熟悉`#ifdef,#undef,inline`等语句和关键字
 
@@ -124,7 +124,7 @@ gcc -S file.i -o file.s
 
 可以发现生成后的文件已经是汇编代码了
 
-### C语言语法
+### `C`语言语法
 
 在这个阶段，开始涉及`C`语言的各种语法
 
@@ -150,7 +150,7 @@ long double ldn=1; //        12    16
 
 8位字节如`long long`范围为`-9223372036854775808~-9223372036854775807`
 
-​      `unsigned long long`范围为`0~18446744073709551615`($2^{64}$)
+`unsigned long long`范围为`0~18446744073709551615`($2^{64}$)
 
 除了基本的数据类型，还可以声明**结构体**来储存多个类型的值
 
@@ -165,9 +165,9 @@ struct STRUCT {
 
 给结构体变量的分配空间遵循**对齐**原则
 
-1. 从第一个成员开始往下分配空间，默认从地址0开始存放
-2. 每个成员的**偏移量**必须是**该成员**基本数据类型的整数倍
-3. 总大小是**最大**成员基本数据类型的整数倍
+- 从第一个成员开始往下分配空间，默认从地址0开始存放
+- 每个成员的**偏移量**必须是**该成员**基本数据类型的整数倍
+- 总大小是**最大**成员基本数据类型的整数倍
 
 例如，`char`占1个字节，那么它可以放在0,1,2,3,...地址上；`int`占4个字节，那么它可以放在0,4,8,12,...地址上
 
@@ -177,7 +177,7 @@ struct STRUCT {
 
 `C`语言的`char`型比较特殊，它被转换为`int`数据存储，并用`ASCII`编码，可以和`int`类型数据相加减
 
-<a href="https://c.biancheng.net/c/ascii/">ASCII码表</a>
+[ASCII码表](https://c.biancheng.net/c/ascii/)
 
 它可以用"%d"转换符输出，但并非是一个整型数据!
 
@@ -205,7 +205,7 @@ $$
 // e的前面数字只能是(0,10)间的数据
 1.1e2 // 表示1.1*pow(10,2)
 -2.3e-4 // 表示2.3*pow(10,-4)
-    
+
 // 其它后缀
 1u(或U)  // 表示是一个无符号数据,可以后加l或L表示无符号长整型
 1.1f(或F) // 表示是一个float类型数据,若无后缀则表示double类型
@@ -318,24 +318,24 @@ $$
     </tr>
     <tr>
         <td>按位|</td>
-        <td rowspan="1" style="display:table-cell; vertical-align:middle">10</td>
+  <td rowspan="1" style="display:table-cell; vertical-align:middle">10</td>
     </tr>
     <tr>
         <td>&&</td>
-        <td rowspan="1" style="display:table-cell; vertical-align:middle">11</td>
+  <td rowspan="1" style="display:table-cell; vertical-align:middle">11</td>
     </tr>
     <tr>
         <td>||</td>
-        <td rowspan="1" style="display:table-cell; vertical-align:middle">12</td>
+  <td rowspan="1" style="display:table-cell; vertical-align:middle">12</td>
     </tr>
     <tr>
         <td>?:</td>
-        <td rowspan="1" style="display:table-cell; vertical-align:middle">13</td>
-        <td rowspan="2" style="display:table-cell; vertical-align:middle">从右到左</td>
+  <td rowspan="1" style="display:table-cell; vertical-align:middle">13</td>
+  <td rowspan="2" style="display:table-cell; vertical-align:middle">从右到左</td>
     </tr>
     <tr>
         <td>赋值符</td>
-        <td rowspan="1" style="display:table-cell; vertical-align:middle">14</td>
+  <td rowspan="1" style="display:table-cell; vertical-align:middle">14</td>
     </tr>
 </table>
 
@@ -479,7 +479,7 @@ type function(paras){statements}
 
 返回**局部**变量的地址无意义：局部变量离开函数时**被销毁**，故访问该地址没有意义
 
-#### 关于赋值
+#### 赋值
 
 指针类型限定很**严格**，只能用**相同类型**的值赋值给指针变量
 
@@ -487,7 +487,7 @@ type function(paras){statements}
 void func(int, int);
 
 //几个赋值的例子：
-int* p; 
+int* p;
 int** pp;
 int arr[n];
 int arr2[m][n];
@@ -534,11 +534,11 @@ gcc -c file.s -o file.o
 $2^n$进制数拥有的这种特性让计算变得规律易懂
 
 ```assembly
-1111-1011-1110-0101  ---> 0xF-B-E-5
+1111-1011-1110-0101  --->  0xF-B-E-5
 0xBA93     ---> 1011-1010-1001-0011
 ```
 
-#### 负数的表示:二进制补码
+#### 负数的表示(二进制补码)
 
 ```assembly
 -num == ~num + 1
@@ -555,7 +555,7 @@ $2^n$进制数拥有的这种特性让计算变得规律易懂
 
 通过这种方式，处理器搭建了一座**内存和寄存器间**的桥梁
 
-#### NASM
+#### `NASM`
 
 `NASM`全称`The Netwide Assembler`，可以在`Windows`和`Linux`下使用
 
@@ -563,7 +563,7 @@ $2^n$进制数拥有的这种特性让计算变得规律易懂
 
 #### 汇编语法
 
-汇编分为三部分:`data, bss, text`
+汇编分为三部分：`data, bss, text`
 
 ```assembly
 section.data
@@ -574,13 +574,13 @@ _start:
 ;explain
 ```
 
-`data`: 初始化数据或常量
+`data`：初始化数据或常量
 
-`bss`: 声明变量
+`bss`：声明变量
 
-`text`: 保存实际代码，必须以**`global _start`**开头，它规定了执行的开始位置
+`text`：保存实际代码，必须以**`global _start`**开头，它规定了执行的开始位置
 
-`;`: 注释，以英文`';'`开头
+`;`：注释，以英文`';'`开头
 
 内存段分为数据段、代码段和堆栈段，数据段由`.data和.bss`表示、代码段由`.text`表示
 
@@ -588,9 +588,9 @@ _start:
 
 汇编有三种类型的语句，且汇编语言**不区分大小写**
 
-1. 可执行指令
-2. 汇编器指令(伪指令)
-3. 宏指令
+- 可执行指令
+- 汇编器指令(伪指令)
+- 宏指令
 
 第一种语句告诉处理器要做什么，每一条语句汇编后都是一组二进制数，可**被CPU执行**；第二种语句不会变成机器语言，它们不可执行，但为汇编程序**提供汇编信息**(如数据和指令的区分，或数据的**字长**，或数据地址等)，**辅助**源程序的汇编；宏即一种文本替换机制，用于提高编程效率
 

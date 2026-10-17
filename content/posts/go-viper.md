@@ -1,5 +1,5 @@
 ---
-title: 'Viper配置管理'
+title: "Viper 配置管理"
 summary: "介绍 Viper 的配置优先级、读取与访问配置及动态监控配置变化"
 categories: [Programming, Go, 3P Framework, Viper]
 tags: [go]
@@ -55,7 +55,6 @@ date: 2025-12-27T14:58:39.000Z
 - `IsSet(key string) bool`
 - `AllSettings() map[string]any`
 - 键的构造：`viper`对大小写敏感，通常使用`.`来表示嵌套的子配置，如果存在环境变量，则会被隐式地替换为大写字母和`_`分隔
-
   例如`default.filepath`会先检查`DEFAULT_FILEPATH`，然后检查配置文件中`default`字段的子字段`filepath`
 
 ### 反序列化
@@ -82,4 +81,3 @@ date: 2025-12-27T14:58:39.000Z
 
 - `AutomaticEnv()`：
 - 开发阶段常用
-

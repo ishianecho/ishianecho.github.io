@@ -1,11 +1,11 @@
 ---
-title: "ntfy: 自建节点把通知推到手机"
+title: "自建 ntfy 节点把通知推到手机"
 summary: "自建 ntfy 节点将通知推送到 Android/iPhone，覆盖域名 HTTPS 与裸 IP 两种部署、访问控制，并以 Claude Code Stop hook 与 CI 为例接入日常工具"
 date: 2026-10-17T15:14:03+08:00
 categories: [Tools & Utilities, 3P Tools, ntfy]
 tags: [ntfy, push, claude-code]
 ---
-## Overview
+## 概述
 
 - 参考文档：[ntfy Documentation](https://docs.ntfy.sh/)
 - 一条通知从发布到手机的链路：
@@ -49,9 +49,53 @@ tags: [ntfy, push, claude-code]
     binwiederhier/ntfy serve
   ```
 
-### 域名 + `HTTPS` 的情况
+- `systemd` 直跑二进制(不依赖 `Docker`)，unit 写到 `/etc/systemd/system/ntfy.service`：
+
+  ```ini
+  [Unit]
+  Description=ntfy server
+  After=network.target
+
+  [Service]
+  User=ntfy
+  ExecStart=/usr/bin/ntfy serve
+  Restart=on-failure
+  StateDirectory=ntfy
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
+
+  ```bash
+  systemctl enable --now ntfy
+  ```
+
+  - `StateDirectory=ntfy` 会自动创建并授权 `/var/lib/ntfy`，对应 `server.yml` 里的 `cache-file` 与 `auth-file` 路径
+
+### 域名 + `HTTPS`
 
 - 手机在蜂窝网络下访问，`TLS` 是基本要求，标准做法是域名 + 反向代理(`Caddy`/`nginx`)终结 `TLS`，再转发到 `ntfy` 的 `listen-http`
+- 转发配置以`nginx`为例，`WebSocket` 升级头必须带上，否则 App 的常驻连接建立不起来：
+
+  ```nginx
+  server {
+      listen 443 ssl;
+      server_name ntfy.ishian.me;
+      ssl_certificate /etc/nginx/certs/ntfy.ishian.me.pem;
+      ssl_certificate_key /etc/nginx/certs/ntfy.ishian.me.key;
+      location / {
+          proxy_pass http://127.0.0.1:8080;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection "upgrade";
+          proxy_set_header Host $host;
+          proxy_read_timeout 1h;
+      }
+  }
+  ```
+
+  - `server.yml` 的 `listen-http` 相应改成 `"127.0.0.1:8080"`，让 `ntfy` 只在本机监听，`443` 的流量全部走代理
+  - `nginx` 的完整用法见[在 VPS 上部署 nginx](/2025/10/17/nginx-vps/)，证书来源见[用 Cloudflare 配置 HTTPS](/2025/10/17/cloudflare-https/)
 - `base-url` 必须与 App 里填写的默认服务器地址**完全一致**，否则订阅看起来正常但推送时灵时不灵，这是最常见的一类配置错误
 - **`iPhone` 即时推送的特殊处理**：
   - `iOS` 不允许 App 常驻后台连接，即时推送必须走 `APNS`，而 `APNS` 通道只有官方 `ntfy.sh` 接入
@@ -59,7 +103,7 @@ tags: [ntfy, push, claude-code]
   - 也就是说消息正文只落自己的节点，`ntfy.sh` 只充当"敲门的门铃"
 - 不配 `upstream-base-url` 时 iOS 端退化为后台轮询，延迟以分钟计
 
-### 裸 `IP` 的情况
+### 裸 `IP`
 
 - 没有域名时直接用 `http://<IP>:<port>`：
   - **`Android`**：App 允许明文 `HTTP`(需要在订阅设置里逐条允许)，即时送达靠 App 与节点之间的常驻 `WebSocket` 连接，官方实测约 `17` 小时耗电 `0-1%`，注意把 App 从电池优化中排除，否则连接会被系统杀掉

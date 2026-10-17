@@ -1,5 +1,5 @@
 ---
-title: "Markdown: 简单易学的笔记语言"
+title: "Markdown 入门"
 summary: "介绍 Markdown 常用记号与内嵌 HTML 实现表格、图片、分页等技巧"
 date: 2023-10-03
 categories: [Programming, Markup Languages]
@@ -7,12 +7,9 @@ tags: [tools]
 ---
 <a id="HOME"></a>
 
-# `Markdown`
-
 ## `MD`软件
 
 - 参考文档：[Markdown Guide](https://www.markdownguide.org/)
-
 - `Typora`：`Typora`有"**所见即所得**"的特点，即你所看见的就是文件导出后的样子，付费
 - `Obsidian`：`Obsidian`的插件市场丰富，且支持笔记之间的链接功能，个人版免费
 - `VS Code`+`Markdown All in One`插件：左边编辑、右边预览，支持所见即所得，该插件提供了最基本的渲染以及快捷键配置，其它插件可查看[`Markdown`插件](./1_VS%20Code.md)

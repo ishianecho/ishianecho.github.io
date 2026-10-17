@@ -1,5 +1,5 @@
 ---
-title: '多线程编程'
+title: "多线程编程"
 summary: "介绍 Java 多线程编程的 Thread、Runnable、线程同步与线程池"
 date: 2025-05-17T00:00:00.000Z
 categories: [Programming, Java, Java SE]
@@ -161,7 +161,7 @@ tags: [java]
 
 - `ReadWriteLock`接口：有时排它锁过于重量，在多读少写的场景下，希望允许多个线程同时读，这个接口就用于这种场景
   - `readLock()`：获取读锁
-  - `writeLock()`：获取读锁
+  - `writeLock()`：获取写锁
     类的内部会维护，若有线程占有读锁，则不会有线程能占有写锁，反之亦然；若没有线程占有写锁，则允许多个线程占有读锁
     虽然它实现了读写分离，但它仍是**悲观锁**，因此也可能导致需要**写锁的线程饥饿**
     `ReentrantReadWriteLock`是`ReadWriteLock`的实现类之一，是可重入锁
@@ -171,7 +171,7 @@ tags: [java]
     但它们的实现有所区别：它们不返回`Lock`对象而是在内部就调用了锁的`lock()`方法，然后返回`long`类型的版本号`stamp`
   - 因此需要使用`unlockRead(stamp)`和`unlockWrite(stamp)`释放掉这个版本号的读写锁
   - `StampedLock`还支持**乐观读锁**，通过`tryOptimisticRead()`尝试获取乐观读锁的版本号`stamp`，然后通过`validate(stamp)`检验，**乐观锁不需要解锁，因为本质上并没有加锁操作**
-    如前文所说，乐观锁不排它，乐观读过程中允许其它线程写，如果检验成功，说明加乐观读锁途中没有线程占有死锁
+    如前文所说，乐观锁不排它，乐观读过程中允许其它线程写，如果检验成功，说明加乐观读锁途中没有线程占有写锁
     如果检验不成功则有两种选择：自旋地重复乐观读、悲观读
   - 同`Lock`一样支持非阻塞或有限阻塞地获取悲观读锁和悲观写锁
   - 支持锁转换：
@@ -212,7 +212,7 @@ tags: [java]
 ### 其它`API`
 
 - `java.util.concurrent.atomic`中的类基于`CAS`机制实现无锁的线程同步，使用**乐观锁**、**非阻塞**地封装资源
-  例如`AtomicReferencte<T>、AtomicReferenceArray<T>`，除此之外还对三个基本数据类型有更全面的封装：`AtomicInteger、AtomicLong、AtomicBoolean`
+  例如`AtomicReference<T>、AtomicReferenceArray<T>`，除此之外还对三个基本数据类型有更全面的封装：`AtomicInteger、AtomicLong、AtomicBoolean`
   如果`ABA`问题会影响业务逻辑，则应使用`AtomicStampedReference`或`AtomicMarkableReference`
   以下是`AtomicReference`一系列常用的**原子方法**：
   - `get()`：获取当前值
@@ -230,4 +230,3 @@ tags: [java]
 - `CompletableFuture`
 - `ThreadLocal`
 - 虚拟线程：
-

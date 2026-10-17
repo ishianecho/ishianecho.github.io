@@ -34,8 +34,8 @@ tags: [ml]
     - 非零均值
     - `Dead ReLU`(神经元坏死)：负输入的输出为零，容易导致死一大片神经元
 - `Leaky ReLU`：$$\begin{align}&f(x)=\max(\alpha x,x),&\alpha\text{为十分小的固定正数}\end{align}$$
-  `PReLU`：$$\begin{align}&f(x)=\max(\alpha x,x),&\alpha\text{为十分小的正数,可在学习过程中改变}\end{align}$$
   - 负输入的输出将向下渗漏，不恒为零
   - 前者的参数是固定的，使函数近似线性，后者的$\alpha$则为超参数
+- `PReLU`：$$\begin{align}&f(x)=\max(\alpha x,x),&\alpha\text{为十分小的正数,可在学习过程中改变}\end{align}$$
 - `ELU`：$f(x)=\begin{cases}x,&x>0\\\alpha(e^x-1),&x\le0\end{cases}$
 - `Softmax`：

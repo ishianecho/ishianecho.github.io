@@ -1,14 +1,13 @@
 ---
-title: "较为轻量的IDE"
+title: "VS Code"
 summary: "介绍VS Code的界面功能、三级配置体系与常用插件设置"
 date: 2023-12-08
 categories: [Tools & Utilities, Editor, VS Code]
 tags: [tools]
 ---
-## 基本功能介绍
+## 概述
 
 - 参考文档：[Visual Studio Code Documentation](https://code.visualstudio.com/docs)
-
 - `VS Code`是微软开发的开源的代码编辑器，支持`Windows`、`MacOS`、`Linux`等操作系统
   其最显著的优点是**轻量**且**快速**，且得益于活跃的插件生态而**支持多种编程语言**
   高度灵活的自定义配置也是其吸引我的一点
@@ -25,7 +24,7 @@ tags: [tools]
   - 用户配置：用户配置是**用户自定义的全局的配置**，存放在本机用户家目录下，是最常改的配置文件，在用户定义后，它会覆盖默认配置，否则使用默认配置
   - 工作区配置：存放在工作文件夹下自动生成的`./vscode/settings.json`，它会覆盖所有上级配置，未定义的配置项使用用户配置
 
-## 基本的配置
+## 配置
 
 - 编辑器的基本配置(仅包括影响较大的可设置为非默认值的配置)：
   - 区分内联建议与快速建议：快速建议指的是由字典服务提供的键入值后在光标右侧显示的提示，内联建议指由内置`AI`智能生成的代码补全
@@ -78,7 +77,7 @@ tags: [tools]
     ```
 
   - 设置在宽度不足时换行显示：
-  
+
     ```json
     "editor.wordWrap": "on"
     ```

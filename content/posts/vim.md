@@ -1,14 +1,13 @@
 ---
-title: "极其高效的编辑器"
+title: "Vim 入门"
 summary: "介绍Vim的模式体系、常用编辑命令与配置入门"
 date: 2024-09-07
 categories: [Tools & Utilities, Editor, Vim]
 tags: [tools]
 ---
-## 介绍
+## 概述
 
 - 参考文档：[Vim help](https://vimhelp.org/)
-
 - `Vim`的前身是`Vi`，是类`Unix`系统下一个很高效的文本编辑器
 - `Vi`本身**舍弃了许多需要借助鼠标、`Ctrl`与`Alt`键**的快捷键，转而设计了若干种模式以使双手尽可能的保持在键盘上的`asdf`与`jkl;`四个打字键上
 - `Vim`则是`Vi`的扩展，不过许多功能默认被设置为禁用，许多功能需要在`.vimrc`文件中启用

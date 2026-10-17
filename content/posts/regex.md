@@ -6,7 +6,7 @@ categories: [Tools & Utilities, 3P Tools, Regex]
 tags: [tools]
 ---
 
-## 基本介绍
+## 概述
 
 - `Regex`全称`Regular Expression`，译为正则表达式或正规表达式
 - `Regex`最常用于文本内容的模糊搜索，旨在使用一系列的语法规则高效地匹配任意文本
@@ -30,7 +30,6 @@ tags: [tools]
 ## `PCRE`
 
 - 参考文档：[PCRE — Perl Compatible Regular Expressions](https://www.pcre.org/)
-
 - `PCRE`全称`Perl Compatible Regular Expressions`，是用`C`编写的兼容`Perl`(一种不再流行的语言)正规式语法的正则表达式库
   现在的大多数编程语言的正则表达式库属于`PCRE`派系，因此它也成为了一种标准
 
@@ -95,7 +94,6 @@ tags: [tools]
 ## `Vim`的`Regex`
 
 - 参考文档：[Vim help — pattern.txt](https://vimhelp.org/pattern.txt.html)
-
 - `Vim`的正则用于`/`搜索、`:s`替换与`:g`批量命令，语法与`PCRE`差异较大，核心原因是它用**magic**机制控制哪些字符是元字符
 - magic模式由表达式开头的开关决定：
   - `\v`即very magic：除字母、数字、下划线与空白外的字符都是元字符，写法最接近`PCRE`
@@ -128,7 +126,6 @@ tags: [tools]
 ## `SQL`的`Regex`
 
 - 参考文档：[Regular expression — Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)
-
 - `SQL`标准本身只提供有限的模式匹配，各数据库的正则扩展互不兼容，使用前要区分当前方言
 - `LIKE`(标准)：
   - `%`匹配任意长度的串，`_`匹配单个字符，其余字符都是字面匹配，它只是通配符而不是正则

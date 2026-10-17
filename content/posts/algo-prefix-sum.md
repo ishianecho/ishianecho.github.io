@@ -7,22 +7,16 @@ date: 2025-03-19
 ---
 ### 一维前缀和
 
-- 参考文档：[Prefix sum](https://en.wikipedia.org/wiki/Prefix_sum)、[OI Wiki：前缀和与差分](https://oi-wiki.org/basic/prefix-sum/)
-
+- 参考文档：[Prefix sum](https://en.wikipedia.org/wiki/Prefix_sum)、[OI Wiki: 前缀和与差分](https://oi-wiki.org/basic/prefix-sum/)
 - 对一个原数组$a_{1\sim n}$，令$$\begin{align}s_i=\sum_{k=1}^ia_k\end{align}$$，即称$s$为$a$的前缀和数组
-
 - 不难发现有以下性质：
   - ${\rm len}(a)={\rm len}(s)$
   - 任意以$a_1$为起始的子区间$[a_1,a_i]$，其元素和为$s_i$
-
 - 对于满足如下要求的运算：
-
   - 元素间运算**满足结合律**
   - 所有元素具有逆元，即**满足消去律**(可由运算结果及其中一个操作数得知另一个操作数)
   - 满足上述要求的区间信息包括加和、乘积、异或等
-
   令$s_0=0$，则有$sum(a_i,a_j)=s_j-s_{i-1}$
-
 - 原地实现：
 
   ```c++
@@ -37,9 +31,7 @@ date: 2025-03-19
 ### 二维前缀和
 
 - 类似一维前缀和，对一个$n$行$m$列的二维数组，令$$\begin{align}s_{ij}=\sum_{i=1}^n\sum_{j=1}^ma_{ij}\end{align}$$，即称$s$为$a$的前缀和数组
-
 - 类似一维前缀和，结合容斥原理，对于特定的运算，任意一个子区间(左上角为$a_{ij}$，右下角为$a_{xy}$)的元素和为$s_{xy}+s_{(i-1)(j-1)}-s_{x(j-1)}-s_{(i-1)y}$，其中$s_{0·}=s_{·0}=0$
-
 - 原地实现：
 
   ```c++
@@ -69,4 +61,5 @@ date: 2025-03-19
           a[i + 1][j] += a[i][j];
       }
   }
+  ```
 

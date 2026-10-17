@@ -54,11 +54,11 @@ $$\begin{align}\int f(x)g'(x)dx=\Big(f(x)·g(x)\Big)'-\int f'(x)·g(x)\end{align
 
 #### 假分式化为真分式(分子最高次幂大于等于分母最高次幂)
 
-exp1:
+**eg**：
 
 $$\begin{align}&求\int\frac{x^3}{x+3}dx\\&解:\\&原式=\int\frac{(x+3)(x^2-3x+9)-27}{x+3}dx=\frac{1}{3}x^3-\frac{3}{2}x^2+9x-27ln|x+3|+C\end{align}$$
 
-具体方法:
+具体方法：
 
 <img src="D:\Picture\Screenshots\截图[工数上]\1.jpg" style="zoom: 25%;" />
 
@@ -66,10 +66,10 @@ $$\begin{align}&求\int\frac{x^3}{x+3}dx\\&解:\\&原式=\int\frac{(x+3)(x^2-3x+
 
 $$\begin{align}&1.\int\frac{A}{x-a}dx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Aln|x-a|\\&2.\int\frac{A}{(x-a)^n}dx\ \ \ \ \ \ \ \ \ \ \ A\frac{1}{1-n}(x-a)^{1-n}\\&3.\int\frac{Mx+N}{x^2+px+q}dx\ \ \ \ \ 将分母配方为(x-a)^2+b的形式即可\\&4.\int\frac{Mx+N}{(x^2+px+q)^n}dx\end{align}$$
 
-怎么拆开? 假设我们有:
+怎么拆开？假设我们有：
 
 $$\begin{align}&1.\frac{分子}{(x+a)^p(x+b)^q},则应拆成:\\&\frac{A_1}{(x+a)^p}+\frac{A_2}{(x+a)^{p-1}}+\frac{A_3}{(x+a)^{p-2}}+...+\frac{B_1}{(x+a)^{q-1}}+\frac{B_2}{(x+a)^{q-2}}+...\\\\&2.\frac{分子}{(x^2+px+q)(其它分母)},则应拆成:\\&\frac{Ax+B}{x^2+px+q}+...\end{align}$$
 
-然后得到:
+然后得到：
 
 $$\begin{align}分子=分式1分子+分式2分子+...\end{align}$$

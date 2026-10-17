@@ -5,36 +5,24 @@ date: 2024-10-02
 categories: [CS Fundamentals, Concrete Math]
 tags: [math]
 ---
-## 和式
+## 表达方式
 
 - 参考文档：[Summation](https://en.wikipedia.org/wiki/Summation)
-
-### 表达方式
-
 - 一般形式：$$\begin{align}\sum_{\rho(k)}a_k\end{align}$$，用于简略描述和式，方便推导和理解
 - 定界形式：$$\begin{align}\sum_{k=lower}^{upper}a_k\end{align}$$，用于表示最终结果
 - $\rm Iverson$约定：$$\begin{align}\sum_{k}a_{k}·[\rho(k)]\end{align}$$，即遍历$k$，若满足命题$\rho(k)$则加和，否则不加
 
-### 求解和式
+## 求解和式
 
 - 清单法：因和式能很简单地写成递推式$\begin{cases}S_0=0\\S_n=S_{n-1}+a_n\end{cases}$，因此可使用清单法
-
 - 求和因子法：适用于求解形如$\begin{cases}S_0\\a_nS_n=b_nS_{n-1}+c_n\end{cases}$的递推式
-
   - $$\begin{align}&两边乘s_n,得s_na_nS_n=s_nb_nS_{n-1}+s_nc_n\\&其中s_n满足s_nb_n=s_{n-1}a_{n-1}&(1)\\&因此T_n=s_na_nS_n=T_{n-1}+s_nc_n\Rightarrow T_n=s_0a_0S_0+\sum_{k=1}^ns_kc_k\\&其中s_0a_0只是为了满足(1)式假想的,故S_n=\frac1{s_na_n}\left(s_1b_1S_0+\sum_{k=1}^ns_kc_k\right)\\&因为求和式中只用到s(1\sim n),现根据(1)式求出s_n,不难得到s_n=\frac{a_{n-1}\cdots a_1}{b_n\cdots b_2}s_1\\&为方便求解,一般令s_1=1\\&观察式子可知a_n和b_n不允许有零项\end{align}$$
-
   - 当$s_nc_n$是较好求的式子时，可用求和因子法
-
-    事实上求和因子法大多数情况下无法求给定数列的和，只能解上述$a_n$和$b_n$满足特定性质的递推式
-
-    因为给定数列$a_n$，写成和式的递推式$S_n=S_{n-1}+a_n$，会发现$s_n=s_1$，最终仍无法求$a_n$的和
-
+    - 事实上求和因子法大多数情况下无法求给定数列的和，只能解上述$a_n$和$b_n$满足特定性质的递推式
+    - 因为给定数列$a_n$，写成和式的递推式$S_n=S_{n-1}+a_n$，会发现$s_n=s_1$，最终仍无法求$a_n$的和
 - 扰动法：取出首项或尾项，构造出一个等式，并使两部分的和式都和$S_n$套上关系即可
-
   - 例如给定数列$a_n$，有$$\begin{align}S_{n+1}=S_n+a_n=a_1+\sum_{k=2}^{n+1}a_k\end{align}$$
-
-    扰动法的目的是将$$\begin{align}\sum_{k=2}^{n+1}a_k=\sum_{k=1}^na_{k+1}\end{align}$$分解为$S_n$和一个相对好求的和式
-
+  - 扰动法的目的是将$$\begin{align}\sum_{k=2}^{n+1}a_k=\sum_{k=1}^na_{k+1}\end{align}$$分解为$S_n$和一个相对好求的和式
   - 例求$$\begin{align}\sum_{k=0}^nkx^k\end{align}$$：
 
     $$\begin{align}&解:S_{n+1}=S_n+(n+1)x^{n+1}=0+\sum_{k=1}^{n+1}kx^k\\&=xS_n+\sum_{k=0}^nx^{k+1}=xS_n+\frac{x^{n+1}-x}{x-1}\\&\Rightarrow S_n=\frac{(n+1)x^{n+1}(x-1)-x-x^{n+1}}{(x-1)^2}\end{align}$$
@@ -43,11 +31,11 @@ tags: [math]
 
   $C_n=\begin{cases}0,&n=0\\n+1+\frac2n\sum\limits_{i=0}^{n-1}C_i,&n>0\end{cases}$
 
-  $$\begin{align}&即nC_n=2\sum_{i=0}^{n-1}C_i+n^2+n\\&(n-1)C_{n-1}=2\sum_{i=0}^{n-2}C_i+(n-1)^2+n-1\\&得nC_n-(n-1)C_{n-1}=2C_{n-1}+2n\\&即nC_n=(n+1)C_{n-1}+2n\end{align}$$
+  - $$\begin{align}&即nC_n=2\sum_{i=0}^{n-1}C_i+n^2+n\\&(n-1)C_{n-1}=2\sum_{i=0}^{n-2}C_i+(n-1)^2+n-1\\&得nC_n-(n-1)C_{n-1}=2C_{n-1}+2n\\&即nC_n=(n+1)C_{n-1}+2n\end{align}$$
 
-  $$\begin{align}&求和因子为s_n=\frac{a_{n-1}\cdots a_1}{b_n\cdots b_2}s_1=\frac{(n-1)!}{(n+1)\cdots3}s_1=\frac{2}{(n+1)n},(令s_1=1)\\&s_nnC_n=s_n(n+1)C_{n-1}+2ns_n=s_{n-1}(n-1)C_{n-1}+\frac4{n+1}\\&因此s_nnC_n=s_1b_1C_0+4\sum_{i=1}^{n}\frac1{i+1}=4(H_{n+1}-1)\\&C_n=2(n+1)(H_{n+1}-1)=2(n+1)(H_n+\frac1{n+1}-1)=2(n+1)H_n-2n\end{align}$$
+  - $$\begin{align}&求和因子为s_n=\frac{a_{n-1}\cdots a_1}{b_n\cdots b_2}s_1=\frac{(n-1)!}{(n+1)\cdots3}s_1=\frac{2}{(n+1)n},(令s_1=1)\\&s_nnC_n=s_n(n+1)C_{n-1}+2ns_n=s_{n-1}(n-1)C_{n-1}+\frac4{n+1}\\&因此s_nnC_n=s_1b_1C_0+4\sum_{i=1}^{n}\frac1{i+1}=4(H_{n+1}-1)\\&C_n=2(n+1)(H_{n+1}-1)=2(n+1)(H_n+\frac1{n+1}-1)=2(n+1)H_n-2n\end{align}$$
 
-### 多重和式
+## 多重和式
 
 - $[1\le i<j\le n]+[1\le k<j\le n]=[1\le j,k\le n]-[1\le i=j\le n]$
 - 切比雪夫单调不等式：若两序列是单调的：$$\begin{align}\begin{cases}单调性相同,&\left(\sum\limits_{k=1}^na_k\right)\left(\sum\limits_{k=1}^nb_k\right)\le n\sum\limits_{k=1}^n a_kb_k\\单调性不同,&上式为大于等于\end{cases}\end{align}$$

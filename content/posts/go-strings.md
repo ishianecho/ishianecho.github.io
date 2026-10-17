@@ -1,5 +1,5 @@
 ---
-title: '字符串'
+title: "字符串"
 summary: "介绍 Go 字符串特性以及 strings、strconv 包的常用操作"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
@@ -8,7 +8,6 @@ date: 2025-12-24T18:13:16.000Z
 ## 特性
 
 - 参考文档：[The Go Programming Language Specification](https://go.dev/ref/spec)
-
 - `string`是一个值类型，意味着可以是空串但不是`nil`
 - `string`是一个不可变的`byte`数组，是不可变类型
 - `string`对象本身可以被取地址，但它的元素不允许
@@ -42,7 +41,7 @@ date: 2025-12-24T18:13:16.000Z
 - `Repeat(s string, cnt int) string`：按次数拷贝字符串
 - `Clone(string) string`：拷贝字符串，若不为空则分配内存并返回新的字符串对象
 - `Builder`结构体：用于通过消耗更小的内存来构建复杂字符串(相比使用`+`)
-  - 实现了`io.Writer, io.ByteWriter, io.StringWriter`接口：通过`WriteXxx()`方法构建字符串，
+  - 实现了`io.Writer, io.ByteWriter, io.StringWriter`接口：通过`WriteXxx()`方法构建字符串
   - `Grow(n int)`：预分配内存
   - `Reset()`：重置`Builder`
   - `String()`执行构建
@@ -113,6 +112,5 @@ date: 2025-12-24T18:13:16.000Z
 - `FormatFloat(float64, fmt byte, prec, bitSize int)`：字符串转浮点型，`bitSize`为位数
   - `fmt`：格式化类型
   - `prec`：精度
-  - `bitzise`：位数
+  - `bitSize`：位数
   <!-- TODO: Add fmt, prec definition -->
-

@@ -1,5 +1,5 @@
 ---
-title: "MVC"
+title: "Spring MVC"
 summary: "讲解Spring MVC的前端控制器模式、DispatcherServlet配置与请求处理流程"
 date: 2025-07-12
 categories: [Programming, Java, Spring framework]
@@ -24,7 +24,7 @@ tags: [java]
   - 需要通过`getParameter()`获取参数以及手动类型转换和校验
 - `Spring Web MVC`是基于`Jakarta EE Servlet API`的`Web`框架，通常简称`Spring MVC`
 
-## 配置相关
+## 配置
 
 ### `DispatcherServlet`的配置
 
@@ -34,7 +34,7 @@ tags: [java]
 - 这个前端控制器同时应该作为一个`Bean`被纳入`IoC`容器管理，而作为一个`Servlet`应用，应用启动的流程是：由`Servlet`容器创建并注册所有的`Servlet`服务类，然后启动，最后创建`ApplicationContext`实例，因此无法使用自动注入
 - 为了解决这个问题，`DispatcherServlet`的构造方法有两种：默认构造方法会查询`ServletConfig`的`InitParameter`，使用`contextConfigLocation`配置；另一个构造方法要求一个`WebApplicationContext`参数，从而引导`Servlet`容器去创建`IoC`容器的上下文
   这两种方法对应两种配置：
-   使用`web.xml`以及`IoC`容器所需的`XML`文件注册，部署在外部`Servlet`容器中
+  - 使用`web.xml`以及`IoC`容器所需的`XML`文件注册，部署在外部`Servlet`容器中
     `Servlet`容器在创建`DispatcherServlet`时，检测到`<init-param/>`标签，转而读取对应的`IoC`容器的`XML`文件，在创建`DispatcherServlet`之前创建`ClassPathXmlWebApplication`实例
 
     ```xml
@@ -123,7 +123,7 @@ tags: [java]
 - 拦截器需要实现`HandlerInterceptor`接口，包含三个方法，它们会作为回调函数被观察者调用
   - `preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler)`：调用处理器之前的拦截点，通常进行日志记录、身份验证
   - `postHandle(HttpServletRequest req, HttpServletResponse resp, Object handler, ModelAndView modelAndView)`：成功调用处理器之后，视图渲染之前的拦截点，通常用于添加视图的全局配置
-  - `afterCompletion(HttpServletRequest req, HttpServletResponse resp, Object handler, Exception ex))`：完成整个请求后的回调，通常用于资源关闭、性能统计等，就像`finally`块那样，即使之前的处理链有异常发生，也会调用该方法
+  - `afterCompletion(HttpServletRequest req, HttpServletResponse resp, Object handler, Exception ex)`：完成整个请求后的回调，通常用于资源关闭、性能统计等，就像`finally`块那样，即使之前的处理链有异常发生，也会调用该方法
 - 注册拦截器：
   - 基于`Java`的配置：
 
@@ -160,7 +160,7 @@ tags: [java]
   - `allowedHeaders`和`exposedHeaders`：允许/不允许请求所包含的请求头
   - `maxAge`：秒为单位的`CORS`配置有效时间
 - 除了注解配置，还可以基于`Java`配置，仍然是`WebMvcConfigurer`的方法：
-  
+
   ```java
   @Configuration
   @EnableWebMvc

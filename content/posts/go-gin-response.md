@@ -1,5 +1,5 @@
 ---
-title: '响应处理'
+title: 响应处理
 summary: "讲解Gin的各种响应方法及JSON、文件上传下载等响应与表单处理"
 categories: [Programming, Go, 3P Framework, Gin]
 tags: [go]
@@ -8,7 +8,6 @@ date: 2025-12-28T14:03:18.000Z
 ## 响应方法
 
 - 参考文档：[Gin Web Framework — Documentation](https://gin-gonic.com/docs/)
-
 - 以下方法都是`*gin.Context`的方法：
 - `Status(code int)`：设置状态码
 - `Header(key, value string)`：设置响应头

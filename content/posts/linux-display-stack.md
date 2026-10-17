@@ -5,9 +5,9 @@ date: 2026-10-14T00:00:00.000Z
 categories: [Infra, Linux]
 tags: [linux, wayland, graphics]
 ---
-## Overview
+## 概述
 
-- 参考文档：[Arch Wiki — Wayland](https://wiki.archlinux.org/title/Wayland)
+- 参考文档：[Arch Wiki: Wayland](https://wiki.archlinux.org/title/Wayland)
 - `Linux` 桌面把"画面如何到屏幕"拆成了两层：**显示协议**定义应用与显示服务端如何对话，**图形栈**负责渲染与上屏：
 
   ```mermaid
@@ -38,7 +38,7 @@ tags: [linux, wayland, graphics]
   - 特殊用途：`cage`(kiosk 单应用全屏)、`gamescope`(`Valve` 的嵌套游戏合成器)
 - 玩游戏最关心的两个能力：
   - **`VRR`/可变刷新率**(`FreeSync`/`G-Sync`)：`mutter`、`KWin` 均已支持，撕裂与卡顿感显著降低
-  - **直通扫描(`direct scan-out`)**：全屏独占时跳过合成直接上屏，降低延迟——但合成器介入的帧(如叠加层)会退回合成路径
+  - **直通扫描(`direct scan-out`)**：全屏独占时跳过合成直接上屏，降低延迟，但合成器介入的帧(如叠加层)会退回合成路径
 - `HDR`、多显示器不同刷新率等长期痛点在 `Wayland` 合成器上正逐步补齐，体验逐年变好
 - **嵌套合成器**：合成器本身也可以作为另一个合成器的客户端运行(会话里套会话)，`gamescope` 与 `cage` 都以此方式嵌在桌面里单独服务某个游戏或容器
 

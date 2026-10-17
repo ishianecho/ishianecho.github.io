@@ -5,9 +5,9 @@ categories: [Algorithm, Graph Algo]
 tags: [algorithm]
 date: 2024-12-09
 ---
-## Overview
+## 概述
 
-- 参考文档：[Minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree)、[OI Wiki：最小生成树](https://oi-wiki.org/graph/mst/)
+- 参考文档：[Minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree)、[OI Wiki: 最小生成树](https://oi-wiki.org/graph/mst/)
 
 一个连通图的生成树是最简单的连通子图，它连通了图的所有节点，并且只含有**节点数减一**条边，即没有环
 

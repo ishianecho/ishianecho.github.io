@@ -1,13 +1,13 @@
 ---
-title: "基本使用"
+title: "JavaScript 基础"
 summary: "介绍 JavaScript 基本语法、数据类型、运算符与 HTML 接口"
 date: 2023-12-09
 categories: [Programming, JavaScript]
 tags: [web]
 ---
-## 简介
+## 概述
 
-- 参考文档：[MDN Web Docs — JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- 参考文档：[MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 `JS`实现了`html`文档与用户的更丰富的交互，实现在客户端处理部分信息而不是每次交互都向服务器报告
 
@@ -155,8 +155,6 @@ sym_1 === sym_3; // false.
 除未定义与空类型都有`toString()`方法，相当于调用`String()`
 
 ### 引用类型
-
-#### 介绍
 
 由基本数据类型可组成对象类型，将这个设计好的对象类型称为一个引用类型；类似面向对象中的类(但`js`中的引用类型不具备类的许多特征，是不完整的类)
 

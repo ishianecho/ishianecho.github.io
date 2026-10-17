@@ -1,5 +1,5 @@
 ---
-title: '序列化与反序列化'
+title: "序列化与反序列化"
 summary: "介绍 Go 中 JSON、XML、YAML、Protobuf 等格式的序列化 API 与特性"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
@@ -8,7 +8,6 @@ date: 2025-12-30T08:50:23.000Z
 ## 特性
 
 - 参考文档：[pkg.go.dev — encoding/json](https://pkg.go.dev/encoding/json)
-
 - `Go`通过结构体标签来支持序列化和反序列化，内置的`encoding`标准库支持`xml/json`等配置文件的序列化和反序列化
 - `gopls`本身支持`json`结构体标签的快速生成
 - `Go`只会对一个结构体的公有字段进行序列化和反序列化
@@ -35,4 +34,3 @@ date: 2025-12-30T08:50:23.000Z
 ## `protobuf`
 
 - 需要借助第三方库[`github.com/golang/protobuf/proto`](https://github.com/golang/protobuf)
-

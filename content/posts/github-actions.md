@@ -227,7 +227,7 @@ jobs:
   - `run`会在`Runner`的操作系统上执行命令，默认情况下同一个任务中的步骤共享工作目录
   - `uses`调用一个已经封装好的`Action`，`with`是传给该`Action`的输入参数
 
-### 常用通用 `Action`
+### 常用通用`Action`
 
 下面这些`Action`不依赖具体业务，通常可以组合出大多数项目的`CI`流程
 
@@ -284,7 +284,7 @@ jobs:
   - run: helm upgrade --install example-app ./charts/example-app
   ```
 
-## 自定义 actions
+## 自定义`Action`
 
 自定义 Action 用于把重复步骤封装成一个可复用单元
 
@@ -543,7 +543,7 @@ steps:
 
 每个任务通常使用全新的`Runner`，跨任务传文件应该使用`Artifact`
 
-## `Matrix`：批量执行同一类任务
+## `Matrix`批量执行同类任务
 
 `Matrix`会把一个`job`展开成多个独立任务，每个任务都有自己的`Runner`、工作目录、日志和状态
 
@@ -634,7 +634,7 @@ steps:
             context: ${{ matrix.context.context }}
   ```
 
-  这个矩阵的每一行同时携带 Kubernetes context 和 Runner 名称，因此矩阵不仅决定部署多少次，还决定每次部署连接哪个集群、使用哪类 Runner
+  - 这个矩阵的每一行同时携带 Kubernetes context 和 Runner 名称，因此矩阵不仅决定部署多少次，还决定每次部署连接哪个集群、使用哪类 Runner
 
 - **`include`矩阵**：多个 CronJob 共用同一套部署步骤，只把名称、镜像和 values 文件作为每一行的参数
 
@@ -693,7 +693,7 @@ steps:
 
 ## 缓存、产物与任务依赖
 
-### `Cache`与 `Artifact`的区别
+### `Cache`与`Artifact`的区别
 
 - `Cache`用于加速重复执行，例如缓存`npm`、`pip`或`Maven`依赖；缓存失效时仍然应该能够重新安装
 - `Artifact`用于保存本次运行生成的文件，例如构建目录、测试报告和安装包，并在后续任务中下载
@@ -748,9 +748,9 @@ jobs:
 
 这样可以减少"测试的代码"和"实际部署的代码"不一致的可能性
 
-## 常见 `CI/CD` 流程
+## 常见`CI/CD`流程
 
-### `Pull Request` 检查
+### `Pull Request`检查
 
 最基础的`CI`只做验证，不写入仓库，也不部署生产环境：
 
@@ -876,9 +876,9 @@ jobs:
           tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
 ```
 
-## tricks
+## 技巧
 
-### Workflow 的执行顺序
+### `Workflow`的执行顺序
 
 Workflow 中的任务由 `needs` 连接，文件中的先后顺序不决定执行顺序
 
@@ -931,7 +931,7 @@ flowchart TD
         - deploy-apps
   ```
 
-### `push` 与 `pull_request`
+### `push`与`pull_request`
 
 合理的顺序是先准备环境，再恢复缓存，然后检查代码和测试，最后构建镜像
 
@@ -957,7 +957,7 @@ flowchart LR
 ```
 
 - **共同 steps**：两个事件都先检出代码、准备工具链、恢复缓存，再运行测试和静态检查
-  Gradle 的缓存由 `setup-gradle` 在这一步处理
+  - Gradle 的缓存由 `setup-gradle` 在这一步处理
 
   ```yaml
   steps:
@@ -1079,7 +1079,7 @@ flowchart LR
 
 Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据目录只是 Runner 层面的本地存储，不等于共享的 Docker registry 缓存
 
-### Runner、镜像和缓存服务器
+### `Runner`、镜像和缓存服务器
 
 - **`runs-on`**：普通构建和测试使用 self-hosted Runner；部署 cache server 或 Runner 控制器的任务可以使用 `ubuntu-latest`
 
@@ -1091,7 +1091,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
   ```
 
 - **`BASE_IMAGE_REGISTRY`**：PR 使用 `mirror.gcr.io` 获取基础镜像；push 使用私有 registry
-  Testcontainers 也按事件切换镜像前缀
+  - Testcontainers 也按事件切换镜像前缀
 
   ```yaml
   env:
@@ -1193,7 +1193,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
   ```
 
 - **`workflow_dispatch.inputs`**：只有少数运维 Workflow 定义输入：`transfer-domains.yaml`接收域名和 nameserver，`copy-docker-image.yaml`接收镜像名，`create-ai-deployment.yaml`接收生成部署文件所需的参数
-  这些输入描述要执行的运维动作，不是普通部署 Workflow 的环境选择
+  - 这些输入描述要执行的运维动作，不是普通部署 Workflow 的环境选择
 
   ```yaml
   on:
@@ -1276,7 +1276,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
 ### 任务跳过、输出与矩阵
 
 - **`outputs`**：`skip-workflow`是仓库自定义的检查任务，不是 GitHub Actions 的特殊任务名
-  提交信息包含`[skip workflow]`时，它输出`skip=true`；后续任务通过`needs.skip-workflow.outputs.skip`跳过
+  - 提交信息包含`[skip workflow]`时，它输出`skip=true`；后续任务通过`needs.skip-workflow.outputs.skip`跳过
 
   ```yaml
   jobs:
@@ -1568,7 +1568,7 @@ Docker 构建没有配置 `cache-from` 或 `cache-to`；Docker-in-Docker 数据�
         fi
   ```
 
-### 自托管服务下的 CD 顺序
+### 自托管服务下的`CD`顺序
 
 在 GitHub 或 GHES 负责仓库和调度、其余服务均为自托管的情况下，CD 主链如下：
 
@@ -1608,7 +1608,7 @@ flowchart TD
 
 如果镜像已经在 CI 阶段推送完成，CD 可以从`azure/k8s-set-context`开始
 
-### GitHub 与私有 Runner 的连接
+### `GitHub`与私有`Runner`的连接
 
 GitHub 不需要访问 Kubernetes 的私网地址
 
@@ -1632,8 +1632,8 @@ flowchart LR
 
 - `githubConfigUrl`决定 Runner 注册到哪个组织或仓库，`githubConfigSecret`提供 ARC 访问 GitHub API 所需的 GitHub App 凭据
 - ARC Listener 注册 Runner Scale Set 后，GitHub 会记录它的名称和标签
-  Workflow 的`runs-on`只匹配这个名称，不匹配私网 IP
+  - Workflow 的`runs-on`只匹配这个名称，不匹配私网 IP
 - 任务进入队列后，Listener 获取任务并通知 Controller，Controller 再让 Kubernetes 创建 Runner Pod
 - Runner Pod 完成任务后，仍然通过出站连接向 GitHub 上传日志和执行结果；GitHub 不需要主动进入私有网络
 - 因此私有集群至少需要能够解析并通过 HTTPS 访问 GitHub Actions 相关服务
-  没有公网出口时，需要配置 NAT、代理或其他出站网关
+  - 没有公网出口时，需要配置 NAT、代理或其他出站网关

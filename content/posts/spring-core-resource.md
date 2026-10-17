@@ -39,21 +39,21 @@ tags: [java]
 
 ## 例子
 
-```java
-public class Main {
-    public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("a.xml");
-        Resource res = resourceLoader.getResource("https://www.baidu.com/");
-        if (res.exists() && res.isReadable()) {
-            try (InputStream is = res.getInputStream(); ReadableByteChannel bc = res.readableChannel();) {
-            // use bio or nio
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}
-```
+- ```java
+  public class Main {
+      public static void main(String[] args) {
+          ApplicationContext ctx = new ClassPathXmlApplicationContext("a.xml");
+          Resource res = resourceLoader.getResource("https://www.baidu.com/");
+          if (res.exists() && res.isReadable()) {
+              try (InputStream is = res.getInputStream(); ReadableByteChannel bc = res.readableChannel();) {
+              // use bio or nio
+              } catch (IOException e) {
+                  e.printStackTrace();
+              }
+          }
+      }
+  }
+  ```
 
 ## `ResourceLoaderAware`接口(可选)
 

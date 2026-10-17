@@ -1,5 +1,5 @@
 ---
-title: "Cron Job"
+title: "Go 定时任务"
 summary: "讲解基于k8s CronJob和Go自建调度器的定时任务实现方案与代码示例"
 categories: [Programming, Go, 3P Framework]
 tags: [go, devops]

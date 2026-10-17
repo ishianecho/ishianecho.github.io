@@ -1,5 +1,5 @@
 ---
-title: 'sqlx'
+title: "sqlx"
 summary: "介绍 sqlx 库连接数据库、查询帮助函数、Stmt 与事务管理的用法"
 categories: [Programming, Go, 3P Framework, Database]
 tags: [go, database]
@@ -8,7 +8,6 @@ date: 2025-12-31T14:22:06.000Z
 ## 连接数据库
 
 - 参考文档：[sqlx documentation](https://jmoiron.github.io/sqlx/)
-
 - `sqlx`是标准库`sql`的扩展库，只要是`sql`支持的数据库，或者说只要是实现了`driver.Driver`接口的数据库都支持
 - 注册驱动：需要匿名导入对应的驱动(它们的`init()`里会调用`sql.Register()`)，例如：
 
@@ -78,4 +77,3 @@ date: 2025-12-31T14:22:06.000Z
 
 - `Tx.Commit() error`：提交事务
 - 在事务内操作使用`Tx`而不是`DB`调用方法即可，其`API`与`DB`类似
-

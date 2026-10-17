@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes 的包管理器"
+title: "Helm"
 summary: "介绍 Helm 的核心概念、Chart 结构、常用命令与模板语法"
 date: 2026-08-16T00:00:00.000Z
 categories: [Infra, Container, Helm]
@@ -9,7 +9,7 @@ tags: [devops]
 
 - 参考文档：[Helm Documentation](https://helm.sh/docs/)
 
-### 简介
+### 概述
 
 - **`Helm`** 是 `k8s` 官方推荐的包管理器，定位类似于 `apt`/`brew`：把一组相互关联的 `k8s` 资源(`Deployment`、`Service`、`Ingress`...)打包为 **`Chart`**，一条命令完成安装、升级与回滚
 - 相比手写一堆 `yaml` 再 `kubectl apply`，`helm` 解决了三个问题：

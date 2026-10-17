@@ -1,5 +1,5 @@
 ---
-title: '网络编程基础'
+title: "网络编程基础"
 summary: "介绍 Go net/http 包的服务端、客户端、反向代理等网络编程用法"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go, cs]
@@ -16,9 +16,7 @@ date: 2025-12-25T11:39:18.000Z
   - `Handler`：请求处理器
   - `XXXTimeout`：一些超时控制
 - `http.ListenAndServe(addr string, handler Handler) error`：启动一个服务器，如传入`(":8000", nil)`
-
   或调用`http.Server.ListenAndServe()`方法
-
 - 处理器实现：`Handler`接口包含`ServeHTTP(ResponseWriter, *Request)`方法，可以针对请求进行不同的写入
 - `http.Handle(pattern string, handler Handler)`：将处理器绑定到`pattern`路径上路由
 - `http.HandleFunc(pattern string, handler func(ResponseWriter, *Request))`：可以直接传入一个匿名函数，内部通过适配器转换成一个`Handler`对象
@@ -44,4 +42,3 @@ date: 2025-12-25T11:39:18.000Z
 - `Response`的常用方法：
   - `Cookies() []*Cookie`：提取`Header`中的`Cookie`
 - `http.StatusXXX`：状态码常量
-

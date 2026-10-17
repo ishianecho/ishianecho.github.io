@@ -9,7 +9,7 @@ tags: [linux, android, gaming]
 
 - 参考文档：[Waydroid Documentation](https://docs.waydroid.org/)
 - 在 `Linux` 桌面上跑安卓游戏有三条主要路线，体验与重量级依次递增：
-  - **投屏路线**：手机连数据线，`scrcpy` 把画面与输入镜像到桌面——最简单，但游戏仍在手机上跑
+  - **投屏路线**：手机连数据线，`scrcpy` 把画面与输入镜像到桌面：最简单，但游戏仍在手机上跑
   - **容器路线**：**`Waydroid`** 在 `Linux` 上以 `LXC` 容器运行完整 `Android` 系统，性能接近原生，是玩大型手游的主流方案
   - **虚拟机/模拟器路线**：`Android Studio` 的 `AVD`(带硬件加速的 `x86` 镜像)，或 `redroid`/`anbox` 等方案，隔离最彻底但性能或维护性各有短板
 - 本文以 `Waydroid` 为主线，拆解它依赖的每一层：容器、显示(`cage`)、内核(`binder`)、网络(`NAT`)与指令集转译
@@ -17,7 +17,7 @@ tags: [linux, android, gaming]
 ## `Waydroid` 是什么
 
 - **`Waydroid`** 是一个基于 `LXC` 的容器化 `Android` 方案：
-  - 它**不是虚拟机**——`Android` 容器与宿主共享同一个 `Linux` 内核，没有 `CPU` 虚拟化开销，图形直通 `Wayland`，性能接近原生
+  - 它**不是虚拟机**：`Android` 容器与宿主共享同一个 `Linux` 内核，没有 `CPU` 虚拟化开销，图形直通 `Wayland`，性能接近原生
   - 容器内运行的是完整的 `Android` 系统镜像(基于 `LineageOS` 构建)，包含 `system` 与 `vendor` 两个分区，通过 `LXC` 的命名空间(`pid`/`mount`/`net`...)与宿主隔离
   - `Android` 的两大前提由宿主内核提供：
     - **`binder`**：`Android` 全部进程间通信的基石，对应内核模块 `binder_linux`(新内核通过 **`binderfs`** 挂载)；这是 `Waydroid` 对宿主内核最硬性的要求，主线内核 `5.18+` 已内置，老内核需自行确认模块可用
@@ -28,10 +28,10 @@ tags: [linux, android, gaming]
 
 ## `cage`：给 `Waydroid` 一个专用合成器
 
-- **`cage`** 是基于 `wlroots` 的**kiosk 式合成器**(合成器与 `wlroots` 的背景见 [Linux 显示协议与图形栈](/2026/10/14/linux-display-stack/))——整个会话只显示一个全屏应用，没有窗口管理、没有任务栏，极简到只做"把一个客户端铺满屏幕"
+- **`cage`** 是基于 `wlroots` 的**kiosk 式合成器**(合成器与 `wlroots` 的背景见 [Linux 显示协议与图形栈](/2026/10/14/linux-display-stack/))：整个会话只显示一个全屏应用，没有窗口管理、没有任务栏，极简到只做"把一个客户端铺满屏幕"
 - 它在安卓游戏场景的价值：
   - **嵌套运行**：在 `GNOME`/`KDE` 等桌面会话内，用 `cage` 包一层再启动 `Waydroid` 全屏，`Android` 画面即独占一个桌面窗口，输入与焦点都交给它，避免多窗口模式下游戏误触返回键、焦点漂移等问题
-  - **独立会话**：也可以从显示管理器直接登录 `cage` 会话，里面只跑 `Waydroid`，整个机器变成一台安卓游戏机——层级最少、延迟最低
+  - **独立会话**：也可以从显示管理器直接登录 `cage` 会话，里面只跑 `Waydroid`，整个机器变成一台安卓游戏机：层级最少、延迟最低
   - 依赖轻(`wlroots` 一套)，老设备上比完整桌面环境省一大截资源
 - 类似的嵌套合成器还有 `gamescope`(`Valve` 出品，带 `FSR` 缩放与帧率限制)，两者在"给游戏一个干净的画布"这件事上定位重叠，`gamescope` 偏游戏滤镜与缩放，`cage` 偏极简 kiosk
 
@@ -39,7 +39,7 @@ tags: [linux, android, gaming]
 
 - `Waydroid` 的网络与 `Docker`/`LXC` 容器同源，理解它对排查"游戏没网"至关重要：
   - **虚拟以太网对(`veth pair`)**：宿主创建一对虚拟网线，一端留在宿主网络命名空间，另一端塞进 `Android` 容器，成为容器内的网卡
-  - **`NAT` 转发**：宿主侧的 `waydroid-net.sh` 脚本负责配地址、开 `IP` 转发，并用 `iptables` 或 `nftables` 写 `NAT` 规则，让容器流量伪装成宿主流量出公网——手机游戏看到的网络环境与一台普通 `NAT` 后的设备无异
+  - **`NAT` 转发**：宿主侧的 `waydroid-net.sh` 脚本负责配地址、开 `IP` 转发，并用 `iptables` 或 `nftables` 写 `NAT` 规则，让容器流量伪装成宿主流量出公网：手机游戏看到的网络环境与一台普通 `NAT` 后的设备无异
   - 常见坑：宿主若同时跑 `Docker` 或 `firewalld`，两边的防火墙规则可能互相覆盖，导致容器内 `DNS` 正常但 `HTTP` 全断；这类问题排查方向就是检查 `iptables`/`nftables` 规则表
 - 由于容器与宿主共享内核，`WireGuard` 等内核级 `VPN` 的可用性取决于**宿主内核**是否提供相应模块(`5.6+` 主线已内置)，而不是镜像自带与否；想让游戏走代理/加速器，在宿主配好再让容器流量跟随即可
 

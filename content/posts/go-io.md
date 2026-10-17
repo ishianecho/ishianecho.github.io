@@ -1,5 +1,5 @@
 ---
-title: 'I/O'
+title: I/O
 summary: "介绍 Go 标准库 os、io 与 io/fs 的文件操作和 I/O 接口"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]
@@ -32,17 +32,12 @@ date: 2025-12-25T11:37:22.000Z
     )
     ```
 
-    只读、只写、读写、追加、创建、不存在才创建、同步写、存在则清空，它们可以使用按位或运算同时存在
-
-    必须三选一：指定只读、只写、读写
-
-    其它标志可以使用按位或运算配合使用
-
-    其中`O_EXCL`必须配合`O_CREATE`一起使用，此时如果文件已存在则会报错
-
+    - 只读、只写、读写、追加、创建、不存在才创建、同步写、存在则清空，它们可以使用按位或运算同时存在
+    - 必须三选一：指定只读、只写、读写
+    - 其它标志可以使用按位或运算配合使用
+    - 其中`O_EXCL`必须配合`O_CREATE`一起使用，此时如果文件已存在则会报错
   - `FileMode`：表示文件类型和文件权限，`Linux`下用`ls -l`查询出的权限的分段二进制表示，比如`0444`
-
-    `FileMode`只有在**创建文件时**有效，在其它情况下使用`0`即可
+    - `FileMode`只有在**创建文件时**有效，在其它情况下使用`0`即可
 
     ```go
     import "io/fs"
@@ -108,8 +103,7 @@ date: 2025-12-25T11:37:22.000Z
   ```
 
 - 或者使用`*File`的`ReadDir(n int)`，最多读取`n`个`DirEntry`，`n`为负数时读取全部
-
-  `os.ReadDir()`是对它的简单封装
+  - `os.ReadDir()`是对它的简单封装
 
 - `os.Mkdir(name string, perm FileMode) error`：创建目录
 - `os.MkdirAll(path string, perm FileMode) error`：类似`mkdir -p`地创建目录
@@ -171,9 +165,8 @@ date: 2025-12-25T11:37:22.000Z
     func(path string, d DirEntry, err error) error
     ```
 
-    在回调中需要处理`err`，对`d`进行自定义的处理
-
-    返回`nil`表示继续遍历，`fs.SkipDir`表示跳过当前的`d`，`fs.SkipAll`表示跳过所有的`d`
+    - 在回调中需要处理`err`，对`d`进行自定义的处理
+    - 返回`nil`表示继续遍历，`fs.SkipDir`表示跳过当前的`d`，`fs.SkipAll`表示跳过所有的`d`
 
 - 在仅需要读取和遍历文件或其它资源的情况下，使用`fs`比使用`os`更好
 

@@ -7,8 +7,7 @@ date: 2025-04-22
 ---
 ### 埃氏筛法
 
-- 参考文档：[Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)、[OI Wiki：素数筛](https://oi-wiki.org/math/number-theory/sieve/)
-
+- 参考文档：[Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)、[OI Wiki: 素数筛](https://oi-wiki.org/math/number-theory/sieve/)
 - 埃氏筛法，全名埃拉托斯特尼筛法
   若一个数是素数，那么必然不可能存在有除`1`和它自身的因子，也就是比它小的数(除了`1`)都无法整除它
   那么，从小到大遍历除`1`外的正整数，将所有素因子的倍数都标记上，如果遍历到一个数`i`，它没有被标记，那么它就是素数；初始时，`notprime[2]=false`(即`2`是素数)：

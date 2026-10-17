@@ -5,7 +5,7 @@ categories: [Algorithm, Graph Algo]
 tags: [algorithm]
 date: 2025-02-11
 ---
-- 参考文档：[Strongly connected component](https://en.wikipedia.org/wiki/Strongly_connected_component)、[OI Wiki：强连通分量](https://oi-wiki.org/graph/scc/)
+- 参考文档：[Strongly connected component](https://en.wikipedia.org/wiki/Strongly_connected_component)、[OI Wiki: 强连通分量](https://oi-wiki.org/graph/scc/)
 
 ```c++
 #include <bits/stdc++.h>

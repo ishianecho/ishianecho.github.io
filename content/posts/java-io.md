@@ -21,7 +21,6 @@ tags: [java]
   - `"rw"`：读写打开，文件不存在会创建，此处的"写"是覆盖
   - `"rwd"`：读写打开，并在缓存满时或调用`close()`时同步
   - `"rws"`：读写打开，并在每一次写操作后同步
-  
 - `RandomAccessFile`常用方法：
   - `long getFilePointer()`：返回当前的文件指针
   - `seek(long pos)`：将文件指针移到`pos`处
@@ -97,7 +96,6 @@ tags: [java]
   - `rewind()`：设置`mark`为当前的`position`
   - `remaining()`和`hasRemaining()`：返回`limit`与`position`的差值、判断该差值是否大于零
   它们均返回对象本身，因此可以级联操作，其中`flip()`很常用，因为通常需要向`Buffer`对象写入数据后紧接着读取这些数据
-
 - `ByteBuffer`提供的读写方法在命名上和流有所区别：`read`变为`get`、`write`变为`put`，它们会自动更新`position`和`limit`
   除了相对存取，还允许提供`index`参数作为第一个参数，称为绝对存取，绝对存取不影响`position`和`limit`
 - `Buffer`提供`duplicate()`方法创建一个共享同一个数据数组的缓冲区对象

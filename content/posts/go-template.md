@@ -8,7 +8,6 @@ date: 2026-08-18T00:00:00.000Z
 ## 基本概念
 
 - 参考文档：[pkg.go.dev — text/template](https://pkg.go.dev/text/template)
-
 - `Go`通过`text/template`标准库提供数据驱动的模板，用于生成文本输出，配置文件、邮件正文等都可以使用它
 - 模板由普通文本和`action`组成，普通文本会原样复制到输出，`action`使用`{{`和`}}`包围：
 
@@ -111,7 +110,6 @@ date: 2026-08-18T00:00:00.000Z
   ```
 
   上面的模板会输出`AB\nC`，左侧的换行和缩进都会被裁剪
-
 - `-}}`会裁剪`action`后面普通文本开头的空白：
 
   ```gotemplate
@@ -120,7 +118,6 @@ date: 2026-08-18T00:00:00.000Z
   ```
 
   上面的模板会输出`ABC`，右侧的换行、制表符和缩进都会被裁剪
-
 - 两侧同时使用可以去掉模板控制语句制造的空行：
 
   ```gotemplate
@@ -130,7 +127,6 @@ date: 2026-08-18T00:00:00.000Z
   ```
 
   输出为`ABC`
-
 - `-`旁边的空白是语法的一部分：`{{-3}}`表示输出负数`-3`，不是左裁剪；`{{- 3}}`才表示左裁剪后输出`3`
 - 空白裁剪只作用于`action`两侧原本存在的普通文本，不会修改函数或字段本身产生的字符串内容
 
@@ -143,7 +139,6 @@ date: 2026-08-18T00:00:00.000Z
   ```
 
   上面的写法等价于调用`printf("Hello, %s!", .Name)`
-
 - 管道适合将格式化逻辑串起来，例如：
 
   ```gotemplate
@@ -306,7 +301,6 @@ date: 2026-08-18T00:00:00.000Z
 - 数学与逻辑：`add`、`sub`、`mul`、`div`、`max`、`min`、`default`、`coalesce`、`ternary`
 - 编码与摘要：`toJson`、`fromJson`、`b64enc`、`b64dec`、`sha256sum`
 - 时间和格式化：`now`、`date`、`dateModify`、`ago`
-
   上面只是常用函数的分类，具体函数的参数类型仍然要以当前引入的`Sprig`版本为准；模板函数通常要求参数类型可赋值，不能像动态语言一样任意转换
 
 ### 列表与字典
@@ -459,9 +453,7 @@ date: 2026-08-18T00:00:00.000Z
 
 - 云原生工具通常复用`Go template`的语法模型，再注入自己的数据上下文和函数集合；因此同样的`{{if}}`、`{{range}}`在不同项目中可用的对象并不完全相同
 - `Helm`：[`helm/helm`](https://github.com/helm/helm)在`Chart`的`templates/`目录中渲染`Kubernetes`清单，向模板提供`.Values`、`.Release`、`.Chart`等对象，并额外提供`include`、`required`、`tpl`等函数；大量基础辅助函数来自`Sprig`
-
   `include`、`required`、`tpl`是`Helm`自己的扩展，`nindent`、`toYaml`等则来自`Helm`或其依赖；这些函数都不能直接复制到只有标准库的`Go`程序中
-
 - `kubectl`：`Kubernetes`的[`kubectl`](https://github.com/kubernetes/kubernetes)支持`-o go-template`和`-o go-template-file`，可以直接从资源对象中提取字段：
 
   ```sh
@@ -470,5 +462,4 @@ date: 2026-08-18T00:00:00.000Z
 
 - 监控告警：[`Prometheus Alertmanager`](https://github.com/prometheus/alertmanager)和[`Grafana`](https://github.com/grafana/grafana)都使用`Go template`语法生成告警标题、正文和通知消息，但`.Alerts`、`.Labels`以及查询函数等上下文由各自项目定义
 - 配置生成：[`hashicorp/consul-template`](https://github.com/hashicorp/consul-template)使用模板从`Consul`、`Vault`等外部数据源生成配置文件或触发命令，适合需要随外部配置变化自动渲染的场景
-
 这些项目的共同点是复用模板的语法模型，差异则主要来自数据上下文和函数集合；阅读云原生模板时，首先要确认它是标准库模板、`Sprig`扩展，还是`Helm`、`Grafana`等项目的进一步扩展方言

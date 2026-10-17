@@ -5,7 +5,7 @@ date: 2024-05-20
 categories: [CS Fundamentals, Linear Algebra]
 tags: [math]
 ---
-## Overview
+## 概述
 
 - 参考文档：[Euclidean vector](https://en.wikipedia.org/wiki/Euclidean_vector)
 

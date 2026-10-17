@@ -1,5 +1,5 @@
 ---
-title: "虽然不知道为什么要学之 R 语言"
+title: "R 语言入门"
 summary: "记录R语言统计学习常用函数：线性回归、广义线性模型与预测分析"
 date: 2025-11-26
 categories: [Programming, Rlang]

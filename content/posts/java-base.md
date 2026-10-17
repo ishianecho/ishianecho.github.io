@@ -141,9 +141,7 @@ tags: [java]
 - `final`不能修饰接口，因为没有意义
 - 修饰符的顺序对程序没有影响，但规范是先是访问控制修饰符，然后是其它修饰符
 - `final`修饰引用对象时只能限制该变量**不能改变指向**，但没有限制用户通过该变量**改变其指向的实例**
-  
   因为`final`修饰方法只代表该方法不能被重写，所以做不到`cpp`那样用一个类型声明可变或不可变对象
-
   在`java`中，一个类要么是可变类，要么是不可变类，**不可变类的所有属性都被`final`修饰且不提供`setter`方法**，例如`String`就是典型的不可变类，不要把实例方法和引用赋值搞混：
 
   ```java
@@ -254,7 +252,7 @@ tags: [java]
 ## 结构型语句
 
 - `if-else if-else`
-- `where-continue-break`
+- `while-continue-break`
 - `for(;;)-continue-break`
 - `for(type e : c)`语法糖
 - `try-catch-finally`

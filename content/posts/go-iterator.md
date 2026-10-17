@@ -1,5 +1,5 @@
 ---
-title: '迭代器'
+title: 迭代器
 summary: "介绍 Go 的 range 机制、推拉式迭代器函数与标准库迭代器及流式处理"
 categories: [Programming, Go, Spec & Stdlib]
 tags: [go]

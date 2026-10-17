@@ -1,5 +1,5 @@
 ---
-title: "常见的随机变量汇总"
+title: "常见随机变量分布"
 summary: "汇总常见离散与连续随机变量的分布、期望与方差推导及高阶矩结论"
 date: 2025-05-05
 categories: [CS Fundamentals, Probability Math]

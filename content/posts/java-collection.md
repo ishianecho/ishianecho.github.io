@@ -32,7 +32,6 @@ tags: [java]
 
   - 其余情况，每次声明包装类的对象并初始化时，`JVM`均会在堆中创建新对象
 - 关于常量池的细节：要求这个类实现`Constable`接口，则`JVM`会将这个类的对象存储在常量池
-
   例如包装类、`String`、`Enum`等都实现了该接口
 
 ### `Number`及其子类
@@ -57,11 +56,11 @@ tags: [java]
   - 常用静态成员：
     - `MAX_VALUE`和`MIN_VALUE`
     - `NaN`：不是一个数
-    - `POSITIVE_INFINITY`和`NEGETIVE_INFINITY`：正负无穷
+    - `POSITIVE_INFINITY`和`NEGATIVE_INFINITY`：正负无穷
   - 常用实例方法：
     - `boolean isInfinite()`：是否为无穷
     - `boolean isNaN()`：是否为`NaN`
-    - `String toStirng()`：转字符串
+    - `String toString()`：转字符串
   - 常用静态方法：
     - 同样有`parseDouble()、toString()、valueOf()`系列方法
     - 还有`isFinite()、isInfinite()、isNaN()`等判断方法
@@ -115,7 +114,6 @@ tags: [java]
   ```
 
   如果你尝试使用`String(String)`构造器而不是`String(StringBuilder)`或其它构造器，你会受到警告`Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.`，即除非真的需要原字符串的副本，否则使用这样的构造器是不必要的，因为`String`对象是不可变的
-
   重新复习一下不可变对象：其属性全都被`final`修饰，只能通过用`=`赋值修改变量的指向，而不能通过该对象的方法修改其指向的值
 - `String`实现了`CharSequence`接口的方法，除此之外还包括以下常用方法：
   - 构造器：接受`byte[]`或`char[]`或`StringBuilder`或`StringBuffer`或`String`参数
@@ -166,7 +164,7 @@ tags: [java]
     当当前迭代器从未使用过`next()`或已经使用过`remove()`时，调用`remove()`将抛出`IllegalStateException`异常
 - `Iterator`以及集合框架是随着泛型的实现而出现的，传统的枚举器是`Enumeration`接口，现在已经很少使用
 - 通过非语法糖的方式遍历集合的方法如下(如果需要在遍历过程中删除元素)：
-  
+
   ```java
   List<Integer> list;
   var it = list.iterator();
@@ -179,7 +177,6 @@ tags: [java]
   ```
 
 - 为什么`Iterator`是一个接口，在文档中也找不到实现它的类，为什么能获取到一个实例化的对象？
-
   因为实现这个接口的是在各个容器内部定义的私有内部类
 
 ### `Collection<E>`接口

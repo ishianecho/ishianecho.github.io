@@ -8,7 +8,6 @@ tags: [math]
 ## 结论
 
 - 参考文档：[Determinant](https://en.wikipedia.org/wiki/Determinant)
-
 - $|A^T|=|A|$
 - 一般矩阵一次对调变换后，$|A|$取反
 - **一般矩阵或分块矩阵**一次倍加变换后，$|A|$不变

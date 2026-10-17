@@ -99,13 +99,9 @@ $$\begin{align}I_L=\frac{U_Z}{R_L},\ I_R=\frac{U_I-U_Z}{R},\ I=I_R-I_L,\ \theref
 **动态分析**：
 
 - 画出交流通路后，化为**等效微变电路**
-
   <img src="1.5_微变等效电路.png" alt="1.5_微变等效电路" style="zoom:50%;" />
-
 - $$\begin{align}&A_u=\frac{u_o}{u_i}=\frac{-i_c(R_c//R_L)}{i_br_{be}}\end{align}$$
-
 - 输入电阻$$\begin{align}r_i=R_b//r_{be}\end{align}$$
-
 - 输出电阻$r_o=R_c$
 
 ### 分压式偏置电路
@@ -351,7 +347,7 @@ $V_+=0=V_-=u_{\rm o}-u_{\rm c}$
 
 ## 直流稳压电源
 
-### 过程
+### 稳压过程
 
 直流稳压过程包括：
 

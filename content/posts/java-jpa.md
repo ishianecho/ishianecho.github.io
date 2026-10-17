@@ -5,11 +5,11 @@ date: 2025-07-09
 categories: [Programming, Java, Java EE]
 tags: [java, database]
 ---
-## 介绍
+## 概述
 
 - 参考文档：[Jakarta Persistence Specification](https://jakarta.ee/specifications/persistence/)
 - `JPA`是一套`API`规范，从`EJB`中分离出来，是持久层的流行`API`
-- 单纯引入`JPA`是没用的，其著名实现有`Hibernate`等，
+- 单纯引入`JPA`是没用的，其著名实现有`Hibernate`等
 - `Spring Data JPA`不是`JPA`的实现，而是基于`JPA`的一套`Repository`接口
 - `JPA`定义了一套`ORM`框架，使`POJO`得以和关系联系起来
 - 接口依赖：
@@ -64,7 +64,6 @@ tags: [java, database]
 
 - `@Entity`注解一个`POJO`类是实体类
 - `@Table`注解一个实体类所对应的关系，若不使用，则`@Entity`注解类的默认表名为类名的全大写
-
   在该注解内定义约束等类似`SQL`中在属性外的表内定义约束
   - `name`：指定表名
   - `schema`：指定模式
@@ -87,7 +86,6 @@ tags: [java, database]
   - `GenerationType.IDENTITY`(常用)策略：依赖数据库的`AUTO_INCREMENT`(或其他)自增
   - `GenerationType.SEQUENCE`(可能高性能)策略：依赖数据库的序列，需要配置`@GeneratedValue`的`generator`属性
   - `GenerationType.UUID`(特殊场景)策略：依赖`UUID`生成器
-
   定义`@GeneratedValue`后，允许使用不带主键参数的构造方法
 - `@Transient`注解作用于属性，标明这个属性永远不会被持久化
 - `@Column`注解作用于属性，是数据库的列映射
@@ -102,21 +100,15 @@ tags: [java, database]
 ### 属性组主键注解
 
 - 大部分约束，例如唯一性约束、检查约束、非空约束，由之前介绍的注解可以覆盖大部分场景(包括属性组的约束)
-
   但依靠上述注解无法使一个属性组作为主键
 - `@Embeddable`注解标明一个类是可嵌入的
-
   该类的所有属性不需要`@Column`注解，且该类不需要`@Table`以及`@Entity`注解，应该作为一个普通的`POJO`，只是多了一个`@Embeddable`
-
   为了方便作为主键，需要**覆写`equals()`与`hashCode()`方法，且实现`Serializable`空接口**
 - `@EmbeddedId`注解标明一个属性是主键，且类型是一个`@Embeddable`类，可用于属性组为主键的场景
-
   默认不支持`AUTO`、`IDENTITY`的策略生成嵌入主键，可以使用`SEQUENCE`策略
 - `@Embedded`注解标明一个属性的类型是一个`@Embeddable`类
-
   `JPA`转化为`DDL`语句时，会检测所有的`Embedded`属性，将该类的每个属性就像一般属性那样写成`SQL`
 - 默认情况下，`@Embeddable`类中的所有属性对应的列名就是属性名，就像没有添加`@Column`注解的一般属性那样
-  
   在作为实体类的属性时，建议用`@AttributeOverride`注解清晰地决定映射：
 
   ```java
@@ -164,60 +156,43 @@ tags: [java, database]
   - `inverseJoinColumns`：指向对方实体的外键列，类似`joinColumns`，只不过`referencedColumnName`指向对方表的列名
   - `foreignKey`与`inverseForeignKey`：类似`@JoinColumn`的`foreignKey`
 - `@MapsId`、`@PrimaryKeyJoinColumns`、`@PrimaryKeyJoinColumn`：
-
   有时，一个实体的外键不仅是被引用表的主键，而且是引用表的主键(例如为了满足范式要求而拆表)，即它们共享主键
-
   `@MapsId`支持使用共享主键，`value`属性默认是被引用表的主键列名，使用`@MapsId`后，本实体类的`@Id`属性自动关联到被引用表的主键上，因此不需要`@GeneratedValue`注解也能使用不含主键参数的构造方法
-
   我们知道`@JoinColumn`等注解是会体现在`JPA`生成的`DDL`中的，但在共享主键的场景下，`@Id`属性就是外键，此时如果希望通过对象引用导航到主实体的实例上，就可以使用`@PrimaryKeyJoinColumn`和`@PrimaryKeyJoinColumns`注解，它们和一般的`@JoinColumn`注解的唯一区别是：`DDL`不会带有多余的外键列
 - 数据库的映射基数有四种：一对一、一对多、多对一、多对多，其中只有多对多需要使用中间表，其它在由`ER`图转化为关系模式时都可变作"多"那方的外键引用"一"那方的主键
-  
   在`JPA`中，有点反直觉的是，外键是整个被引用实体的引用而不是这个实体的主键类型
-
   特别是在双向关联的场景下，如果仅靠`@JoinColumn`或`@JoinTable`注解，`JPA`将只知道有关联，但不知道返回值的数量，无法使`JPA`知道对方是多方还是一方，己方是多方还是一方，那么对象导航(绑定)就无法进展下去(无法知道返回的是`List<T>`还是单纯作为一个实体类来解析)
-  
   综上，联系类型的注解是很有必要的，且多对多`@ManyToMany`需要配合`@JoinTable`，而`@ManyToOne`、`@OneToOne`需要配合`@JoinColumn`，`@OneToMany`通常不和任何列映射注解配合使用
 - `@OneToOne`注解：表示一对一注解
-
   两个`@OneToOne`可配对实现双向关联，其中一方为`@JoinColumn+@OneToOne(optional=...)`、另一方为`@OneToOne(mappedBy=...)`
   - `cascade`：设置级联的操作
   - `fetch`：设置级联操作的时机
   - `optional`：设置参与度约束，默认为`true`，即允许为`null`
-
     在数据库中，设置参与度约束是通过将外键设置为`NOT NULL`限制的
   - `orphanRemoval`：设置关系断开的级联操作，即在主控方断开关联后后是否级联地删除关系另一方的相应记录
   - `mappedBy`：通常用于双向关联的场景，主控方若想要维护一个反向的对象导航，不需要(也不应该)像外键持有方那样使用`@JoinColumn`，而是使用`mappedBy`属性
-
     在这种场景下，反向导航不会被数据库存储，即这个属性不是一个`@Column`或`@JoinColumn`属性，而是一个仅由`JPA`根据`mappedBy`获取的反向引用
-
     `mappedBy`属性的值是对方实体的属性名，而不是对方表的列名
 - `@OneToOne`注解包含所有映射基数注解的所有属性，因为外键方可以是任意一方，所以有`optional`属性，又因为被引用的那方可以是任意一方，所以有`mappedBy`属性
-
   在一对多或多对一的映射基数上，多方一般是持有外键的那方，所以`@OneToMany`只有`mappedBy`(因为一方不持有外键)、`@ManyToOne`只有`optional`(因为多方持有外键，外键可选)
-
   此外，`@OneToMany`注解属性的类型应该是一个集合，例如`List`
-
   `@OneToMany(mappedBy=...)`和`@JoinColumn+@ManyToOne(optional=...)`配对实现双向关联
 - `@ManyToMany`是一个特殊的映射基数，它只有`mappedBy`属性，因为在数据库中，多对多的映射基数需要**借助中间表**，这个中间表持有两个外键，从而将`@ManyToMany`拆成两个`@OneToMany`
   - 单向关联：如果不使用`@JoinTable`也会加上一个默认的`@JoinTable`，所以建议显式定义`@JoinTable`便于管理
   - 双向关联：像`@OneToOne`那样，需要一方使用`mappedBy`属性，避免生成两个中间表
-
-    即`@JoinTable+@ManyToMany`和`@ManyToManay(mappedBy=...)`配对实现多对多的双向关联
+    即`@JoinTable+@ManyToMany`和`@ManyToMany(mappedBy=...)`配对实现多对多的双向关联
 - `CascadeType`：作用于映射基数注解里的`cascade`属性，`JPA`在实体中的一大优点是实体含有整个的引用而不只是其它实体的主键，因此也可以实现对实体进行持久化操作的同时对其含有的外键进行相同的操作
   - `PERSIST`：主体保存时，同时保存其关联的实体
   - `MERGE`：主体更新时，同时更新其关联的实体
   - `REMOVE`：主体删除时，同时删除其关联的实体
-
     `orphanRemoval`在关系断开时就会级联删除(包括将关联属性替换、设`null`)，而`REMOVE`策略只是在主体删除时才进行级联删除
   - `REFRESH`：主体刷新时，同时获取其关联的实体
   - `DETACH`：实例被分离出持久层管理时，同时将其关联的实例也分离出去
   - `ALL`：包括以上所有策略
 - `FetchType`：作用于映射基数注解里的`fetch`属性，表示加载的策略
   - `LAZY`：懒加载，只在真正访问时加载
-
     `LAZY`是一对多、多对多注解的默认值，因为是`List`通常需要很长的时间加载，许多时候是没必要的
   - `EAGER`：急加载，查询到主实体后立刻加载该引用
-
     `EAGER`是一对一、多对一注解的默认值，因为仅加载一个关联实体的实例并不花多久
 
 ### 继承注解
@@ -290,7 +265,6 @@ tags: [java, database]
 ### 查询细节
 
 - `JPQL`(`Java Persistence Query Language`)，是`JPA`规范提供的查询语言，它和`SQL`的语法类似，但是**操作对象是实体类**，而不是关系
-
   也因此，`JPQL`是编译时检查的，类型检查能防止很多查询错误
 - 由于有映射基数的注解，在`FROM`子句使用`JOIN`时，可以不用`ON`关键字，除非需要复杂的查询条件
 - 推荐使用面向对象的思想编写`JPQL`，即要多表查询时，使用`A JOIN A.B`而不是`A JOIN B`，用`.`运算符使用对象导航

@@ -5,7 +5,7 @@ date: 2024-04-20
 categories: [CS Fundamentals, Calculus]
 tags: [math]
 ---
-## Overview
+## 概述
 
 - 参考文档：[Ordinary differential equation](https://en.wikipedia.org/wiki/Ordinary_differential_equation)
 
@@ -29,19 +29,19 @@ tags: [math]
 
 ---
 
-**eg1:**
+**eg1**：
 
 $$\begin{align}&求y'=\sin^2{(x-y+1)}的通解\\&解:\\&令u=x-y+1.\ 得\frac{du}{dx}=1-y'\\&\therefore 1-\frac{du}{dx}=\sin^2u\\&\therefore\frac{du}{\cos^2u}=dx\\&\therefore \tan u=\tan(x-y+1)=x+C\end{align}$$
 
 ---
 
-**eg2:**
+**eg2**：
 
 $$\begin{align}&求解初值问题:\cos ydx+(1+e^{-x})\sin ydy=0,y(0)=\frac\pi4\\&解:\\&整理得\tan ydy=-\frac{dx}{1+e^{-x}}\\&积分得\ln|\cos y|=\ln(e^{-x}+1)+C_1\\&\therefore |\cos y|=(e^{-x}+1)e^{C_1}\\&\therefore C\cos y=e^{-x}+1,\ (C=\pm \frac{1}{e^{C_1}})\\&故该初值问题的解为2\sqrt2\cos y=e^{-x}+1\end{align}$$
 
 ---
 
-**eg3:**
+**eg3**：
 
 $$\begin{align}&已知\int_0^1f(\alpha x)d\alpha=\frac12f(x)+1,\ 且f'(x)存在,\ 求f(x).\\&解:\\&令\alpha x=u,\ 得\frac1x\int_0^xf(u)du=\frac12f(x)+1\\&\therefore \frac12xf(x)+x=\int_0^xf(u)du\\&\therefore \frac12\big(f(x)+2+xf'(x)\big)=f(x)\\&\therefore f'(x)=\frac{f(x)-2}x\\&\therefore f(x)=Cx+2\end{align}$$
 
@@ -63,7 +63,7 @@ $$\begin{align}&已知\int_0^1f(\alpha x)d\alpha=\frac12f(x)+1,\ 且f'(x)存在,
 
 ---
 
-**eg1:**
+**eg1**：
 
 $$\begin{align}&已知连续函数f(x)满足f(x)=\int_0^{3x}f(\frac t3)dt+e^{2x},\ 求f(x).\\&解:\\&\int_0^{3x}f(\frac t3)dt=3\int_0^xf(u)du\\&两边求导得,\ f'(x)=3f(x)+2e^{2x}\\&先求对应齐次方程通解,\ 当f'(x)=3f(x)时,\ \ln\Big|f(x)\Big|=3x+C_0\\&\therefore f(x)=C_1e^{3x},\ 令C_1=u(x)\\&\therefore u'(x)·e^{3x}=2e^{2x}\\&\therefore u(x)=-2e^{-x}+C,\ f(x)=(-2e^{-x}+C)e^{3x}\\&由于f(0)=1,\ \therefore f(x)=3e^{3x}-2e^{2x}\end{align}$$
 
@@ -80,7 +80,7 @@ $$\begin{align}&已知连续函数f(x)满足f(x)=\int_0^{3x}f(\frac t3)dt+e^{2x}
 
 ---
 
-**eg1:**
+**eg1**：
 
 $$\begin{align}&求微分方程3(1+x^2)y'+2xy=2xy^4的通解.\\&解:\\&令u=y^{-3},\ 得-(1+x^2)u'+2xu=2x\\&\because (1+x^2)u'=2xu的通解为:\\&\ln u=\ln(1+x^2)+C_0\\&即u=C_1(1+x^2)\\&令C_1=v(x),\ 得v'(x)(1+x^2)=-2x(1+x^2)^{-1}\\&\therefore v(x)=\frac{1}{1+x^2}+C,\ y^{-3}=(C+\frac{1}{1+x^2})(1+x^2)\end{align}$$
 
@@ -109,7 +109,7 @@ $$\begin{align}&求微分方程3(1+x^2)y'+2xy=2xy^4的通解.\\&解:\\&令u=y^{-
 - 若$y''=f(y,y')$，即**含有$y$，但不含$x$**，可令$$\begin{align}y'=u(y)、y''=\frac{du}{dx}=u'y'=u'·u\end{align}$$，代入后求出$$\begin{align}u(y)\end{align}$$，再通过$y'=u(y)$和**分离变量法**求解即可
 - 若**既不含$x$，也不含$y$**，则上述两种方法均可，但令$y'=u(x)$更快捷
 
-### 一些技巧
+### 技巧
 
 - 常规方法求解时，一定先将$$\begin{align}\frac{dy}{dx}\end{align}$$整理出来
 - 将$x$视为$y$，$y$视为$x$，可能变成可以求解的一阶线性方程
@@ -120,7 +120,7 @@ $$\begin{align}&求微分方程3(1+x^2)y'+2xy=2xy^4的通解.\\&解:\\&令u=y^{-
 
 ---
 
-**eg1:**
+**eg1**：
 
 $$\begin{align}&求微分方程(x-2xy-y^2)\frac{dy}{dx}+y^2=0的通解.\\&解:\\&\frac{dx}{dy}=\frac{y^2+2xy-x}{y^2}=1+x\frac{2y-1}{y^2}\\&若\frac{dx}{dy}=x\frac{2y-1}{y^2},\ 则\frac{dx}x=\frac{2y-1}{y^2}dy\\&\therefore \ln|x|=\ln y^2+\frac1y+C_0\\&\therefore x=C_1y^2e^{\Large\frac1y},\ 令C_1=u(y)\\&得u'(y)·y^2e^{\Large\frac1y}=1\\&\therefore u(y)=e^{\Large-\frac1y}+C\\&\therefore x=y^2+Cy^2e^{\Large \frac1y}\end{align}$$
 

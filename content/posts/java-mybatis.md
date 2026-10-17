@@ -1,5 +1,5 @@
 ---
-title: "Mybatis"
+title: "MyBatis"
 summary: "介绍 MyBatis 的 SqlSessionFactory 与 SqlSession 接口的使用"
 date: 2025-07-16
 categories: [Programming, Java, 3P Framework]

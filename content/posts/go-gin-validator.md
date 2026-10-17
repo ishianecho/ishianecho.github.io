@@ -1,5 +1,5 @@
 ---
-title: '数据校验'
+title: 数据校验
 summary: "介绍 validator 库的结构体标签语法、常用校验规则与验证 API"
 categories: [Programming, Go, 3P Framework, Gin]
 tags: [go]
@@ -32,9 +32,7 @@ date: 2025-12-27T22:31:56.000Z
   }
   ```
 
-  `=`为`0x3d`，`,`为`0x2c`，`|`为`0x7c`，`-`为`0x2d`
-
-- 与和或不支持使用括号，只能从左到右校验
+  - `=`为`0x3d`，`,`为`0x2c`，`|`为`0x7c`，`-`为`0x2d`\n- 与和或不支持使用括号，只能从左到右校验
 
 ### 通用校验
 
@@ -104,7 +102,7 @@ date: 2025-12-27T22:31:56.000Z
   }
   ```
 
-  其中`err`即`validator.FieldError`
+  - 其中`err`即`validator.FieldError`
 
 - `FieldError`提供若干方法：<!--TODO: validator.FieldError-->
 
@@ -112,12 +110,9 @@ date: 2025-12-27T22:31:56.000Z
 
 - 虽然通常用于结构体，但也可以用于其它数据结构体的校验
 - `map`对象：使用一个和`map`对象结构相同的`map`对象，其中每个键对应的值是标签数据
-
-  通过`*Validate.ValidateMap(data, rules) map[string]any`校验，返回错误`map`，每个键对应一个`FieldError`
-
+  - 通过`*Validate.ValidateMap(data, rules) map[string]any`校验，返回错误`map`，每个键对应一个`FieldError`
 - 切片：通过`*Validate.Var(any, tag string)`校验，从左到右维度下降(切片本身到切片的每个元素)，通过`dive`标签划分不同的维度
-
-  多维切片道理类似，通过`dive`标签划分不同维度
+  - 多维切片道理类似，通过`dive`标签划分不同维度
 
 - 一般变量：同样通过`Var()`进行验证
 

@@ -1,5 +1,5 @@
 ---
-title: "部署与飞书告警实践"
+title: "部署 PLG 监控栈与飞书告警"
 summary: "记录用git+helm+CI部署PLG监控栈到Kubernetes并把告警送达飞书群的实践"
 date: 2026-08-16T00:00:00.000Z
 categories: [Infra, Observability]
@@ -168,7 +168,7 @@ tags: [devops]
 
 ## 飞书告警链路
 
-### 联系点：`webhook` + 自建机器人
+### 联系点(`webhook` + 自建机器人)
 
 - `Grafana` 原生不支持飞书，与其等官方支持，不如加一层**自建转发服务**：联系点配置为普通 `webhook`，指向自建的机器人服务，由它把 `Grafana` 的告警 payload 转成飞书群消息
 - 好处是格式完全自主、鉴权自己掌控、以后接任何新 `IM` 都只改这一个服务：
@@ -238,7 +238,22 @@ tags: [devops]
         {{- end }}
   ```
 
-- `.Labels.application` 正是 `Prometheus` 抓取配置里 `relabel` 出来的服务名标签——**采集端打的标签决定通知端的信息量**，这是整条链路设计的一体性所在
+- `.Labels.application` 正是 `Prometheus` 抓取配置里 `relabel` 出来的服务名标签：**采集端打的标签决定通知端的信息量**，这是整条链路设计的一体性所在
+
+整条链路的汇总：
+
+```mermaid
+flowchart TD
+    M["Pod/Envoy 指标"] -->|"注解发现/relabel 打标"| P["Prometheus"]
+    CL["容器日志"] -->|"CRI 解析"| T["Promtail"]
+    T --> K["Loki(S3/分级保留)"]
+    P --> G["Grafana(数据源/仪表盘/告警，全部 ConfigMap + sidecar 供给)"]
+    K --> G
+    G --> R["告警规则(interval/for/labels.product)"]
+    R --> N["通知策略(repeat_interval)"]
+    N -->|"联系点(webhook + Bearer)"| B["自建机器人"]
+    B --> F["飞书群卡片(title/message 模板)"]
+```
 
 ## 飞书登录(`OAuth`)
 
@@ -259,18 +274,3 @@ tags: [devops]
   ```
 
 - `role_attribute_path` 实现"白名单管理员、其余只读"，避免给全员开编辑权限
-
-## 链路总结
-
-  ```mermaid
-  flowchart TD
-      M["Pod/Envoy 指标"] -->|"注解发现/relabel 打标"| P["Prometheus"]
-      CL["容器日志"] -->|"CRI 解析"| T["Promtail"]
-      T --> K["Loki(S3/分级保留)"]
-      P --> G["Grafana(数据源/仪表盘/告警，全部 ConfigMap + sidecar 供给)"]
-      K --> G
-      G --> R["告警规则(interval/for/labels.product)"]
-      R --> N["通知策略(repeat_interval)"]
-      N -->|"联系点(webhook + Bearer)"| B["自建机器人"]
-      B --> F["飞书群卡片(title/message 模板)"]
-  ```

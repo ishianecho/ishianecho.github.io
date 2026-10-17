@@ -8,7 +8,6 @@ tags: [math]
 ## 定义
 
 - 参考文档：[Algebraic structure](https://en.wikipedia.org/wiki/Algebraic_structure)
-
 - $S$上的$n$元运算是一个特殊的函数$f:S^n\rightarrow S$，具有**封闭性**
 - 代数系统：由非空集合$S$和$S$上的运算组成的系统，记作$<S,f_1,f_2,\cdots,f_n>$，简称代数
 - 代数的基数等于$S$的基数(因为运算具有封闭性)
@@ -47,9 +46,8 @@ tags: [math]
   - 定义$x$为$\circ$的**左可约元**
   - 如果一个运算是可约的，那么所有非零元的元素都为可约元
   - 存在一个可约元，不代表一个运算是可约的
-  - ！如果$\circ$满足结合律，同时$x\ne\O$且$x$是$\circ$的逆元，则$x$是$\circ$的可约元
+  - **如果$\circ$满足结合律，同时$x\ne\O$且$x$是$\circ$的逆元，则$x$是$\circ$的可约元**
   - 一个运算的幺元一定是可约元
-
 
 ### 性质在运算表上的体现
 
@@ -61,7 +59,7 @@ tags: [math]
 - 左/右零元：左/右零元所在行/列元素和该元素相等
 - 左/右幺元：左/右幺元所在行/列元素和对应的列/行元素相等
 - 左/右逆元：左/右逆元所在行/列元素中必定有一个幺元
-- ！两元素互为逆元：两元素所在行和列的元素都是幺元
+- **两元素互为逆元**：两元素所在行和列的元素都是幺元
 
 以上冒号左右两边的描述是等价的
 
@@ -207,37 +205,23 @@ tags: [math]
 ### 商代数
 
 - 若$f$是$<S,\circ>$到$<T,\times>$的同态映射，则$S$上的关系$E_f$(满足$xE_fy:f(x)=f(y)$)一定是同余关系
-
   - 证明：任取$x_1,y_1,x_2,y_2\in S$，若有$x_1E_fy_1\wedge x_2E_fy_2$，则$f(x_1)=f(y_1)\wedge f(x_2)=f(y_2)$；根据同态映射的定义，有$\begin{cases}f(x_1)\times f(x_2)=f(x_1\circ x_2)\\f(y_1)\times f(y_2)=f(y_1\circ y_2)\end{cases}$；三式联立得$f(x_1\circ x_2)=f(y_1\circ y_2)$，即$(x_1\circ x_2)E_f(y_1\circ y_2)$，得证
   - 称$E_f$为由$f$诱导的同余关系
-
 - 商代数：给定$<S,\circ>$及其上的一个同余关系$E$：
-
   - 以$E$导出的商集$S/E$为集合，构造满足同态定义的运算$\times$：$\forall x\forall y\in S\rightarrow [x\circ y]_E=[x]_E\times [y]_E$，则称$<S/E,\times>$为它的商代数
   - 商代数是人为构造的，满足$<S,\circ>\simeq<S/E,\times>$，$g_E(x)=[x]_E$
   - 易得$g_E$为**满同态映射**，因此商代数的运算继承了本代数运算的性质
   - 该映射被称为**正则映射**、**自然同态**
-
 - 设$<S,\circ>\simeq<T,\times>$，且$f$为**满同态映射**，则$<T,\times>\cong<S/E_f,*>$(后者为$<S,\circ>$的商代数)
-
   - 证明：构造函数$\begin{cases}h:T\rightarrow S/E_f\\h(y)=[x]_E\end{cases}$，其中$y=f(x)$
-
-  - 证其为同态映射
-
-    $h(y_1\times y_2)=h(f(x_1\circ x_2))=[x_1\circ x_2]_E$，由**商集定义**，上式$=[x_1]_E*[x_2]_E$
-
-    $\Rightarrow\forall y_1\forall y_2(y_1,y_2\in T\rightarrow [x_1]_E*[x_2]_E=h(y_1\times y_2))$
-
-    $\Rightarrow <T,\times>\simeq<S/E_f,*>$，$h$为其同态映射
-
-  - 证其为满射：$f、g_{E_f}$为满射$\Rightarrow h$为满射
-
+  - 证其为同态映射：
+    - $h(y_1\times y_2)=h(f(x_1\circ x_2))=[x_1\circ x_2]_E$，由**商集定义**，上式$=[x_1]_E*[x_2]_E$
+    - $\Rightarrow\forall y_1\forall y_2(y_1,y_2\in T\rightarrow [x_1]_E*[x_2]_E=h(y_1\times y_2))$
+    - $\Rightarrow <T,\times>\simeq<S/E_f,*>$，$h$为其同态映射
+  - 证其为满射：$f$与$g_{E_f}$为满射$\Rightarrow h$为满射
   - 证其为单射：若$h(y_1)=h(y_2)$
-
-    $\Rightarrow [x_1]_E=[x_2]_E\Rightarrow x_1E_fx_2\Rightarrow f(x_1)=f(x_2)\Rightarrow y_1=y_2$
-
-    得证
-
+    - $\Rightarrow [x_1]_E=[x_2]_E\Rightarrow x_1E_fx_2\Rightarrow f(x_1)=f(x_2)\Rightarrow y_1=y_2$
+    - 得证
 
 ### 积代数
 

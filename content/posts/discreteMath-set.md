@@ -8,7 +8,6 @@ tags: [cs]
 ## 约定
 
 - 参考文档：[Set theory](https://en.wikipedia.org/wiki/Set_theory)
-
 - 小写字母表示元素，大写字母表示集合
 - 元素可指代变元、集合、元组等**任何离散结构**
 

@@ -5,9 +5,7 @@ date: 2025-03-06
 categories: [Programming, Java, Java SE]
 tags: [java]
 ---
-## `Java`面向对象编程
-
-- 参考文档：[Dev.java — Learn Java](https://dev.java/learn/)
+- 参考文档：[Dev.java](https://dev.java/learn/)
 
 ### 数据类型
 
@@ -48,7 +46,7 @@ tags: [java]
   - `Class<?> getClass()`：获取引用指向的**对象所属的类**，是堆中正在运行的那个对象的类，而不是引用的类
     详见`java`反射机制
 
-### `this、super`
+### `this`与`super`
 
 - `this`引用：指向现在在`JVM`中**正在运行的那个对象**，无论`this`在哪个类中，其本质是一个动态绑定的引用
   例如以下例子：

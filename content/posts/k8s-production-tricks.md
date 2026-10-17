@@ -1,15 +1,15 @@
 ---
-title: "生产级配置技巧"
+title: "Kubernetes 生产环境配置技巧"
 summary: "总结 Kubernetes 生产环境的优雅停机、探针调优、HPA 冲突等配置技巧"
 date: 2026-08-16T00:00:00.000Z
 categories: [Infra, Container, Kubernetes]
 tags: [devops]
 ---
-以下都是生产环境中的普遍做法(见 `Kubernetes` 一文的「`Charts` 实践」)，多数解决的是文档不会明说、但线上一定会踩的坑
+以下都是生产环境中的普遍做法(见 `Kubernetes` 一文的 "`Charts` 实践" 一节)，多数解决的是文档不会明说、但线上一定会踩的坑
 
 ## 优雅停机
 
-- 参考文档：[Kubernetes Documentation — Production environment](https://kubernetes.io/docs/setup/production-environment/)
+- 参考文档：[Kubernetes Documentation: Production environment](https://kubernetes.io/docs/setup/production-environment/)
 - `Pod` 收到终止信号后，`Service`/`Istio` 的端点列表传播存在延迟，若容器立即退出，仍会有少量请求被路由到已死的 `Pod`
 - 解决方式是**让容器先睡一会儿再退出**，用 `preStop` 钩子桥接端点传播延迟，同时放宽 `terminationGracePeriodSeconds` 给应用留足清理时间
 

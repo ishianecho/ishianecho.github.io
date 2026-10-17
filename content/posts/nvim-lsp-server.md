@@ -19,13 +19,13 @@ Lua 接入
 
 这只是 LSP 应用于非编程语言场景的一个例子，笔记本身的方法论是通用的
 
-## LSP server 需要暴露什么
+## `LSP` server 的四组消息
 
 - 参考文档：[Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/)
 
 一个只提供补全和 hover 的 server，只需处理 **4 组消息**：
 
-### 生命周期：`initialize` / `initialized` / `shutdown`
+### 生命周期(`initialize`/`initialized`/`shutdown`)
 
 `initialize` 是客户端连接后的第一个请求，server 在**响应中声明自己的能力
 (capabilities)**，客户端只会在声明过的能力范围内发起请求
@@ -48,7 +48,7 @@ Lua 接入
 `initialize` 请求中还包含 `rootUri`/`rootPath`(项目根目录)，这是 server 做
 文件补全、扫描项目级配置的锚点，应当妥善处理
 
-### 文档同步：`textDocument/didOpen` / `didChange` / `didClose`
+### 文档同步(`textDocument/didOpen`/`didChange`/`didClose`)
 
 这些是**通知(notification，无响应)**
 
@@ -56,10 +56,9 @@ Lua 接入
 推送给 server，server 维护一份内存副本(`vscode-languageserver` 的 `TextDocuments`
 已经封装了这一逻辑)
 
-之后所有补全、hover 都基于这份副本计算——**server 不应直接
-读取磁盘上已打开的文件**，而应以客户端的版本为准
+之后所有补全、hover 都基于这份副本计算：**server 不应直接读取磁盘上已打开的文件**，而应以客户端的版本为准
 
-### 补全：`textDocument/completion` → `CompletionItem[]`
+### 补全(`textDocument/completion`)
 
 这是核心请求
 
@@ -75,9 +74,9 @@ Lua 接入
   `@xx` 替换成 `$skill-name`)
 - `data` 字段可以携带任意自定义数据(比如命令名)，它会在后续的 `resolve` 请求中
   原样带回，用于关联"补全时"与"详情时"两个阶段
-- 较长的文档不应放在 completion 响应中——见下一条
+- 较长的文档不应放在 completion 响应中：见下一条
 
-### 懒加载详情：`completionItem/resolve` + `textDocument/hover`
+### 懒加载详情(`completionItem/resolve`与`textDocument/hover`)
 
 - `resolve`：客户端在用户**选中**某个补全项时才发送
   适合把 markdown 文档、耗时查询推迟到这里，使 completion 响应保持轻量
@@ -90,7 +89,21 @@ Lua 接入
 诊断(publishDiagnostics)、格式化、跳转定义等
 都是可选能力，不需要就不必声明
 
-## 传输层：stdio + Content-Length 帧
+| Endpoint                                  | 类型 | 作用                                             |
+| ----------------------------------------- | ---- | ------------------------------------------------ |
+| `initialize`                              | 请求 | 声明 capabilities，获取 rootPath                 |
+| `textDocument/didOpen/didChange/didClose` | 通知 | 维护文档内存副本                                 |
+| `textDocument/completion`                 | 请求 | 按 triggerCharacters 触发，返回 CompletionItem[] |
+| `completionItem/resolve`                  | 请求 | 选中项的懒加载文档                               |
+| `textDocument/hover`                      | 请求 | 光标处词的 markdown 说明                         |
+
+一个"补全 + hover"级别的 LSP server，核心逻辑不过两三百行：声明能力、同步文档、按行上下文过滤列表
+
+剩余的工作量全部在**领域侧**：扫描哪些目录、调用哪个 CLI、上下文正则如何编写
+
+这也是 LSP 设计的成功之处：协议只负责管道，语义完全留给 server
+
+## 传输层(`stdio` + `Content-Length` 帧)
 
 LSP 最常用的传输方式是 stdio 上的 JSON-RPC，消息格式是**先写 header 再写 body**：
 
@@ -109,7 +122,7 @@ Content-Length: 123\r\n
   `spawnSync` 调用 CLI 获取插件列表)应在 `initialize` 中完成一次并缓存，避免在每次
   补全请求中重复执行
 
-## Neovim connection
+## 接入 `Neovim`
 
 0.11+ 的 Neovim 只需要 `vim.lsp.config` + `vim.lsp.enable`：
 
@@ -142,24 +155,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 
 两个配套细节：
 
-- `vim.treesitter.language.register("markdown", "markdown.codex")`——把 markdown
+- `vim.treesitter.language.register("markdown", "markdown.codex")`：把 markdown
   的 treesitter parser 注册到复合 filetype 上，否则高亮会失效；
 - 若要为 `/命令`、`$skill` 添加自定义高亮，用 `vim.cmd([[syntax match ...]])`
   叠加一层正则匹配即可
-
-## 总结
-
-| Endpoint                                  | 类型 | 作用                                             |
-| ----------------------------------------- | ---- | ------------------------------------------------ |
-| `initialize`                              | 请求 | 声明 capabilities，获取 rootPath                 |
-| `textDocument/didOpen/didChange/didClose` | 通知 | 维护文档内存副本                                 |
-| `textDocument/completion`                 | 请求 | 按 triggerCharacters 触发，返回 CompletionItem[] |
-| `completionItem/resolve`                  | 请求 | 选中项的懒加载文档                               |
-| `textDocument/hover`                      | 请求 | 光标处词的 markdown 说明                         |
-
-一个"补全 + hover"级别的 LSP server，核心逻辑不过两三百行：声明能力、同步文档、
-按行上下文过滤列表
-
-剩余的工作量全部在**领域侧**——扫描哪些目录、调用哪个 CLI、上下文正则如何编写
-
-这也是 LSP 设计的成功之处：协议只负责管道，语义完全留给 server

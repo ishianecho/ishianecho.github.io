@@ -5,9 +5,9 @@ categories: [Algorithm, Data Structure]
 tags: [algorithm]
 date: 2024-11-16
 ---
-## Overview
+## 概述
 
-- 参考文档：[Hash table](https://en.wikipedia.org/wiki/Hash_table)、[OI Wiki：哈希表](https://oi-wiki.org/ds/hash/)
+- 参考文档：[Hash table](https://en.wikipedia.org/wiki/Hash_table)、[OI Wiki: 哈希表](https://oi-wiki.org/ds/hash/)
 
 在`FTP`与`HTTPS`中，粗略介绍了哈希算法加密数据的概念；它用哈希算法将无限的数据转换成唯一的、用数字描述的值；对一个合格的哈希函数而言：
 
@@ -99,7 +99,6 @@ size_t hash(char* _val, size_t _scope) {
   ```
 
 - 通过位运算进行哈希：`RS、AP、FNV`等算法
-
 - 在算法竞赛中，单哈希也许是不够的，常见的解决办法是进行双哈希(分别有不同的`P`和模数)，组成序偶
 
 `BKDR`算法还能快速地得到子串的哈希值(需要存储每一步的计算结果)：

@@ -1,5 +1,5 @@
 ---
-title: "常数优化之快读快写"
+title: "快读快写"
 summary: "介绍算法竞赛中基于getchar与fread的快读快写模板及其原理"
 categories: [Algorithm, Trick]
 tags: [algorithm, cpp]
@@ -7,10 +7,8 @@ date: 2025-04-07
 ---
 ### 快读快写
 
-- 参考文档：[OI Wiki：读入、输出优化](https://oi-wiki.org/contest/io/)
-
+- 参考文档：[OI Wiki: 读入、输出优化](https://oi-wiki.org/contest/io/)
 - 快读有两套模板：
-
   - 使用内置`getchar()`
 
     ```c++
@@ -30,7 +28,6 @@ date: 2025-04-07
         return sig * x;
     }
     ```
-
   - 使用文件`fread()`加速`getchar()`：此后不能再通过终端输入数据，但在`OI`是可行的因为输入数据都是文件
 
     ```c++
@@ -59,6 +56,7 @@ date: 2025-04-07
         }
         return sig * x;
     }
+    ```
 
 - 快写：
 
@@ -73,3 +71,4 @@ date: 2025-04-07
       }
       putchar(x % 10 + '0');
   }
+  ```

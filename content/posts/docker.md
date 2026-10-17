@@ -1,5 +1,5 @@
 ---
-title: '容器部署'
+title: 容器部署
 summary: "讲解docker-compose.yml的常用配置项及使用Compose进行多容器部署的方法"
 categories: [Infra, Container, Docker]
 tags: [devops]
@@ -21,11 +21,8 @@ date: 2025-06-17T16:36:12.000Z
 - 子字段均是自定义的服务名称
 - 自定义的服务名称下是主要需要配置的
 - `image`：镜像名+标签(默认为`latest`)，也可使用私有仓库的镜像
-
-  `alpine`标签通常是及其轻便的，适用于容器化部署
-
-  默认则是`latest`标签
-
+  - `alpine`标签通常是及其轻便的，适用于容器化部署
+  - 默认则是`latest`标签
 - `build`：除了`image`还可以使用`build`，即从`Dockerfile`构建：
   - `context`：`Dockerfile`所在目录
   - `dockerfile`：`Dockerfile`文件名

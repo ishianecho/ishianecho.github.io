@@ -13,8 +13,6 @@ tags: [python]
 
 生成一条直线的步骤如下，它的原理是将提供的数组中**各点连接**，所以提供的**数组越大，线越光滑**
 
-
-
 ```python
 import matplotlib.pyplot as plt  # 常用的是pyplot模块
 import numpy as np
@@ -48,8 +46,6 @@ plt.show()     # 将该图展现出来
 
 如果想在一个`figure`内画多条线，`plt.plot`还可以接受其他参数用于**区分两条线**
 
-
-
 ```python
 y = exp(x)
 plt.figure()
@@ -75,8 +71,6 @@ plt.plot(x,y,linestyle=(0,(1,2,3)))  # 元组定义线型
 - `'y'`：黄色
 - `'g'`：绿色
 - `'#000000'`：自定义`RGB`颜色字符串->[RGB颜色查询对照表](https://www.sojson.com/rgb.html)
-
-
 
 其它常用`linestyle`如下：
 
@@ -118,8 +112,6 @@ plt.plot(x,y,marker='*',mec='r',mfc='k') # mec设置点边框的颜色,mfc设置
 plt.plot(x,y,fmt='o:k')  # 实心圆(点),虚线(线),黑色(色)
 ```
 
-
-
 ## 自定义坐标轴
 
 ### 设置坐标轴的值
@@ -141,8 +133,6 @@ plt.xticks([0,1,5],['none','middle','pretty good'])
 此外，后面数组还支持`Latex`语法，因为可能要用到转义字符等，所以这种情况需要在字符串前加上`'r'/'R'`，将它视为原始字符串`(raw string)`来解析，例如`plt.xticks([0,1,5],[r'$\theta$','$x$',r'$\Theta$'])`的效果为：
 
 <img src="plt_Latex.png" style="zoom:25%;" />
-
-
 
 ### 移动坐标轴
 
@@ -182,8 +172,6 @@ plt.grid(None,which='major',axis='both',...) # 其它参数和设置线型时类
 - `None`：是否显示网格线，如果后面接了其它参数，则默认为1，可设置为0
 - `which`：显示主要/次要网格线，默认只显示主要，可改为`minor`或`both`
 - `axis`：显示某方向的网格线，默认为`both`，可改为`x`或`y`
-
-
 
 ## 绘制子图
 
@@ -235,8 +223,6 @@ ax.plot(x,y)
 
 这里因为只生成一张图，所以只有一个`axes`
 
-
-
 这种方法就不需要`plt.figure()`了，因为`subplots()`返回时就已创建一张画布了
 
 此外，还可以设置共享轴与投影形式：
@@ -282,15 +268,9 @@ axs[0,0]1.set_xlabel('labelName')    # 给x轴加标注
   ```
 
   其它可选调色盘：
-
-
-  
   <img src="plt_colorbar.png" style="zoom: 50%;" />
-  
 - `vmin,vmax`：调节颜色条的范围，大于`vmax`的数值将被强制映射到`vmax`上，`vmin`同理
-
 - `norm`：也是用于调节范围的，优先级高于上一条，参数没搞懂，有如下：
-
   - `linear`
   - `log`
   - `symlog`
@@ -310,8 +290,6 @@ axs[0,0]1.set_xlabel('labelName')    # 给x轴加标注
 - `bottom`：底线值，即`y=?`，默认0
 - `color`：颜色，不能缩写为`c`，可接受颜色数组
 - `align`：对齐方式，默认`center`，即值的中间，可改为`edge`(左对齐)，如要实现右对齐，可以传递负数宽度值
-
-
 
 ### 饼图`(pie)`
 
@@ -354,8 +332,6 @@ axs[0,0]1.set_xlabel('labelName')    # 给x轴加标注
 在讲述`subplots`时，只是提到了一个简便的画图方法，如果需要更加精细地切分画布，这种规规整整的方式就不行了
 
 于是我们需要用到网格：
-
-
 
 ```python
 plt.figure()
@@ -404,8 +380,6 @@ plt.rcParams["font.family"]="SimHei" # 将字体名称设置为"SimHei"(黑体)
 关于其它字体的设置：[链接](https://blog.csdn.net/qq_35240689/article/details/130924160)
 
 但是在正则表达式中似乎无效
-
-
 
 ### `tick_params()`
 
@@ -500,8 +474,4 @@ if __name__ == '__main__':
 
 `run`：
 
-
-
 <img src="plt_run.png" alt="plt_run" style="zoom:80%;" />
-
-
